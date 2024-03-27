@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <h2>Hangman Game</h2>
+    <p id="word"></p>
+    <p id="guesses">Guesses: </p>
+    <p id="hangman"></p>
+    <input type="text" id="wordInput" placeholder="Enter the word to be guessed">
+    <button onclick="startGame()">Start Game</button>
+    <input type="text" id="letterInput" placeholder="Enter a letter">
+    <button onclick="guessLetter()">Guess</button>
+
+    <script>
+        var word = ""; // Initialize with an empty string
+        var guess = [];
+        var hangman = ["H", "A", "N", "G", "M", "A", "N"];
+        var hangmanIndex = 0;
+
+        function startGame() {
+            word = document.getElementById("wordInput").value.toLowerCase();
+            document.getElementById("wordInput").value = ""; // Clear input field
+
+            for (var i = 0; i < word.length; i++) {
+                guess[i] = "_";
+            }
+
+            document.getElementById("word").innerHTML = guess.join(" ");
+        }
+
+        function guessLetter() {
+            var letter = document.getElementById("letterInput").value.toLowerCase();
+            document.getElementById("letterInput").value = "";
+
+            var correct = false;
+            for (var i = 0; i < word.length; i++) {
+                if (word[i] === letter) {
+                    guess[i] = letter;
+                    correct = true;
+                }
+            }
+
+            if (!correct) {
+                document.getElementById("hangman").innerHTML += hangman[hangmanIndex++] + " ";
+            }
+
+            document.getElementById("word").innerHTML = guess.join(" ");
+            document.getElementById("guesses").innerHTML += letter + ", ";
+
+            if (hangmanIndex >= hangman.length) {
+                alert("Game over!");
+            } else if (guess.join("") === word) {
+                alert("You won!");
+            }
+        }
+    </script>
+</body>
+</html>
