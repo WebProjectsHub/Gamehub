@@ -46,6 +46,7 @@ body	{
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	}
+
 * 	{box-sizing: border-box;}
 html	{
 	-ms-text-size-adjust: 100%;		
@@ -81,7 +82,9 @@ h	{
 	margin:0;
 	color:white;
 	margin-bottom: 2rem;
+
 	}
+
 h1, h2, h3, h4, h5, h6
 	{
 
@@ -116,6 +119,7 @@ button	{
 	border-radius:10px;
 	padding:10px;
 	font-size:1.2rem;
+	cursor:pointer;
 	}
 #guessLetter
 	{
@@ -133,7 +137,8 @@ button	{
 <!----------END background------>
 <!----------container----------->
 <div class="container">
-	<h>Hangman Games</h>
+	<h>HANGMAN</h>
+
 	<h5 id="word"></h5>
 		<br>
 	<h6 id="guesses">Guesses: </h6>
@@ -148,8 +153,10 @@ button	{
 	<!---word to be guessed-------------!>
     	<input type="text" id="wordInput" placeholder="Enter the word to be guessed">
 
-    <button onclick="startGame()">Start Game</button>
-	<br>
+	<button onclick="startGame()">Start Game</button>
+		<br>
+	<button onclick="resetGame()">Reset Game</button>
+		<br
 
 </div>
 <!----------END container------->
@@ -195,6 +202,16 @@ button	{
                 alert("You won!");
             }
         }
+
+        function resetGame() {
+            word = "";
+            guess = [];
+            hangmanIndex = 0;
+            document.getElementById("word").innerHTML = "";
+            document.getElementById("guesses").innerHTML = "Guesses: ";
+            document.getElementById("hangman").innerHTML = "";
+        }
+
     </script>
 </body>
 </html>
