@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>20</title>
+
+   <link rel="stylesheet" href="./clueIndex.css">
+
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+<!----------Container 01---------------->
+<div class="clueContainer">
+	<!----------Clue---------------->
+	<div>
+		<div class="clueTitle">
+			Clue 20
+		</div>
+		<div class="clueContent">
+
+			<h5>
+You're almost there.		<br>
+Get your clues here.		<br><br>
+
+From your past endeavor,	<br>
+Your answer's now or never.	
+			</h5>
+		</div>
+	</div>
+	<!--------------END Clue-------->
+
+	<!--------------Button---------->
+	<div id="link">
+		<button onclick="window.location.href='./FinalClue.html';">Final Clue</button>
+	</div>
+	<!----------END Button---------->
+</div>
+<!----------END Container 01------------>
+
+
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value;
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  if (input.toLowerCase() === "Sweet potato".toLowerCase()) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>

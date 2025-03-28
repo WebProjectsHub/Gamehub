@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>02</title>
+
+   <link rel="stylesheet" href="./clueIndex.css">
+
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+<!----------Container 01---------------->
+<div class="clueContainer">
+	<!----------Clue---------------->
+	<div>
+		<div class="clueTitle">
+			Clue 02
+		</div>
+		<div class="clueContent">
+			<h5>
+Clue 01 Answer: Starbucks
+			</h5>
+			<h5>
+The 7th letter					<br>
+you take,					<br>
+put side by side with				<br>
+(1 point less than the first 4 letters)
+			</h5>
+		</div>
+	</div>
+	<!--------------END Clue-------->
+	<!--------------Input----------->
+	<div id="answerInput">
+		<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+		<h6 id="message"></h6>
+	</div>
+	<!--------------END Input------->
+	<!--------------Button---------->
+	<div id="link" style="display:none">
+		<button onclick="window.location.href='./03.html';">Proceed</button>
+	</div>
+	<!----------END Button---------->
+</div>
+<!----------END Container 01------------>
+
+
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value;
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  if (input.toLowerCase() === "Carrefour".toLowerCase()) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>

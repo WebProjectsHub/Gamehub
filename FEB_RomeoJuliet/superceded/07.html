@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>07</title>
+
+   <link rel="stylesheet" href="./clueIndex.css">
+
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+<!----------Container 01---------------->
+<div class="clueContainer">
+	<!----------Clue---------------->
+	<div>
+		<div class="clueTitle">
+			Clue 07
+		</div>
+		<div class="clueContent">
+
+			<h5>
+Beware of twin <ib>Cerberus'</ib> drool	<br>
+In front of the gate.			<br>
+Face the gate. 				<br>
+Now turn away.				<br>
+to the neck, find your way.		<br><br>
+
+Seekers take a snap and send to me.	<br><br>
+
+Only then will you			<br>
+have my leave to go.			<br><br>
+
+What is <ib>Cerberus?</ib>.
+			</h5>
+		</div>
+	</div>
+	<!--------------END Clue-------->
+	<!--------------Input----------->
+	<div id="answerInput">
+		<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+		<h6 id="message"></h6>
+	</div>
+	<!--------------END Input------->
+	<!--------------Button---------->
+	<div id="link" style="display:none">
+		<button onclick="window.location.href='./08.html';">Proceed</button>
+	</div>
+	<!----------END Button---------->
+</div>
+<!----------END Container 01------------>
+
+
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value;
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  if (input.toLowerCase() === "Fountain".toLowerCase()) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>

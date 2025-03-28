@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>17</title>
+
+   <link rel="stylesheet" href="./clueIndex.css">
+
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+<!----------Container 01---------------->
+<div class="clueContainer">
+	<!----------Clue---------------->
+	<div>
+		<div class="clueTitle">
+			Clue 17
+		</div>
+		<div class="clueContent">
+
+			<h5>
+Inside you will find me in display,	<br>
+Brightly colored, 			<br>
+Attractive, that's me.			<br><br>
+
+In pairs we come,			<br>
+Can't buy me, not welcome.
+			</h5>
+		</div>
+	</div>
+	<!--------------END Clue-------->
+	<!--------------Input----------->
+	<div id="answerInput">
+		<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+		<h6 id="message"></h6>
+	</div>
+	<!--------------END Input------->
+	<!--------------Button---------->
+	<div id="link" style="display:none">
+		<button onclick="window.location.href='./18.html';">Proceed</button>
+	</div>
+	<!----------END Button---------->
+</div>
+<!----------END Container 01------------>
+
+
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value;
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  if (input.toLowerCase() === "Fire Extinguisher".toLowerCase()) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>08</title>
+
+   <link rel="stylesheet" href="./clueIndex.css">
+
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+<!----------Container 01---------------->
+<div class="clueContainer">
+	<!----------Clue---------------->
+	<div>
+		<div class="clueTitle">
+			Clue 08
+		</div>
+		<div class="clueContent">
+
+			<h5>
+Go through the gate, 			<br>
+To the belly of the 4 winged beast.	<br><br>
+
+If you've read the Professor's Inferno, <br>
+You'd know.				<br>
+"The crescent you devour" 		<br>
+it comes at what cost to you.		
+			</h5>
+		</div>
+	</div>
+	<!--------------END Clue-------->
+	<!--------------Input----------->
+	<div id="answerInput">
+		<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+		<h6 id="message"></h6>
+	</div>
+	<!--------------END Input------->
+	<!--------------Button---------->
+	<div id="link" style="display:none">
+		<button onclick="window.location.href='./09.html';">Proceed</button>
+	</div>
+	<!----------END Button---------->
+</div>
+<!----------END Container 01------------>
+
+
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value.trim().toLowerCase();
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  // Array of valid answers
+  const validAnswers = ["16", "aed 16", "16.00", "aed 16.00"];
+
+  // Check if input is in the valid answers array
+  if (validAnswers.includes(input)) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+
+
+</body>
+</html>
