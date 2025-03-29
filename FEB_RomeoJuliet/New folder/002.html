@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>002</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" >
+<head>
+	<title>002</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" >
+	<link rel="stylesheet" href="./keen-slider.min.css" >
 
-    <link rel="stylesheet" href="./keen-slider.min.css" >
 
-<link rel="stylesheet" type="text/css" href="./index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
+	<link rel="stylesheet" href="./keen-slider-styles.css" />
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
 
-    <link rel="stylesheet" href="./styles.css" />
+</head>
 
-  </head>
-
-  <body>
+<body>
 <!----------Start of keen-slider---------------->
 <div id="my-keen-slider" class="keen-slider">
 	<!----------START Slide 1--------------->	
@@ -24,13 +23,13 @@
 			<h>
 				Romeo and Juliet
 			</h>
-				<br>
-			<h4>
+				
+			<h5a>
 				Act 1 Scene 1
-			</h4>
-			<h2>
+			</h5a>
+			<h4a>
 				The opening street brawl
-			</h2>
+			</h4a>
 		</div>
 		<!-------END main container----->
 	</div>
@@ -51,7 +50,7 @@ The play begins with a violent clash between the Montagues and Capulets, establi
 		<!-------slide container-------->
 		<div class="slideContainer2">
 			<!----------Clue---------------->
-			<h5 id="clue">
+			<h6 id="clue">
 In this plaza you will find,			<br>
 competing forces of old time,			<br>
 compete they do but not for love divine.	<br>
@@ -61,24 +60,22 @@ so you will feel sate.				<br><br>
 Name the patriarch, old and white,		<br>
 a bearded militant.				<br>
 
-<p id="demo"></p>     <!---insert in <body>--->
+<!-320 x523->
 
-			</h5>
-
-
-
+			</h6>
 			<!----------END Clue------------>
-			<!-------------------
+			<!--------------Input----------->
 			<div id="answerInput">
 				<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
-				<h3 id="message"></h3>
-			</div>
-			------->
+				<h6 id="message"></h6>
+			
+			<!--------------END Input------->
 			<!--------------Button---------->
-			<div id="link" style="display:none">
-				<button onclick="window.location.href='./03.html';">Proceed</button>
-			</div>
+				<div id="link" style="display:none">
+					<button onclick="window.location.href='./03.html';">Proceed</button>
+				</div>
 			<!----------END Button---------->
+			</div>
 		</div>
 		<!-------END slide container---->
 	</div>
@@ -90,9 +87,9 @@ a bearded militant.				<br>
 
 	</div>
 <!----------END of keen-slider------------------>
-     <script src="./keen-slider.min.js"></script>
-    <script src="./script.js"></script>
 
+<script src="./keen-slider.min.js"></script>
+<script src="./script.js"></script>
 
 <script>
 function checkInput() {
@@ -111,13 +108,5 @@ function checkInput() {
 </script>
 
 
-<script>
-var w = window.innerWidth;
-var h = window.innerHeight;
-
-	var x = document.getElementById("demo");
-	x.innerHTML = "Browser width: " + w + ", height: " + h + ".";
-</script>
-
-  </body>
+</body>
 </html>
