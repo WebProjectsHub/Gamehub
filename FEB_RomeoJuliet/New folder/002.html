@@ -60,6 +60,9 @@ so you will feel sate.				<br><br>
 Name the patriarch, old and white,		<br>
 a bearded militant.				<br>
 			</h5>
+
+<p id="demo"></p>     <!---insert in <body>--->
+
 			<!----------END Clue------------>
 			<!--------------Input----------->
 			<div id="answerInput">
@@ -101,6 +104,15 @@ function checkInput() {
     button.style.display = "none"; 
   }
 }
+</script>
+
+
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+	var x = document.getElementById("demo");
+	x.innerHTML = "Browser width: " + w + ", height: " + h + ".";
 </script>
 
   </body>
