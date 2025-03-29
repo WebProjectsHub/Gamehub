@@ -14,30 +14,43 @@
   </head>
 
   <body>
-    <div id="my-keen-slider" class="keen-slider">
+<!----------Start of keen-slider---------------->
+<div id="my-keen-slider" class="keen-slider">
+	<!----------START Slide 1--------------->	
 	<div class="keen-slider__slide number-slide1">
-	<div class="section active" id="section0">
-		<h>Romeo and Juliet</h>
-			<br>
-		<h3>
-			Act 1 Scene 1
-		</h3>
-		<h2>
-			The opening street brawl
-		</h2>
+		<!-------main container--------->
+		<div id="main">
+			<h>
+				Romeo and Juliet
+			</h>
+				<br>
+			<h4>
+				Act 1 Scene 1
+			</h4>
+			<h2>
+				The opening street brawl
+			</h2>
+		</div>
+		<!-------END main container----->
 	</div>
-	</div>
+	<!----------END Slide 1----------------->
+	<!----------START Slide 2--------------->
 	<div class="keen-slider__slide number-slide2">
-				<div class="slide active">
-				<h1>
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h4>
 The play begins with a violent clash between the Montagues and Capulets, establishing the deep-seated feud between the two families.
-				</h1>
-			</div>
+			</h4>
+		</div>
+		<!-------END slide container---->
 	</div>
+	<!----------END Slide 2----------------->
+	<!----------START Slide 3--------------->
 	<div class="keen-slider__slide number-slide3">
-	<div class="section" id="section2">
-		<!----------Clue---------------->
-		<h1 id="clue">
+		<!-------slide container-------->
+		<div class="slideContainer2">
+			<!----------Clue---------------->
+			<h5 id="clue">
 In this plaza you will find,			<br>
 competing forces of old time,			<br>
 compete they do but not for love divine.	<br>
@@ -46,28 +59,30 @@ so you will feel sate.				<br><br>
 
 Name the patriarch, old and white,		<br>
 a bearded militant.				<br>
-		</h1>
-		<!----------END Clue------------>
-		<!--------------Input----------->
-		<div id="answerInput">
-			<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
-		<h3 id="message"></h3>
+			</h5>
+			<!----------END Clue------------>
+			<!--------------Input----------->
+			<div id="answerInput">
+				<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+				<h3 id="message"></h3>
+			</div>
+			<!--------------END Input------->
+			<!--------------Button---------->
+			<div id="link" style="display:none">
+				<button onclick="window.location.href='./03.html';">Proceed</button>
+			</div>
+			<!----------END Button---------->
 		</div>
-		<!--------------END Input------->
-		<!--------------Button---------->
-		<div id="link" style="display:none">
-			<button onclick="window.location.href='./03.html';">Proceed</button>
-		</div>
-		<!----------END Button---------->
-
-
+		<!-------END slide container---->
 	</div>
-
-	</div>
+	<!----------END Slide 3----------------->
+	<!----------START Slide 4--------------->
 	<div class="keen-slider__slide number-slide4">4</div>
 	<div class="keen-slider__slide number-slide5">5</div>
 	<div class="keen-slider__slide number-slide6">6</div>
-    </div>
+
+	</div>
+<!----------END of keen-slider------------------>
      <script src="./keen-slider.min.js"></script>
     <script src="./script.js"></script>
 
