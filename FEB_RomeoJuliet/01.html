@@ -17,8 +17,12 @@
 	<div class="section active" id="section0">
 		<h>Romeo and Juliet</h>
 			<br>
-		<h3>Act 1 Scene 1</h3>
-		<h2>The opening street brawl</h2>
+		<h3>
+			Act 1 Scene 1
+		</h3>
+		<h2>
+			The opening street brawl
+		</h2>
 	</div>
 	<!----------END Section 1 main------->
 		<!----------Section 1 Slides------------>
@@ -30,17 +34,43 @@ The play begins with a violent clash between the Montagues and Capulets, establi
 				</h1>
 			</div>
 			<!----------END Section 1 Slide1-------->
-	   		<div class="slide"><h2>The play begins with a violent clash between the Montagues and Capulets, establishing the deep-seated feud between the two families.</h2></div>
+			<!---
+	   		<div class="slide"><h2> Add text here.</h2></div>
 			<div class="slide"><h1>And text</h1></div>
 			<div class="slide"><h1>And more text</h1></div>
+			---!>
 	<!----------END Section 1 Slides------------>
 	</div>
 	<!----------END Section 1------------>
-	<div class="section" id="section2"><h1>No wraps, no extra markup</h1>
-	</div>
+	<!----------Section 2---------------->
+	<div class="section" id="section2">
+		<!----------Clue---------------->
+		<h1 id="clue">
+In this plaza you will find,			<br>
+competing forces of old time,			<br>
+compete they do but not for love divine.	<br>
+your money they will take,			<br>
+so you will feel sate.				<br><br>
 
-	<div class="section" id="section3"><h1>Just the simplest demo ever</h1>
+Name the patriarch, old and white,		<br>
+a bearded militant.				<br>
+		</h1>
+		<!----------END Clue------------>
+		<!--------------Input----------->
+		<div id="answerInput">
+			<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+		<h3 id="message"></h3>
+		</div>
+		<!--------------END Input------->
+		<!--------------Button---------->
+		<div id="link" style="display:none">
+			<button onclick="window.location.href='./03.html';">Proceed</button>
+		</div>
+		<!----------END Button---------->
+
+
 	</div>
+	<!----------END Section 2------------>
 </div>
 <!----------END of FullPage------------------>
 
@@ -51,5 +81,22 @@ The play begins with a violent clash between the Montagues and Capulets, establi
 		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
 	});
 </script>
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value;
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  if (input.toLowerCase() === "C4".toLowerCase()) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again. 😜"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
 </body>
 </html>

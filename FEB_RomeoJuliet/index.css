@@ -23,7 +23,7 @@
 	- container
 8. watermark
 9. middle
-10. xxxxxxx
+10. input + button
 11. colors
 -------*/
 
@@ -86,6 +86,12 @@ body 	{
 
 @font-face 
 	{
+	font-family: 'Magnific';
+	src: local('Magnific'), url('./assets/fonts/MagnificChaos/MagnificChaosPersonalUseRegular-x3J88.ttf') format('truetype');
+	}
+
+@font-face 
+	{
 	font-family: 'Material Symbols Outlined';
 	font-style: normal;
 	src: url(./assets/fonts/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].woff2) format('woff');
@@ -103,9 +109,9 @@ p	{
 
 h	/*---website name---*/	
 	{
-	font-family: 'NotoSansSymbols', sans-serif;
-	font-size: 6.0rem;
-	font-weight:900;
+	font-family: 'Magnific', sans-serif;
+	font-size: 16.0rem;
+	font-weight:400;
 	line-height: 1.2;
 	margin:0;
 	}
@@ -132,6 +138,20 @@ h6	{ font-size: 1.5rem; line-height: 1.6;  }	/*---15px--*/
 	font-family:Material Symbols Outlined;
 	}
 	/*-------END Symbol fonts--------------------*/
+	/*-------Custom Symbol fonts-----------------*/
+#section0 h
+	{
+	text-align:left;
+	}
+
+#section0 h2, #section0 h3
+	{
+	text-align:right;
+	}
+
+#answerInput h3
+	{ text-align:center; }
+	/*-------END Custom Symbol fonts-------------*/
 /*---------------END Style fonts---------------------*/
 /*---06---*/
 	/*-------logo--------------------------------*/
@@ -147,9 +167,51 @@ h6	{ font-size: 1.5rem; line-height: 1.6;  }	/*---15px--*/
 	justify-content:center;
 	align-items:center;
 	height:100%;
-	margin:10px 100px;
+	padding:10px 100px;
 	}
 	/*-------END Style preContainer--------------*/
+	/*-------Section 1 Style preContainer--------*/
+#section0 .fp-overflow
+	{
+	align-items:unset;
+	}
+	/*-------END Section 1 Style preContainer----*/
+	/*-------Section 2 Style preContainer--------*/
+#section2 .fp-overflow
+	{
+	display:block;
+	align-items:center;
+	height:100%;
+	padding:10px 100px;
+	}
+
+#section2 #clue
+	{
+	position:relative;
+	top:5%;
+	}
+
+#section2 #link
+	{
+	position:absolute;
+	bottom:10%;
+	left:0;
+	width:100%;
+	justify-content:center;
+	padding: 0 100px;
+	}
+
+#section2 #answerInput
+	{
+	position:absolute;
+	bottom:15%;
+	left:0;
+	height:100px;
+	}
+
+
+
+	/*-------END Section 2 Style preContainer----*/
 /*---------------END Style Sections------------------*/
 /*---08---*/
 /*---------------Style watermark---------------------*/
@@ -160,9 +222,58 @@ h6	{ font-size: 1.5rem; line-height: 1.6;  }	/*---15px--*/
 /*---------------Style middle------------------------*/
 /*---------------END Style middle--------------------*/
 /*---10---*/
-/*---------------Style xxxxxxx-----------------------*/
+/*---------------Style input + button----------------*/
+	/*-------Style input-------------------------*/
+#answerInput
+	{
+	width:100%;
+	padding:0 100px;
+	}
+input
+	{
+	display:flex;
+	justify-content:center;
+	width:100%;
+	padding:100px;
+	border-radius:5px;
+	border: 1px solid #2B2D42;
 
-/*---------------END Style xxxxxxx-------------------*/
+
+	margin-left:auto;
+	margin-right:auto;
+
+	font-style:normal;
+	font-family:NotoSansSymbols;
+	font-weight:bold;
+	font-size: 2.5rem;
+	text-align:center;
+	color:silver;
+	padding: 5px;
+	}
+
+input[type=text]:focus
+	{
+	background-color:yellow;
+	color:black;
+	overflow:auto;
+	padding: 5px;
+	}
+	/*-------END Style input---------------------*/
+	/*-------Style button------------------------*/
+button
+	{
+	font-style:normal;
+	font-family:NotoSansSymbols;
+	font-weight:bold;
+	font-size: 1.75rem;
+	border-radius:5px;
+
+	padding:5px;
+	width:100%;
+	}
+	/*-------END Style button--------------------*/
+/*---------------END Style input + button------------*/
+
 /*---11---*/
 /*---------------Style colors------------------------*/
 /*---------------END Style colors--------------------*/
