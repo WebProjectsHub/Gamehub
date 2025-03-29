@@ -157,6 +157,11 @@ h6	{ font-size: 1.5rem; line-height: 1.6;  }	/*---15px--*/
 	text-align:right;
 	}
 
+.slideContainer h5
+	{
+	text-align:center;
+	}
+
 #answerInput h6
 	{ text-align:center; }
 	/*-------END Custom Symbol fonts-------------*/
@@ -204,6 +209,7 @@ h6	{ font-size: 1.5rem; line-height: 1.6;  }	/*---15px--*/
 	{
 	position:relative;
 	top:10px;
+	margin:0;
 	}
 
 .slideContainer2 #answerInput
@@ -296,6 +302,21 @@ button
 [class^="number-slide"], [class*=" number-slide"]
 	{
 	color:unset;
+	}
+
+.number-slide1 
+	{
+	background-image: linear-gradient(128deg,#40afff,#3f61ff)
+	}
+
+.number-slide2 
+	{
+	background-image: linear-gradient(128deg,#ff9a3f,#ff4b40);
+	}
+
+.number-slide3 
+	{
+	background-image: linear-gradient(128deg,#fc40ff,#543fff);
 	}
 /*---------------END Style colors--------------------*/
 /*---12---*/
