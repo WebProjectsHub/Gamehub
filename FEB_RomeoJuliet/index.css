@@ -168,7 +168,7 @@ h6a	{ font-size: 1.4rem; line-height: 1.6;  }	/*---15px--*/
 .centered
 	{ text-align:center; }
 
-h6a >div, h6 >div
+h6a >div, h6 >div, h5 >div, h4 >div
 	{
 	text-indent: -1.5em;
 	padding-left: 1.5em;
@@ -215,6 +215,8 @@ h6a >div, h6 >div
 	padding:5px 40px;
 	width:100%;
 	}
+
+
 	/*-------END Style slideContainer------------*/
 	/*-------Style slideContainer-2--------------*/
 .slideContainer2
@@ -231,6 +233,13 @@ h6a >div, h6 >div
 	{
 	position:relative;
 	top:10px;
+	margin:0;
+	}
+
+.slideContainer2 #clue2 /*--space above--*/
+	{
+	position:relative;
+	top:50px;
 	margin:0;
 	}
 
@@ -256,6 +265,11 @@ h6a >div, h6 >div
 	width:100%;
 	justify-content:center;
 	padding: 0 40px;
+	}
+
+.slideContainer2 #trivia
+	{
+	padding-top:20px;
 	}
 	/*-------END Section 2 Style preContainer----*/
 	/*-------Section Style dots------------------*/
@@ -318,6 +332,18 @@ button
 	border-radius:5px;
 	width:100%;
 	}
+
+#enterButton
+	{
+	font-style:normal;
+	font-family:Magnific;
+	font-weight:400;
+	font-size: 5rem;
+	width:100%;
+	background-color:rgba(0,0,0,0);
+	color:black;
+	border:none;
+	}
 	/*-------END Style button--------------------*/
 /*---------------END Style input + button------------*/
 
@@ -342,6 +368,37 @@ button
 	{
 	background-image: linear-gradient(128deg,#fc40ff,#543fff);
 	}
+
+.number-slide4 
+	{
+	background-image: linear-gradient(128deg, #e0e0e0, #424242);
+	}
+
+.number-slide5 
+	{
+	background-image: linear-gradient(128deg, #d2b48c, #5c4033);
+	}
+
+.number-slide6 
+	{
+	background-image: linear-gradient(128deg, #B2BEB5, #6E8B63);
+	}
+
+.startImage
+	{
+	position:fixed;
+	width:100vw;
+	height:100vh;
+	-webkit-background-image:url('./assets/images/Romeo and Juliet Frank Dicksee.jpg');
+	background-image:url('./assets/images/Romeo and Juliet Frank Dicksee.jpg');
+	background-size: cover;
+	background-position:0% 0%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+	z-index:-1;
+	}
+
 /*---------------END Style colors--------------------*/
 /*---12---*/
 

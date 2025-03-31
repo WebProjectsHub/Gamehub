@@ -1,30 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Keen-Slider</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" >
+<head>
+	<title>The beginning</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" >
+	<link rel="stylesheet" href="./keen-slider.min.css" >
 
-    <link rel="stylesheet" href="./keen-slider.min.css"    >
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
+	<link rel="stylesheet" href="./keen-slider-styles.css" />
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
 
-    <link rel="stylesheet" href="./styles.css" />
+    <script>
+        function checkTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var button = document.getElementById("enterButton");
+            if (hours < 12) {
+                button.disabled = true;
+                button.innerText = "Button will be active from noon tomorrow.";
+            } else {
+                button.disabled = false;
+                button.innerText = "Start";
+            }
+        }
+        window.onload = checkTime;
+    </script>
 
-<style>
-html {overflow:hidden;}
-</style>
-  </head>
+</head>
 
-  <body>
-    <div id="my-keen-slider" class="keen-slider">
-      <div class="keen-slider__slide number-slide1">1</div>
-      <div class="keen-slider__slide number-slide2">2</div>
-      <div class="keen-slider__slide number-slide3">3</div>
-      <div class="keen-slider__slide number-slide4">4</div>
-      <div class="keen-slider__slide number-slide5">5</div>
-      <div class="keen-slider__slide number-slide6">6</div>
-    </div>
-    <script src="./keen-slider.min.js"></script>
-    <script src="./script.js"></script>
-  </body>
+<body>
+<!----------Start of keen-slider---------------->
+<div id="my-keen-slider" class="keen-slider">
+	<!----------START Slide 1--------------->	
+	<div class="keen-slider__slide number-slide1">
+		<!-------main container--------->
+		<div id="main"  class="startImage">
+			<h style="color:white;">
+				Romeo and Juliet
+			</h>
+
+		</div>
+		<!-------END main container----->
+	</div>
+	<!----------END Slide 1----------------->
+	<!----------START Slide 2--------------->
+	<div class="keen-slider__slide number-slide2">
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h5>
+"Romeo and Juliet" is a tragic love story by Shakespeare, where two young people from feuding families, the Montagues and Capulets, fall passionately in love. Their forbidden romance leads to secret marriage, a series of unfortunate events, and ultimately, their untimely deaths, which finally end the families' long-standing conflict.
+			</h5>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 2----------------->
+	<!----------START Slide 3--------------->
+	<div class="keen-slider__slide number-slide3">
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h5>
+				Trivia
+			</h5>
+			<h6>
+The idea of "star crossed lovers" is a very old one, and can be seen in stories from ancient times, such as the story of Pyramus and Thisbe. So Romeo and Juliet is part of a very long line of tragic love stories.
+			</h6>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 3----------------->
+	<!----------START Slide 4--------------->
+	<div class="keen-slider__slide number-slide4">
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h5>
+				Trivia
+			</h5>
+			<h6>
+While the exact composition of Juliet's potion is fictional, the concept itself is rooted in historical knowledge and beliefs about the power of certain substances to alter the body's state, even to the point of mimicking death.
+			</h6>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 4----------------->
+	<!----------START Slide 5--------------->
+	<div class="keen-slider__slide number-slide5">
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h5>
+				Trivia
+			</h5>
+			<h6>
+The families of Montague and Capulet, or Montecchi and Cappelletti, are believed to have some historical basis, with mentions found in Dante's "Divine Comedy."
+			</h6>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 5----------------->
+	<!----------START Slide 6--------------->
+	<div class="keen-slider__slide number-slide6">
+		<!-------slide container-------->
+		<div class="slideContainer">
+        <!--------------Input + button-->
+        <div id="link">
+            <button id="enterButton" onclick="window.location.href='./001.html';">Enter Game</button>
+        </div>
+        <!----------END Input + button-->
+
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 6----------------->
+
+
+	</div>
+<!----------END of keen-slider------------------>
+
+<script src="./keen-slider.min.js"></script>
+<script src="./script.js"></script>
+
+
+
+
+
+
+</body>
 </html>
