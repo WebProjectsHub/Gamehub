@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>H1-1_Q</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" >
+	<link rel="stylesheet" href="./keen-slider.min.css" >
+
+	<link rel="stylesheet" href="./keen-slider-styles.css" />
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+
+
+	<style>
+.arrow
+	{ display:none;}
+	</style>
+
+</head>
+
+<body>
+<!----------Start of keen-slider---------------->
+<div id="my-keen-slider" class="keen-slider">
+	<!----------START Slide 1--------------->
+	<div class="keen-slider__slide number-slide4">
+		<!-------slide container-------->
+		<div class="slideContainer2">
+			<!----------Clue---------------->
+			<h5 id="clue2">
+<div>	From the sample of the friendly perfumery,	</div>
+<div>	Which scent does love's sweet story say?	</div>
+<div>	The <u>timeless love</u> of Romeo and Juliet's sway.	</div><br>
+			</h5>
+			<!----------END Clue------------>
+			<!--------------ReturnButton---->
+				<div id="hintReturn">
+					<button onclick="window.location.href='./001.html';">Back to Game</button>
+				</div>
+			<!----------END Button---------->
+			<!--------------Input----------->
+			<div id="answerInput">
+				<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+				<h6 id="message"></h6>
+			
+			<!--------------END Input------->
+			<!--------------Button---------->
+				<div id="link" style="display:none">
+					<button onclick="window.location.href='./H1-2.html';">Proceed</button>
+				</div>
+			<!----------END Button---------->
+			</div>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 1----------------->
+
+
+	</div>
+<!----------END of keen-slider------------------>
+
+<script src="./keen-slider.min.js"></script>
+<script src="./script.js"></script>
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value.trim().toLowerCase();
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  // Array of valid answers in lowercase
+  const validAnswers = ["eternal amour"];
+
+  // Check if input is in the valid answers array
+  if (validAnswers.includes(input)) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again. 😜"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+</body>
+</html>

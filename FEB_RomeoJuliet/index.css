@@ -215,7 +215,17 @@ h6a >div, h6 >div, h5 >div, h4 >div
 	padding:5px 40px;
 	width:100%;
 	}
+#hint
+	{
+	width:100%;
+	border: 1px solid black;
+	border-radius:5px;
+	background-color:silver;
 
+	text-indent:unset;
+	padding-left:unset;
+	padding:5px;
+	}
 
 	/*-------END Style slideContainer------------*/
 	/*-------Style slideContainer-2--------------*/
@@ -344,6 +354,22 @@ button
 	color:black;
 	border:none;
 	}
+
+#hintLink button
+	{
+	font-style:normal;
+	font-family:NotoSansSymbols;
+	font-weight:bold;
+	font-size: 1.5rem;
+	border-radius:5px;
+	width:auto;
+	}
+
+#hintReturn
+	{
+	width:100%;
+	}
+
 	/*-------END Style button--------------------*/
 /*---------------END Style input + button------------*/
 
@@ -398,7 +424,18 @@ button
 
 	z-index:-1;
 	}
+/*---------------END Style colors--------------------*/
+	/*-------Style hint colors-------------------*/
+#gray
+	{
+	color:darkgray;
+	}
 
+#hint
+	{
+	color:white;
+	}
+	/*-------END Style hint colors---------------*/
 /*---------------END Style colors--------------------*/
 /*---12---*/
 
