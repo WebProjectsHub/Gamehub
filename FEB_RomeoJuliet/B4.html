@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B4</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" >
+	<link rel="stylesheet" href="./keen-slider.min.css" >
+
+	<link rel="stylesheet" href="./keen-slider-styles.css" />
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+
+</head>
+
+<body>
+<!----------Start of keen-slider---------------->
+<div id="my-keen-slider" class="keen-slider">
+	<!----------START Slide 1--------------->	
+	<div class="keen-slider__slide number-slide1">
+		<!-------main container--------->
+		<div id="main">
+			<h>
+				Romeo and Juliet
+			</h>
+			<h4a>
+				The Undead Chronicles IV
+			</h4a>
+		</div>
+		<!-------END main container----->
+	</div>
+	<!----------END Slide 1----------------->
+	<!----------START Slide 2--------------->
+	<div class="keen-slider__slide number-slide2">
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h5>
+Desperate to be together, Juliet devises a plan: she’ll take a serum designed to simulate death, hoping that when her family buries her, Romeo will come for her and they can flee. But something goes wrong. The serum reacts with the infection in her blood—an unnoticed scratch from a previous fight. When Romeo arrives at the crypt, Juliet isn’t sleeping. She’s turning.
+			</h5>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 2----------------->
+	<!----------START Slide 3--------------->
+	<div class="keen-slider__slide number-slide3">
+		<!-------slide container-------->
+		<div class="slideContainer2">
+			<!----------Clue---------------->
+			<h6 id="clue2">
+<div>	In the fight against zombies, where would you get a shield beneath. </div>
+
+<!-320 x523->
+
+			</h6>
+			<!----------END Clue------------>
+			<!--------------Input----------->
+			<div id="answerInput">
+				<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+				<h6 id="message"></h6>
+			
+			<!--------------END Input------->
+			<!--------------Button---------->
+				<div id="link" style="display:none">
+					<button onclick="window.location.href='./B5.html';">Proceed</button>
+				</div>
+			<!----------END Button---------->
+			</div>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 3----------------->
+	</div>
+<!----------END of keen-slider------------------>
+
+<script src="./keen-slider.min.js"></script>
+<script src="./script.js"></script>
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value.trim().toLowerCase();
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  // Array of valid answers in lowercase
+  const validAnswers = ["under armour"];
+
+  // Check if input is in the valid answers array
+  if (validAnswers.includes(input)) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again. 😜"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+</body>
+</html>

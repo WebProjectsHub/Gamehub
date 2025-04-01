@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B1</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" >
+	<link rel="stylesheet" href="./keen-slider.min.css" >
+
+	<link rel="stylesheet" href="./keen-slider-styles.css" />
+	<link rel="stylesheet" type="text/css" href="./index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+
+</head>
+
+<body>
+<!----------Start of keen-slider---------------->
+<div id="my-keen-slider" class="keen-slider">
+	<!----------START Slide 1--------------->	
+	<div class="keen-slider__slide number-slide1">
+		<!-------main container--------->
+		<div id="main">
+			<h>
+				Romeo and Juliet
+			</h>
+			<h4a>
+				The Undead Chronicles I
+			</h4a>
+		</div>
+		<!-------END main container----->
+	</div>
+	<!----------END Slide 1----------------->
+	<!----------START Slide 2--------------->
+	<div class="keen-slider__slide number-slide2">
+		<!-------slide container-------->
+		<div class="slideContainer">
+			<h5>
+The city of Verona has fallen to an unstoppable plague—the dead walk, hunger driving them to devour the living. Two rival factions, Montagues and Capulets, have fortified themselves in opposing strongholds. Supplies are scarce, trust is nonexistent, and anyone bitten is doomed to turn.
+			</h5>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 2----------------->
+	<!----------START Slide 3--------------->
+	<div class="keen-slider__slide number-slide3">
+		<!-------slide container-------->
+		<div class="slideContainer2">
+			<!----------Clue---------------->
+			<h6 id="clue2">
+<div>	Find the shop that will let you wear their wares inside the mall. </div>
+
+<!-320 x523->
+
+			</h6>
+			<!----------END Clue------------>
+			<!--------------Input----------->
+			<div id="answerInput">
+				<input 	type="text" id="input" oninput="checkInput()" placeholder="Answer">	
+				<h6 id="message"></h6>
+			
+			<!--------------END Input------->
+			<!--------------Button---------->
+				<div id="link" style="display:none">
+					<button onclick="window.location.href='./B2.html';">Proceed</button>
+				</div>
+			<!----------END Button---------->
+			</div>
+		</div>
+		<!-------END slide container---->
+	</div>
+	<!----------END Slide 3----------------->
+	</div>
+<!----------END of keen-slider------------------>
+
+<script src="./keen-slider.min.js"></script>
+<script src="./script.js"></script>
+
+
+<script>
+function checkInput() {
+  const input = document.getElementById("input").value.trim().toLowerCase();
+  const message = document.getElementById("message");
+  const button = document.getElementById("link");
+
+  // Array of valid answers in lowercase
+  const validAnswers = ["duo zou lu"];
+
+  // Check if input is in the valid answers array
+  if (validAnswers.includes(input)) {
+    button.style.display = "flex"; 
+    message.textContent = ""; 
+  } else {
+    message.textContent = "Try Again. 😜"; 
+    button.style.display = "none"; 
+  }
+}
+</script>
+
+
+
+</body>
+</html>
