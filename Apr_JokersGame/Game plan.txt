@@ -1,0 +1,9 @@
+V1 Location 2:  The journalist who will write a story creating a hero from the fallen detective whos is a friend of the captain.
+V2 Location 3:  Wife's employer.  He asked her to work that day.
+V3 Location 4:  Wife's co-worker whom she is filling-in for.
+V5 Location 5:  Taxi driver who nearly collided and argued with ambulance driver, causing delay in arriving to hospital
+V6 location 6:  The captain.
+
+List of victims found in the journalist's notebook 
+Joker learned about the article when the journalist interviewed him.
+He learned about the names after murdering the journalist and perusing through his notebook.  Then and there he decided to create the game and come after those people.
