@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Puzzle Craze Story Structure</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    .location {
+      background-color: #ffffff;
+      border-left: 6px solid #007bff;
+      margin-bottom: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .branch {
+      background-color: #e8f0fe;
+      border-left: 6px solid #6c757d;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .choice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .choice-table th, .choice-table td {
+      border: 1px solid #dee2e6;
+      padding: 10px;
+      text-align: left;
+    }
+    .choice-table th {
+      background-color: #deeafc;
+    }
+    .sbs
+	{
+	display:flex;
+	flex-direction:row;
+	flex-wrap:no-wrap;
+	}
+    .sbs .location
+	{
+	width:50%;
+	}
+  </style>
+</head>
+<body>
+
+  <h1>Puzzle Craze: The Joker Killer’s Game</h1>
+  <p><strong>Story Structure Summary (By Location and Branch)</strong></p>
+
+  <div class="location">
+    <h2>📍 Location 1 - Apartment, Legazpi Tourist Inn: The Anonymous Tip</h2>
+    <p><strong>Puzzle Set 1</strong></p>
+    <ul>
+      <li>Detectives receive an anonymous call about a murder.</li>
+      <li>They arrive to find signs of a struggle, but no body—only a Joker playing card.</li>
+      <li>Clues at the scene point toward another location.</li>
+      <li>1/3 clue that would lead to identity of the Joker.</li>
+      <li><b>Clue #1</b> pointing to identity of final victim.</li>
+    </ul>
+  </div>
+
+  <div class="location">
+    <h2>📍 Location 2 - Mason's Obelisk, Legazpi Boulevard: Where the Body Lies</h2>
+    <p><strong>Puzzle Set 2</strong></p>
+    <ul>
+      <li>Detectives find the body of investigative journalist Daniel Keller.</li>
+      <li>Another Joker playing card.</li>
+      <li>They collect clues found on the crime scene.</li>
+      <li>Back on the station, they review their clues and the coroner report.</li>
+      <li>Clues hint at a future crime.</li>
+      <li>Clues point to a possible location.</li>
+      <li><b>Clue #2</b> pointing to identity of final victim.</li>
+    </ul>
+  </div>
+
+  <div class="branch">
+    <h2>🔀 Branching Point: Did they solve Puzzle Set 2 in time?</h2>
+  </div>
+ <div class="sbs">
+  <div class="location">
+    <h2>🟩 Branch 1 – Victim Saved</h2>
+
+    <h3>📍 Location 3 - Penaranda Park: Next Target Foiled</h3>
+    <p><strong>Puzzle Set 4</strong></p>
+    <ul>
+      <li>Victim is rescued. </li>
+      <li>Another Joker playing card.</li>
+      <li>Detectives find notebook notes of slain journalist. </li>
+      <li>Journalist writing a piece about drug bust gone wrong where the captain's friend was shot dead, but not before he fired a stray bullet that killed a by-stander.</li>	
+      <li>Clues include crime scene evidence and a misleading red herring.</li>
+      <li>The red herring later becomes a clue about the Joker Killer’s identity.</li>
+      <li>2/3 clue that would lead to identity of the Joker.</li>
+      <li>Clues hint at a future crime and location.</li>
+      <li><b>Clue #3</b> pointing to identity of final victim.</li>
+    </ul>
+
+    <h3>📍 Location 4 - Bicol University, Gate 1: The Joker's Trap</h3>
+    <p><strong>Puzzle Set 5</strong></p>
+    <ul>
+      <li>They stake out the location—but it’s a misdirection.</li>
+      <li>A body is discovered 24 hours later with taunts from the Joker.</li>
+      <li><b>Clue #4</b> pointing to identity of final victim.</li>
+    </ul>
+
+    <h3>📍 Location 5 - Legazpi Terminal: The Card</h3>
+    <p><strong>Puzzle Set 7</strong></p>
+    <ul>
+      <li>A new victim is found with only a single Joker card left behind.</li>
+      <li><b>Clue #5</b> pointing to identity of final victim.</li>
+      <li>The location has been thoroughly cleaned.</li>
+      <li>The detectives must now make a difficult choice.</li>
+    </ul>
+  </div>
+
+  <div class="location">
+    <h2>🟥 Branch 2 – Victim Not Saved</h2>
+
+    <h3>📍 Location 3 - Penaranda Park: Crime Scene Aftermath</h3>
+    <p><strong>Puzzle Set 6</strong></p>
+    <ul>
+      <li>Detectives fail to save the victim.</li>
+      <li>They gather evidence at the crime scene.</li>
+      <li>This evidence only leads to the next crime.</li>
+      <li><b>Clue #3</b> pointing to identity of final victim.</li>
+    </ul>
+
+    <h3>📍 Location 5 - Legazpi Terminal: The Card</h3>
+    <p><strong>Puzzle Set 7</strong></p>
+    <ul>
+      <li>The same card puzzle appears.</li>
+      <li><b>Clue #4 and #5</b> pointing to identity of final victim.</li>
+      <li>The branching decision still applies.</li>
+    </ul>
+  </div>
+</div>
+  <div class="branch">
+    <h2>🔀 Final Branching Point: Players Must Choose</h2>
+    <table class="choice-table">
+      <tr>
+        <th>Option A: Split Up</th>
+        <th>Option B: Stay Together</th>
+      </tr>
+      <tr>
+        <td>
+          <ul>
+            <li>Cover more ground, but risk isolation.</li>
+            <li>One may be trapped or targeted.</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Move as a unit for safety.</li>
+            <li>Risk missing divergent clues.</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+      <li>They find 3/3 clue that would lead to identity of the Joker.</li>
+      <li>Will they be able to guess the motive?.</li>
+      <li>If they get the motive wrong, they will fail to identify the final target.</li>
+  </div>
+
+  <div class="location">
+    <h2>📍 Location 6: Undisclosed Location</h2>
+    <p><strong>Puzzle Set 8</strong></p>
+    <ul>
+      <li>They discovered the motive and the final target.</li>
+      <li>Target: Captain Marcus Holloway</li>
+      <li>Motive: Revenge for death of Joker's wife, the bystander killed by captain's friend.  Captain portrayed him as hero in the interview with the slain journalist.</li>
+      <li>The Final Game.</li>
+      <li>Will they be able to save the target?</li>
+
+
+    </ul>
+  </div>
+
+
+
+
+</body>
+</html>

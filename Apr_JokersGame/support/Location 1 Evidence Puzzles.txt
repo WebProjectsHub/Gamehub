@@ -1,0 +1,78 @@
+Perfect. Let’s start designing the first set of puzzles using the evidence from **Location 1**. The goal:  
+- Reveal a **message from the Joker**,  
+- Hint at the **next victim**, and  
+- Uncover **what happened in the room**.
+
+---
+
+### 🔍 Puzzle Set 1: Location 1 Crime Scene
+
+#### 🧩 Puzzle 1 – **The Playing Card Riddle**
+**Item:** Joker Playing Card  
+**Clue:** On the back is written:  
+> _“Every story needs a twist.”_
+
+But when held to UV light (Rachel's forensic kit), a **number sequence** appears:
+```
+7-15-2-1-3-15-4-5
+```
+
+**Solution:** Use A=1, B=2...  
+> 7=G, 15=O, 2=B, 1=A, 3=C, 15=O, 4=D, 5=E  
+→ **"GO BACK CODE"**
+
+**Follow-Up:** This leads detectives to double-check the **torn notebook page** for a code.
+
+---
+
+#### 🧩 Puzzle 2 – **Notebook Grid Code**
+**Item:** Torn Notebook Page  
+**Description:** A grid of symbols with numbers scribbled in the corners. When cross-referenced with the message from the playing card, “GO BACK CODE,” it points to the corner with a faint grid cipher.
+
+**Clue:** By aligning the numbers from the notebook grid and applying the code "GO BACK" as a key for a Vigenère cipher (Rachel recognizes the format), they decode:
+
+> _"Next breath stolen on stage. The spotlight hides the scream."_  
+
+**Reveals:**
+- **Next victim** may be linked to **a theater** or performance space.
+
+---
+
+#### 🧩 Puzzle 3 – **USB Decryption Puzzle**
+**Item:** USB Drive  
+**Accessed by:** Samantha (ex-hacker)  
+Encrypted file reveals **distorted audio log** and a **photo of a stage light**. The file name is “_Act2.Scene1_”.
+
+**Audio Clip (scrambled, reversed):**
+> “He told the truth. They silenced him. Now the curtains rise for another.”
+
+**Clue to Solve:** Once reversed and cleaned, the audio reveals a potential motive — the victim was a **whistleblower or journalist**. The clue “curtains rise” reinforces the **theater** theme.
+
+---
+
+#### 🧩 Puzzle 4 – **Watch Time Match**
+**Item:** Broken Watch (frozen at 3:12 AM, initials D.K.)  
+**Clue:** The time matches a timestamp in the recovered USB file. Samantha correlates it with a frame from the photo — the victim is wearing the same watch.
+
+**Reveal:** Confirms identity of the victim: **D.K. = Daniel Keller**, local investigative journalist.
+
+---
+
+#### 🧩 Puzzle 5 – **The Final Message**
+**Item:** Joker’s Audio (motion sensor triggered)  
+**Playback Analysis:** Lily notices there's a background hum behind the distorted voice — an **audio spectrogram reveals a hidden waveform pattern**.
+
+The waveform, when mapped, reveals the letters:  
+> **"CLUB NOIR"**
+
+**Conclusion:**
+- Joker’s next move will take place at a **venue called Club Noir** — possibly a theater or underground performance space.
+- Daniel Keller was targeted because he was about to expose something — perhaps even the Joker himself.
+- The Joker staged the scene to taunt the detectives and initiate his deadly game.
+
+---
+
+Would you like me to:
+1. Turn this into an interactive webpage?
+2. Create printable puzzle handouts?
+3. Move on to designing the **Club Noir scene**?
