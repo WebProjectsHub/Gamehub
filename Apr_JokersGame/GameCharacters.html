@@ -54,7 +54,11 @@ Game Characters
 					The Joker
 				</a></li>
 			</ul>
-
+<!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------------------!>
+<body>
+<p id="demo"></p>     <!---insert in <body>--->
+</body>
+<!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------------------!>
 			<!------------END Related Topics----!>
 		</div>
 		<!------------END Middle------------!>
@@ -589,5 +593,17 @@ var myFullpage = new fullpage
 		}
 	);
 </script>
+
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+	var x = document.getElementById("demo");
+	x.innerHTML = "Browser width: " + w + ", height: " + h + ".";
+</script>
+
+
+
+
 </body>
 </html>
