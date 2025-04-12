@@ -41,7 +41,9 @@
 	/*-------Related button----------------------*/
 
 #topicsList li a:hover
-	{ text-decoration:none;}
+	{ text-decoration:none;
+	background-color:#8D99AE;
+	}
 
 #topicsList a
 	{
@@ -54,6 +56,11 @@
 	border-color:black;
 	border-width:1px;
 	}
+
+#slideContainer h5 a:hover
+	{ color: #D80032
+	} 
+	
 
 	/*-------END Related button------------------*/
 /*---------------END Style the links-----------------*/
@@ -190,6 +197,7 @@ ul
 	background-color:#2B2D42;
 	color:WHite;
 	}
+
 
 	/*-------END link-Topics---------------------*/
 	/*-------drop down menu----------------------*/
