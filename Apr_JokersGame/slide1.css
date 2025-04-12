@@ -39,24 +39,11 @@
 /*---03---*/
 /*---------------Style the links---------------------*/
 	/*-------Related button----------------------*/
-.middle h1 a:hover
-	{
-	text-decoration:underline;
-	}
 
-.middle li a:hover
-	{
-	text-decoration:underline;
-	font-weight:bold;
-	color:blue;
-	}
-
-#topicsList li a:hover,
-#topicsList2 li a:hover
+#topicsList li a:hover
 	{ text-decoration:none;}
 
-#topicsList a,
-#topicsList2 a
+#topicsList a
 	{
 	display:block;
 	width:100%;
@@ -66,26 +53,6 @@
 	text-align:center;
 	border-color:black;
 	border-width:1px;
-	}
-
-.middleLeft h5 a:hover,
-#imageSlideContainerText h5 a:hover
-	{text-decoration:underline;}
-
-#imageSlideContainerText h6
-	{
-	display:flex;
-	flex-direction:row;
-	width:50%;
-	justify-content:space-between;
-	}
-
-
-#imageSlideContainerText h6 a:hover
-	{
-	color:black;
-	font-weight:bold;
-	text-decoration:underline;
 	}
 
 	/*-------END Related button------------------*/
@@ -106,8 +73,7 @@
 	font-weight:bold;
 	}
 
-#topicsList li,
-#topicsList2 li
+#topicsList li
 	{
 	font-size: 1.8rem;
 	line-height: 1.5;
@@ -123,27 +89,6 @@ ul
 	font-size: 1.8rem;
 	font-weight:350;
 	}
-
-#imgDesc
-	{
-	font-size: 1.2rem;
-	font-weight:350;
-	}
-
-.sContainer h5	
-	{
-	text-align:center;
-	text-align: -webkit-center;
-	}
-
-
-table
-	{
-	font-size: 1.5rem;
-	line-height: 1.6;
-	font-weight: 350;
-	}
-
 
 #slideContainer ul
 	{
@@ -188,8 +133,7 @@ table
 	/*-------Style preContainer------------------*/
 	/*-------END Style preContainer--------------*/
 	/*-------Style container---------------------*/
-#topicsList,
-#topicsList2
+#topicsList
 	{
 	display:flex;
 	flex-direction:row;
@@ -203,53 +147,17 @@ table
 	{
 	width:48%;
 	}
-		/*---Egyptian gods list--------------*/
-#topicsList2 li 
-	{
-	flex-basis:20%;
-	flex-grow:1;
-	margin:10px 5px;
-	}
 
-
-
-		/*---Egyptian gods list--------------*/
 #slideContainer
 	{
 	height:unset;
 	padding:0 60px;
 	}
 
-#imageSlideContainer
-	{ 
-	display:flex;
-	flex-direction:row;
-	align-items:flex-start;
-	padding-top:20px;
-	}
-
-#imageSlideContainerText
-	{
-	display:flex;
-	flex-direction:column;
-	height:auto;
-	}
-
-
 .fp-overflow
 	{
 	padding-top:40px;
 	align-items:unset;
-	}
-
-.sContainer 
-	{
-	width: 800px;
-	display: flex;	
-	justify-content: center;
-	margin: 0 60px;
-	align-items: center;
-	flex-direction: column;
 	}
 
 .fp-overflow
@@ -267,31 +175,6 @@ table
 /*---------------END Style middle--------------------*/
 /*---10---*/
 /*---------------Style table-------------------------*/
-table 
-	{
-	border-collapse: collapse;
-	}
-thead
-	{
-	font-weight:bold;
-	border-bottom: 1px solid black;
-	}
-thead tr
-	{
-	border-bottom: 1px solid black;
-	}
-
-th, td
-	{
-	text-align:left;
-	padding:0 10px 5px 0;
-	}
-thead tr th
-	{
-	text-align:left;
-	}
-
-
 /*---------------Style table-------------------------*/
 /*---11---*/
 /*---------------Style colors------------------------*/
@@ -299,23 +182,14 @@ thead tr th
 	/*-------END Style colors website name-------*/
 	/*-------page colors-main page---------------*/
 #section1
-	{background-color:#F0ECE3;}
+	{background-color:#EDF2F4;}
 	/*-------END page colors-main page-----------*/
 	/*-------link-Topics-------------------------*/
-#topicsList a,
-#topicsList2 a
+#topicsList a
 	{
-	background-color:#01455E;
-	color:#F6F0E2;
+	background-color:#2B2D42;
+	color:WHite;
 	}
-
-#topicsList a:hover,
-#topicsList2 a:hover
-	{ background-color:#BF2D32; }
-
-
-
-
 
 	/*-------END link-Topics---------------------*/
 	/*-------drop down menu----------------------*/
