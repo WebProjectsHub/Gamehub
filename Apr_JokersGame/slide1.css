@@ -82,7 +82,7 @@
 
 #topicsList li
 	{
-	font-size: 1.8rem;
+	font-size: 1.4rem;
 	line-height: 1.5;
 	font-weight: 350;
 	}
@@ -95,7 +95,7 @@ h2, h3, h4, h5, h6
 ul,
 ol
 	{
-	font-size: 1.8rem;
+	font-size: 1.4rem;
 	font-weight:350;
 	}
 
@@ -103,9 +103,16 @@ ol
 	{
 	list-style:square;
 	}
+
+#slideContainer #dialog
+	{
+	list-style:none;
+	}
+
 #slideContainer li
 	{
 	padding:5px 0;
+	line-height:1.6;
 	}
 
 #slideContainer ul li::marker 
