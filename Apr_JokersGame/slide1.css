@@ -90,8 +90,10 @@
 h1	{font-weight:400;}
 h2, h3, h4, h5, h6
 	{font-weight:bold;}
+
 #slideContainer p,
-ul
+ul,
+ol
 	{
 	font-size: 1.8rem;
 	font-weight:350;
@@ -105,7 +107,8 @@ ul
 	{
 	padding:5px 0;
 	}
-#slideContainer li::marker 
+
+#slideContainer ul li::marker 
 	{
     	font-size: 2rem;
 	}
@@ -151,9 +154,10 @@ ul
 	}
 
 #topicsList li 
-	{
-	width:48%;
-	}
+	{ width:48%; }
+
+#topicsList #liFull
+	{ width:-webkit-fill-available; }
 
 #slideContainer
 	{
@@ -168,9 +172,7 @@ ul
 	}
 
 .fp-overflow
-	{
-	cursor:default;
-	}
+	{ cursor:default; }
 
 	/*-------END Style container-----------------*/
 /*---------------END Style Sections------------------*/

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>The Game</title>
+   <link rel="stylesheet" href="./fullpage.css">
+   <link rel="stylesheet" href="./index.css">
+   <link rel="stylesheet" href="./slide1.css">
+   <link rel="stylesheet" href="./responsive.css">
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/images/logo/favicon/site.webmanifest">
+
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="fullpage">
+<div class="section active" id="section0">
+	<!------------Container----------------!>	
+	<div class="container">
+		<!------------Header----------------!>
+		<div class="header">
+			<img src="./assets/images/logo/JokerLogo3.png"></img>
+			<h><a href="">	
+				The Joker's Game
+			</a></h>
+		</div>
+		<!------------END Header------------!>
+		<!------------Middle----------------!>
+		<div class="middle">
+			<p id="backLink"><a href="">
+The Game			</a></p>
+			<!------------Summary---------------!>
+			<h1>
+Resources
+			</h1>
+			<!------------END Summary-----------!>
+			<!------------Related Topics--------!>
+			<ul id="topicsList">
+				<li><a href="GameCharacters.html">
+					Game Characters
+				</a></li>
+				<li><a href="GameLocations.html">
+					Game Locations
+				</a></li>
+
+			</ul>
+<!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------------------!>
+<body>
+<p id="demo"></p>     <!---insert in <body>--->
+</body>
+<!--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------------------!>
+			<!------------END Related Topics----!>
+		</div>
+		<!------------END Middle------------!>
+	</div>
+	<!------------END Container------------!>
+</div>
+
+
+<!------------END Section 1------------!>
+</div><!------END fullpage-------------!>
+
+<script type="text/javascript" src="./fullpage.js"></script>
+<script type="text/javascript">
+var myFullpage = new fullpage
+	('#fullpage', 
+    		{
+		anchors: [''],
+		controlArrows: true,
+		loopBottom: false,
+		}
+	);
+</script>
+
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+	var x = document.getElementById("demo");
+	x.innerHTML = "Browser width: " + w + ", height: " + h + ".";
+</script>
+
+
+
+
+</body>
+</html>
