@@ -128,6 +128,20 @@ ul	{ margin-block-start:0; }
 	top:2px;
 	}
 
+#slideContainer ul li::marker 
+	{
+    	font-size: unset;
+	}
+
+#pageLink .material-symbols-outlined
+	{
+	font-size:2rem;
+	margin-bottom:2rem;
+	margin-right:5px;
+	}
+
+
+}
 /* iphone14 landscape ------------------------------ */
 @media only screen
 and (min-width: 216px) 
@@ -286,6 +300,17 @@ blockquote
 	width:25px;
 	top:2px;
 	}
+#slideContainer ul li::marker 
+	{
+    	font-size: unset;
+	}
+
+#pageLink .material-symbols-outlined
+	{
+	font-size:2rem;
+	margin-bottom:2rem;
+	margin-right:5px;
+	}
 
 }
 
@@ -438,6 +463,17 @@ blockquote
 	{
 	width:25px;
 	top:2px;
+	}
+#slideContainer ul li::marker 
+	{
+    	font-size: unset;
+	}
+
+#pageLink .material-symbols-outlined
+	{
+	font-size:2rem;
+	margin-bottom:2rem;
+	margin-right:5px;
 	}
 
 }

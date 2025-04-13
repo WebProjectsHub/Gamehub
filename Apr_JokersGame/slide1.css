@@ -123,6 +123,19 @@ ol
 	/*-------END standard menu header------------*/
 	/*-------drop down menu----------------------*/
 		/*-------menu container--------------*/
+#pageLink
+	{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	}
+
+#pageLink .material-symbols-outlined
+	{
+	font-size:2rem;
+	margin-bottom:1.5rem;
+	margin-right:5px;
+	}
 		/*-------END menu container----------*/
 		/*-------menu icon-------------------*/
 		/*-------END menu icon---------------*/
