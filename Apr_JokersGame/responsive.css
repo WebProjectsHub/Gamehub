@@ -130,7 +130,7 @@ ul	{ margin-block-start:0; }
 
 #slideContainer ul li::marker 
 	{
-    	font-size: unset;
+    	/*---font-size: unset;---*/
 	}
 
 #pageLink .material-symbols-outlined
@@ -302,7 +302,7 @@ blockquote
 	}
 #slideContainer ul li::marker 
 	{
-    	font-size: unset;
+    	/*---font-size: unset;---*/
 	}
 
 #pageLink .material-symbols-outlined
@@ -466,7 +466,7 @@ blockquote
 	}
 #slideContainer ul li::marker 
 	{
-    	font-size: unset;
+    	/*---font-size: unset;---*/
 	}
 
 #pageLink .material-symbols-outlined

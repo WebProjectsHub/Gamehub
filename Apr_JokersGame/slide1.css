@@ -110,7 +110,7 @@ ol
 
 #slideContainer ul li::marker 
 	{
-    	font-size: 2rem;
+    	font-size: 1rem;
 	}
 
 	/*-------END Custom Font size----------------*/
