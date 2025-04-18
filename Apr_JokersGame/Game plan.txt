@@ -14,14 +14,29 @@ Joker learned about the article when the journalist interviewed him.
 He learned about the names after murdering the journalist and perusing through his notebook.  Then and there he decided to create the game and come after those people.
 
 Underpass
-- graffiti symbol
-  - 
+- graffiti symbol of joker
+  - image with letter pairs
+	- xxxxx 
+  - a playfair cipher that when decoded will give the location of work of victim
+  - this is a false trail.
+
+  - also in a separate graffiti that people might think is not related to joker, on the bottom of wall, like footnote.  another cipher in simple Caesar substitution saying the other clue is false.  real location is somewhere else. but no name is given for the victim
+
+
 - highlighted article in the newspaper
   - news of Joker's wife's death
-  - smeared blood on name of one of the witnesses
-  - His wife's employer
-  - the next victim
+
+- another newspaper with joker symbol.
+	- to be used with numbers found in footnote message 
+	- Decoded: gives name of next victim
+	- His wife's employer
+
 - another joker card
+
+- flickering lamp
+	morse code numbers
+	decoded: number 0 and 1 (binary code) 
+	decoded: name of victim
 
 Objectives
 - Identify the next victim
