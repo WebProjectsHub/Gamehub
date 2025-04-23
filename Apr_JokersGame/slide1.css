@@ -1,7 +1,5 @@
 /*---------------Color style------------------------*/
-/*------https://coolors.co/palette/dfd3c3-f0ece3-f4c7ab-b2b8a3-5f8b7e----*/
-/*------https://coolors.co/palette/0015ff-ff00a1-90fe00-8400ff-00fff7-ff7300	----*/
-/*------https://coolors.co/visualizer/0015ff-ff00a1-90fe00-8400ff-00fff7-ff7300	----*/
+/*------https://coolors.co/palette/780000-c1121f-fdf0d5-003049-669bbc----*/
 /*------
 1. html and body height and width
 2. required
@@ -41,8 +39,8 @@
 	/*-------Related button----------------------*/
 
 #topicsList li a:hover
-	{ text-decoration:none;
-	background-color:#8D99AE;
+	{ 
+	text-decoration:none;
 	}
 
 #topicsList a
@@ -209,17 +207,31 @@ ol
 /*---------------Style colors------------------------*/
 	/*-------Style colors web site name + text---*/
 	/*-------END Style colors website name-------*/
+h, .middle >p
+	{color:#780000}
 	/*-------page colors-main page---------------*/
-#section1
-	{background-color:#EDF2F4;}
+#section0	{ background-color:#669BBC;} /*--main--*/
+#section1,
+#section2,
+#section3,
+#section4,
+#section5
+	{ background-color:silver;}
+
+
 	/*-------END page colors-main page-----------*/
 	/*-------link-Topics-------------------------*/
 #topicsList a
 	{
-	background-color:#2B2D42;
+	background-color:#003049;
 	color:WHite;
 	}
 
+#topicsList a:hover
+	{
+	background-color:#780000;
+	font-weight:bold;
+	}
 
 	/*-------END link-Topics---------------------*/
 	/*-------drop down menu----------------------*/
