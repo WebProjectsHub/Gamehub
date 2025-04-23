@@ -13,30 +13,39 @@ List of victims found in the journalist's notebook.
 Joker learned about the article when the journalist interviewed him.
 He learned about the names after murdering the journalist and perusing through his notebook.  Then and there he decided to create the game and come after those people.
 
-Underpass
-- graffiti symbol of joker
-  - image with letter pairs
-	- xxxxx 
-  - a playfair cipher that when decoded will give the location of work of victim
-  - this is a false trail.
 
-  - also in a separate graffiti that people might think is not related to joker, on the bottom of wall, like footnote.  another cipher in simple Caesar substitution saying the other clue is false.  real location is somewhere else. but no name is given for the victim
+Location 03 Clues
+- victim: Marissa Trent
+- joker card #3
+- blood splatter
+	- morse code saying "check card catalogue"
+	- also includes extra letter "C"
+- card catalogue with a smear of blood
+	- large stack of catalogues
+	- narrowdown search by clue of letter "C"
+	- message is something like: 
+		- “Seek the name that was erased, but not forgotten. File 1209-A has the wrong story.”
+		- look for book/record xxxx
+		- 2 copies available.  2 images smeared with blood.
+		- spot the difference.
+		- The original name links to a police report involving the Joker Killer’s wife—an event that was quietly buried.
+		- point's closer to the final victim
 
 
-- highlighted article in the newspaper
-  - news of Joker's wife's death
 
-- another newspaper with joker symbol.
-	- to be used with numbers found in footnote message 
-	- Decoded: gives name of next victim
-	- His wife's employer
+- The Locked Terminal
+	- A vintage terminal in the back corner still functions. When booted up, it shows a command prompt:
+		- ENTER ARCHIVE CODE TO UNLOCK MESSAGE
+		- code is from: xxxxx
+		- terminal is chatbox with joker.
+		- ask questions to joker
+		- limited number of questions.
+		- list of questions.
 
-- another joker card
 
-- flickering lamp
-	morse code numbers
-	decoded: number 0 and 1 (binary code) 
-	decoded: name of victim
 
-Objectives
-- Identify the next victim
+
+objectives
+- next victim
+- next location
+- identity of joker
