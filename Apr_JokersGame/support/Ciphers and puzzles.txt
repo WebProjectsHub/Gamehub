@@ -1,0 +1,205 @@
+Absolutely—here’s an example for each of the puzzle and cipher types listed, tailored to *The Joker’s Game* tone, with some tied to characters or your crime scenes:
+
+---
+
+## 🔐 **Classic Ciphers**
+
+### 1. **Caesar Cipher**
+> **Clue found:** “Wklv lv wkh iluvw pryh.”  
+> **Hint:** “Shift your perspective. Three steps back.”  
+> **Solution:** Shift each letter back 3 → “This is the first move.”
+
+---
+
+### 2. **Vigenère Cipher**
+> **Encrypted Text:** “VJKUBKUBCBOGUUCIG”  
+> **Key (from playing card):** “GO BACK”  
+> **Solution:** Decrypts to “The stage conceals death”
+
+---
+
+### 3. **Playfair Cipher**
+> **Clue grid:** Uses keyword “JOKER” to create grid.  
+> **Encrypted Pair:** “MO NU DO”  
+> **Solution:** With Playfair rules, translates to “NO MURDER”
+
+---
+
+### 4. **Pigpen Cipher**
+> **Scrawled symbol on crime scene wall:**
+```
+⍁ ⋏ 🬍 🬎   ⬘ ⍀ ⌶ ⬘
+```
+> Using Pigpen cipher, this decodes to “STAY AWAY”
+
+---
+
+### 5. **Morse Code**
+> **Audio file static noise contains:**  
+> “... --- ...”  
+> **Translation:** “SOS”  
+> Another line: “- .... . / -.- .. .-.. .-.. . .-.” = “THE KILLER”
+
+---
+
+### 6. **Binary Code**
+> **USB file reads:** `01001101 01010101 01010010 01000100 01000101 01010010`  
+> Convert binary to ASCII: **MURDER**
+
+---
+
+### 7. **Base64**
+> **Encoded string:** `VGhlIGN1cnRhaW4gd2lsbCBmYWxsLg==`  
+> Decodes to: “The curtain will fall.”
+
+---
+
+## 🧠 **Logic-Based Puzzles**
+
+### 8. **Nonogram / Picross**
+> Fill out grid using row/column numbers.  
+> Reveals: Joker symbol or a location icon (e.g. a stage curtain).
+
+---
+
+### 9. **Logic Grid Puzzle**
+> Suspects: Claire, Jon, Sam.  
+> Weapons: Knife, Rope, Poison.  
+> Hints:
+- The poison wasn’t used by Claire.
+- Jon didn’t use the knife.
+- The person who used the rope left a glove.
+
+> **Answer:** Sam used the rope.
+
+---
+
+### 10. **Sequence Puzzle**
+> Clue: “2, 4, 8, 16, ?”  
+> Note on desk: “The next number is the hour.”  
+> **Answer:** 32 → The event happened at 3:20 AM.
+
+---
+
+### 11. **Anagram Puzzle**
+> Scrambled note: “SILENT NIGHT”  
+> Rearranged: **THE SLING TINT** — red herring.  
+> Actual answer: “LISTEN THING” → leads to **audio clue**.
+
+---
+
+### 12. **Sudoku Variant**
+> Replace digits 1–9 with letters from the word “SHOWTIME”  
+> When solved, circled diagonal letters spell “TRAPDOOR”
+
+---
+
+### 13. **Chess Puzzle**
+> Board set up with only 5 pieces. Clue: “Check in 1.”  
+> Solution: Checkmate move reveals position **E5** — location code.
+
+---
+
+## 🔎 **Forensics & Physical Evidence Puzzles**
+
+### 14. **Spectrogram Puzzle**
+> Joker’s message hidden in spectrogram: “I WARNED YOU”  
+> Only visible using audio spectrogram tool.
+
+---
+
+### 15. **Chemical Clue**
+> Evidence bag: Unknown powder + periodic table.  
+> Clue: Ba + Co + N = **BaCoN** → a taunt or code word.
+
+---
+
+### 16. **Fingerprint Maze**
+> Path through fingerprint swirl spells: **LIAR**
+
+---
+
+### 17. **Blood Spatter Puzzle**
+> Diagram shows blood drops leading toward an open window.  
+> Red string connects pattern → Letters spell **ESCAPE**
+
+---
+
+## 🧩 **Environmental / Interactive Puzzles**
+
+### 18. **UV Light Puzzle**
+> Playing card reveals glowing message: “GO BACK”  
+> Matches Cipher #2.
+
+---
+
+### 19. **Room Layout Puzzle**
+> Table smashed, watch at 3:12, card in center, spilled drink near piano.  
+> Clue: Piano brand is “Curtain Co.” → Points to **theater stage**.
+
+---
+
+### 20. **Graffiti Riddle Wall**
+> Phrase: “The fool dances twice before death.”  
+> Repeated in 3 locations → code word = “FOOL” (password for digital file).
+
+---
+
+### 21. **Clock Puzzle**
+> Watch frozen at **3:12 AM**  
+> USB video shows stage light blinking at **3:12 AM**  
+> Confirms **time of abduction**
+
+---
+
+## 🎭 **Narrative / Character Puzzles**
+
+### 22. **Alibi Contradiction Puzzle**
+> Rachel’s report: Victim died at 3:12 AM.  
+> Suspect says: “I was with him at 4 AM.”  
+> Obvious contradiction → puzzle solved.
+
+---
+
+### 23. **Voice Distortion Puzzle**
+> Joker’s voice reversed. Reverse it to hear:  
+> “You missed the show. Next time, don’t be late.”
+
+---
+
+### 24. **Hidden Message in Text**
+> Autopsy file:
+> - “Find”
+> - “Only”
+> - “One”
+> - “Logical”
+> - “Exit”
+
+> First letters spell: **FOOLE** — Joker’s signature.
+
+---
+
+### 25. **Mirror Puzzle**
+> Clue on glass: “ʎɐʍ ɐ ǝsɐɥɔ ɐ s,ʇI”  
+> In mirror: “It’s a chase away”
+
+---
+
+### 26. **Split Message (Co-op Puzzle)**
+> Samantha gets half a QR code on the USB.  
+> Lily finds the other half in a notebook.  
+> Combine them = access to new audio file.
+
+---
+
+### 27. **Puzzle Locker**
+> Locker requires 4-digit passcode.  
+> Clues:
+> - Card suit = 1
+> - Stage = 2
+> - Time = 3:12 → 312
+> Code = **1312** (Joker’s taunting mix of card + time)
+
+---
+
+Want me to package some of these together into a puzzle set (like Puzzle Set 2 or 3 for your game)? Or build web pages for these using your existing format?

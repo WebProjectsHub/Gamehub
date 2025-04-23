@@ -1,0 +1,54 @@
+<!------------START END ---------------------------------------!>
+		<div class="slide" id="L-02_1">
+			<!------------Container-optional-------!>	
+			<div class="container"  id="slideContainer">
+				<div id="pageLink">
+					<span class="material-symbols-outlined">
+						playing_cards
+					</span>
+					<h5><a href="GameLocations.html">
+						Game Location
+					</a></h5>
+				</div>
+				<h4 id="subheader">
+					Location XX
+				</h4>
+				<h2>
+					XXXXXXXXXX
+				</h2>
+					<br><br>
+				<h4>
+					XXXXXXXXXX
+				</h4>
+				<ol>
+<li>
+Clue 01
+	<ul>
+		<li>
+		01-1 
+		</li>
+		<li>
+		01-2
+		</li>
+	</ul>
+</li>
+<li>
+Clue 02
+	<ul>
+		<li>
+		02-1 
+		</li>
+		<li>
+		02-2
+		</li>
+	</ul>
+</li>
+<li>
+Clue 03
+</li>
+
+				</ol>
+			</div>
+			<!------------END Container------------!>	
+		</div>
+<!------------START END ---------------------------------------!>
