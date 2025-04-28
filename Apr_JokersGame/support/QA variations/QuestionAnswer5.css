@@ -1,0 +1,52 @@
+body {
+  background-color: #0b0b0b;
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+}
+.chatbox {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #111;
+  padding: 20px;
+  border: 2px solid #00ff00;
+  border-radius: 10px;
+  min-height: 500px;
+  overflow-y: auto;
+}
+.joker {
+  color: #ff0000;
+}
+.detective {
+  color: #00ffff;
+}
+.trap {
+  color: #ff9900;
+  font-style: italic;
+}
+#inputArea {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+}
+button {
+  padding: 10px 20px;
+  background-color: #222;
+  color: #0f0;
+  border: 1px solid #0f0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #0f0;
+  color: #000;
+}

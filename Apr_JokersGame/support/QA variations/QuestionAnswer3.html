@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Joker's Chat - Archives Terminal</title>
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+    }
+    .chatbox {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #111;
+      padding: 20px;
+      border: 2px solid #00ff00;
+      border-radius: 10px;
+      min-height: 500px;
+    }
+    .joker {
+      color: #ff0000;
+    }
+    .detective {
+      color: #00ffff;
+    }
+    .trap {
+      color: #ff9900;
+      font-style: italic;
+    }
+    #inputArea {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #000;
+      color: #0f0;
+      border: 1px solid #0f0;
+      border-radius: 5px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #222;
+      color: #0f0;
+      border: 1px solid #0f0;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0f0;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chatbox" id="chat">
+  <p><strong class="joker">The Joker:</strong> "Welcome to my playground, detective. Ask your questions... if you dare."</p>
+</div>
+
+<div id="inputArea">
+  <input type="text" id="playerInput" placeholder="Type your question here...">
+  <button onclick="processInput()">Ask</button>
+</div>
+
+<script>
+const responses = [
+  { keywords: ["who are you", "your name"], response: '"You already know me, detective. Just not well enough."' },
+  { keywords: ["what do you want", "your goal"], response: '"I want a game worth remembering."' },
+  { keywords: ["where is the victim", "where are they"], response: '"Closer than you think. Maybe above. Maybe below."' },
+  { keywords: ["are they alive", "still alive"], response: '"For now. Tick-tock."' },
+  { keywords: ["how much time", "time left"], response: '"Enough for heroes... or martyrs."' },
+  { keywords: ["why clues", "leave clues"], response: '"Because you need to prove you\'re worthy."' },
+  { keywords: ["working alone", "alone"], response: '"Define alone, detective."' },
+  { keywords: ["in the building", "here now"], response: '"Would it matter if I was?"' },
+  { keywords: ["rules", "play by rules"], response: '"Rules make the game interesting."' },
+  { keywords: ["guess wrong", "wrong guess"], response: '"-5 minutes. Tick-tock, detective..."', trap: true },
+];
+
+function processInput() {
+  const input = document.getElementById('playerInput').value.toLowerCase();
+  const chat = document.getElementById('chat');
+  let found = false;
+
+  chat.innerHTML += `<p class="detective"><strong>Detective:</strong> ${input}</p>`;
+
+  for (let r of responses) {
+    for (let keyword of r.keywords) {
+      if (input.includes(keyword)) {
+        if (r.trap) {
+          chat.innerHTML += `<p class="joker trap"><strong>The Joker:</strong> ${r.response}</p>`;
+        } else {
+          chat.innerHTML += `<p class="joker"><strong>The Joker:</strong> ${r.response}</p>`;
+        }
+        found = true;
+        break;
+      }
+    }
+    if (found) break;
+  }
+
+  if (!found) {
+    chat.innerHTML += `<p class="joker"><strong>The Joker:</strong> "Tsk, tsk. Try harder, detective."</p>`;
+  }
+
+  document.getElementById('playerInput').value = '';
+  chat.scrollTop = chat.scrollHeight; // Scroll to latest message
+}
+</script>
+
+</body>
+</html>
