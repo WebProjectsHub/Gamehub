@@ -1,0 +1,121 @@
+/* Global reset and font settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #121212;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Container for the whole chat interface */
+#container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+
+/* Chatbox that holds all messages */
+.chatbox {
+    width: 80%;
+    max-width: 700px;
+    height: 70%;
+    overflow-y: auto;
+    background-color: #1d1d1d;
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: relative;
+}
+
+/* Styling for each message */
+.message {
+    margin-bottom: 10px;
+    color: #b0b0b0;
+}
+
+/* Styling for taunts from the Joker */
+.taunt {
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 18px;
+    text-transform: uppercase;
+    animation: flicker 0.3s infinite alternate;
+}
+
+/* Input area */
+.input-area {
+    width: 80%;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input-area input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    box-shadow: inset 0 0 5px #555;
+}
+
+.input-area button {
+    width: 15%;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #c72c2c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-area button:hover {
+    background-color: #a82323;
+}
+
+/* Flicker effect for the chatbox */
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Dark glitch effect for the entire screen */
+body {
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(10px, 10px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
