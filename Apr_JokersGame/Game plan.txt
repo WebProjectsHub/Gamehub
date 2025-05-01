@@ -14,38 +14,18 @@ Joker learned about the article when the journalist interviewed him.
 He learned about the names after murdering the journalist and perusing through his notebook.  Then and there he decided to create the game and come after those people.
 
 
-Location 03 Clues
+Location 04 Clues
 - victim: Marissa Trent
 - joker card #3
-- blood splatter
-	- morse code saying "check card catalogue"
-	- also includes extra letter "C"
-- card catalogue with a smear of blood
-	- large stack of catalogues
-	- narrowdown search by clue of letter "C"
-	- message is something like: 
-		- “Seek the name that was erased, but not forgotten. File 1209-A has the wrong story.”
-		- look for book/record xxxx
-		- 2 copies available.  2 images smeared with blood.
-		- spot the difference.
-		- The original name links to a police report involving the Joker Killer’s wife—an event that was quietly buried.
-		- point's closer to the final victim
+- gold pocket watch, stopped at 4:44
+	- laying on top of a book on evidence
+	- QR code on the upper right hand corner of the cover
+	- below QR code is a message "Find my other half"
+	- leads to 11:11 book bundle
+		- binary
+			- leads to page 15
+- evidence book
+	- page 15 		
 
+- card #4
 
-
-- The Locked Terminal
-	- A vintage terminal in the back corner still functions. When booted up, it shows a command prompt:
-		- ENTER ARCHIVE CODE TO UNLOCK MESSAGE
-		- code is from: xxxxx
-		- terminal is chatbox with joker.
-		- ask questions to joker
-		- limited number of questions.
-		- list of questions.
-
-
-
-
-objectives
-- next victim
-- next location
-- identity of joker
