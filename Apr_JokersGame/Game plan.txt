@@ -14,18 +14,44 @@ Joker learned about the article when the journalist interviewed him.
 He learned about the names after murdering the journalist and perusing through his notebook.  Then and there he decided to create the game and come after those people.
 
 
-Location 04 Clues
-- victim: Marissa Trent
-- joker card #3
+Location 04
+The Clocktower Library
+- card #4
+- telephone on top of the table
+	- no dial tone
+	- bloody palm print on the handle
+	- note on the phone
+		- To Call Out: Dial 9 then the 7-digit number😮.
 - gold pocket watch, stopped at 4:44
 	- laying on top of a book on evidence
 	- QR code on the upper right hand corner of the cover
 	- below QR code is a message "Find my other half"
 	- leads to 11:11 book bundle
-		- binary
-			- leads to page 15
-- evidence book
-	- page 15 		
+		- phone number
+			- 444 11 11
+		- a telephone hidden in one of the cabinet rings.
+		- the victim is found.
+- gray-colored hard-bound evidence book
+- telephone with the victim
+	- Note: call me if you can.  Instructions on the first 2 paragraphs, with my other half.
+	- keywords
+		- above
+		- right direction
+	- number is 3329
 
-- card #4
+7622	3670	3329
+9807	7631	9147
+5070	1947	5987
 
+	- detective dials the extension number.
+	- phone rings beside a computer terminal in the librarian's desk
+
+- telephone in the librarian's desk
+	- taped on the receiver:
+		- "Time remembers, time deceives… and time kills."
+	- 4:44 time 3
+	- 444 x 3 = 1332
+	- detectives dial 1332
+
+- Joker's message
+	- "Three times you failed now."
