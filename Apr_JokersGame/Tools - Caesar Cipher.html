@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+Smart Caesar Cipher Tool
+	</title>
+	<link rel="stylesheet" href="tools.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/images/logo/favicon/site.webmanifest">
+</head>
+<body>
+
+  <h2>Caesar Cipher Tool (with Smart Brute Force)</h2>
+
+  <label for="text">Enter Text:</label>
+  <textarea id="text" rows="4" placeholder="Enter your message..."></textarea>
+
+  <label for="shift">Shift (Key):</label>
+  <input type="number" id="shift" value="3" min="1" max="25" />
+
+  <div>
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+    <button onclick="bruteForce()">Brute Force Decrypt</button>
+  </div>
+
+  <h3>Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    // Basic English word list for scoring
+    const commonWords = [
+      "the", "be", "to", "of", "and", "a", "in", "that", "have", "i",
+      "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+      "this", "but", "his", "by", "from", "they", "we", "say", "her",
+      "she", "or", "an", "will", "my", "one", "all", "would", "there",
+      "their", "what", "so", "up", "out", "if", "about", "who", "get"
+    ];
+
+    function caesarCipher(str, shift, decrypt = false) {
+      if (decrypt) shift = (26 - shift) % 26;
+
+      return str.split('').map(char => {
+        const code = char.charCodeAt(0);
+        if (char >= 'A' && char <= 'Z') {
+          return String.fromCharCode(((code - 65 + shift) % 26) + 65);
+        } else if (char >= 'a' && char <= 'z') {
+          return String.fromCharCode(((code - 97 + shift) % 26) + 97);
+        } else {
+          return char;
+        }
+      }).join('');
+    }
+
+    function encrypt() {
+      const text = document.getElementById('text').value;
+      const shift = parseInt(document.getElementById('shift').value) || 0;
+      const result = caesarCipher(text, shift, false);
+      document.getElementById('output').textContent = result;
+    }
+
+    function decrypt() {
+      const text = document.getElementById('text').value;
+      const shift = parseInt(document.getElementById('shift').value) || 0;
+      const result = caesarCipher(text, shift, true);
+      document.getElementById('output').textContent = result;
+    }
+
+    function scoreEnglish(text) {
+      const words = text.toLowerCase().split(/\W+/);
+      return words.reduce((count, word) => commonWords.includes(word) ? count + 1 : count, 0);
+    }
+
+    function bruteForce() {
+      const text = document.getElementById('text').value;
+      let attempts = [];
+
+      for (let i = 1; i < 26; i++) {
+        const decrypted = caesarCipher(text, i, true);
+        const score = scoreEnglish(decrypted);
+        attempts.push({ shift: i, text: decrypted, score });
+      }
+
+      // Sort by score descending
+      attempts.sort((a, b) => b.score - a.score);
+
+      // Display best result first
+      let output = `🔍 Best Guess (Shift ${attempts[0].shift}):\n${attempts[0].text}\n\n`;
+      output += "All Shifts:\n";
+      for (let attempt of attempts) {
+        output += `Shift ${attempt.shift}: ${attempt.text}\n`;
+      }
+
+      document.getElementById('output').textContent = output;
+    }
+  </script>
+
+</body>
+</html>

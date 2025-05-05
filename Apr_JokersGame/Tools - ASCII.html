@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+ASCII Encrypt/Decrypt Tool
+	</title>
+	<link rel="stylesheet" href="tools.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/images/logo/favicon/site.webmanifest">
+</head>
+<body>
+
+  <h2>ASCII Encrypt/Decrypt Tool</h2>
+
+  <label for="text">Enter Text or ASCII Codes:</label>
+  <textarea id="text" rows="4" placeholder="Enter your message or encoded ASCII..."></textarea>
+
+  <label for="format">Select Format:</label>
+  <select id="format">
+    <option value="decimal">Decimal</option>
+    <option value="hex">Hexadecimal</option>
+    <option value="binary">Binary</option>
+  </select>
+
+  <button onclick="encrypt()">Encrypt</button>
+  <button onclick="decrypt()">Decrypt</button>
+
+  <h3>Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    function encrypt() {
+      const input = document.getElementById('text').value;
+      const format = document.getElementById('format').value;
+      let result = '';
+
+      switch (format) {
+        case 'hex':
+          result = Array.from(input).map(c =>
+            c.charCodeAt(0).toString(16).padStart(2, '0')
+          ).join(' ');
+          break;
+        case 'binary':
+          result = Array.from(input).map(c =>
+            c.charCodeAt(0).toString(2).padStart(8, '0')
+          ).join(' ');
+          break;
+        case 'decimal':
+        default:
+          result = Array.from(input).map(c =>
+            c.charCodeAt(0)
+          ).join(' ');
+      }
+
+      document.getElementById('output').textContent = result;
+    }
+
+    function decrypt() {
+      const input = document.getElementById('text').value.trim();
+      const format = document.getElementById('format').value;
+      const parts = input.split(/\s+/);
+      let result = '';
+
+      try {
+        switch (format) {
+          case 'hex':
+            result = parts.map(code =>
+              String.fromCharCode(parseInt(code, 16))
+            ).join('');
+            break;
+          case 'binary':
+            result = parts.map(code =>
+              String.fromCharCode(parseInt(code, 2))
+            ).join('');
+            break;
+          case 'decimal':
+          default:
+            result = parts.map(code =>
+              String.fromCharCode(parseInt(code, 10))
+            ).join('');
+        }
+
+        document.getElementById('output').textContent = result;
+      } catch (err) {
+        document.getElementById('output').textContent = 'Error: Invalid input for selected format.';
+      }
+    }
+  </script>
+
+</body>
+</html>
