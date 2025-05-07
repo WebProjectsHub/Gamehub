@@ -11,6 +11,9 @@ V6 location 6: Police station
 
 
 Location 05
+- Joker card
+- 5 Lockers with fake ID's
+- Only 1 stood out because of joker card sticking out
 
 - Lock for unit B-137
 	- Lock requires a 6-digit password
