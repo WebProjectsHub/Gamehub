@@ -11,13 +11,28 @@ V6 location 6: Police station
 
 
 Location 05
-- Joker card
-- 5 Lockers with fake ID's
-- Only 1 stood out because of joker card sticking out
 
 - Lock for unit B-137
 	- Lock requires a 6-digit password
-	- use ASCII hexadecimal to encrypt 137 to get password
+	- Use ASCII hexadecimal to encrypt 137 to get password
 	- 31 33 37
+
 - Fake ID used by owner
+	- Name is Daniel Keller
+	- That is how manager knew it was a fake ID.
+	- Unit rented a few months ago.  Checked in by anther employee who left already.
+	- Employee last name is Trent, same as second victim.
+
+- Computer terminal inside B-137 similar to one from the Old Archives
+	- Requires password
+		- use base64 to encrypt unit-owner name
+	- password from name on fake ID
+	- Chat with Joker
+	- Ask where body is
+		- Joker hints with the word 'enigma'
+		- Joker gives direction by logic cipher
+		- leads to unit xxx
+
+- enigma machine inside unit xxx
 	- 
+
