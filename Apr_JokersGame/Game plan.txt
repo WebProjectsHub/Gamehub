@@ -20,7 +20,7 @@ Location 05
 - Fake ID used by owner
 	- Name is Daniel Keller
 	- That is how manager knew it was a fake ID.
-	- Unit rented a few months ago.  Checked in by anther employee who left already.
+	- Unit rented a few months ago.  Checked in by another employee who left already.
 	- Employee last name is Trent, same as second victim.
 
 - Computer terminal inside B-137 similar to one from the Old Archives
@@ -29,10 +29,28 @@ Location 05
 	- password from name on fake ID
 	- Chat with Joker
 	- Ask where body is
-		- Joker hints with the word 'enigma'
+		- Joker gives garbled messages
+			- message to be decoded in enigma machine
 		- Joker gives direction by logic cipher
-		- leads to unit xxx
-
+			- leads to unit xxx
+- Unit xxx
+	- Lock requires a 6-digit password
+	- Use ASCII hexadecimal to encrypt xxx to get password
+	- enigma machine inside the unit
+	- piece of paper with marking
+		- fold origami to get enigma machine setting
 - enigma machine inside unit xxx
-	- 
-
+	- message: 0ne unit up three units left seven units right (1-3-7)
+		- significance: Joker's wife's birthday - July 13
+	- decoded message leads to unit yyy
+- Unit yyy
+	- Lock requires a 6-digit password
+	- Use ASCII hexadecimal to encrypt yyy to get password
+	- victim's body inside unit yyy, holding the 6th joker card
+		- Face of final victim identified with all 6 cards
+		- name of final victim identified
+	- another computer terminal
+		- name of final victim used as password
+		- timer on the chat box started counting down
+	- Detective must choose between saving the next victim or finding the motive and identity of Joker
+- 
