@@ -1,17 +1,22 @@
-V1 Location 2: Back alley
-  The journalist writing a story creating a hero from the fallen detective who is a friend of the captain.
-V2 Location 3: Deserted parking Lot
-  Wife's employer.  He asked her to work that day.
-V3 Location 4: Park bench
-  Wife's co-worker whom she is filling in for.
-V5 Location 5: Taxi parked on deserted street
-  The taxi driver who nearly collided and argued with the ambulance driver, causing a delay in arriving to the hospital
-V6 location 6: Police station
-  The captain.
-
+Game Development Phases
+- Create characters
+	100%
+- Identify Locations
+	90% 
+	- remaining: Police station
+- Develop the flow of the game (Game Plan)
+	90% 
+	- remaining: Police station
+- Develop ciphers and clues
+	- Decription tools
+		90%
+		- remaining: improve interface
+- Create the props
+	0%
+- Create player interface
+	0%
 
 Location 05
-
 - Lock for unit B-137
 	- Lock requires a 6-digit password
 	- Use ASCII hexadecimal to encrypt 137 to get password
