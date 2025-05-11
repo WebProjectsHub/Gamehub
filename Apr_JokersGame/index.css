@@ -73,6 +73,25 @@ blockquote a:hover
 	padding:5px 0;
 	}
 
+#topicsList li a:hover
+	{ text-decoration:none; }
+
+#topicsList a
+	{
+	/*---display:block;---*/ 
+	/*---width:100%;---*/
+	/*---height:100%;---*/
+	/*---border-radius:5px;---*/
+	/*---margin: 10px 0;---*/
+	/*---padding:5px;---*/
+	/*---text-align:center;---*/
+	/*---border-color:black;---*/
+	/*---border-width:1px;---*/
+	}
+
+#slideContainer h5 a:hover
+	{ color: #D80032 } 
+
 /*---------------END Style the links-----------------*/
 /*---04---*/
 /*---------------Text size adjustment----------------*/
@@ -164,13 +183,18 @@ h6	{ font-size: 1.5rem; line-height: 1.6;  }	/*---15px--*/
 
 	/*-------END Font size-----------------------*/
 	/*-------Custom Font size--------------------*/
+h1	
+	{font-weight:400;}
+
+h2, h3, h4, h5, h6
+	{font-weight:bold;}
+
 .middle >p
 	{
 	font-size: 1.4rem;
 	line-height: 1.5;
 	font-weight:400;
 	}
-
 
 blockquote
 	{
@@ -179,6 +203,38 @@ blockquote
 	line-height: 1.5;
 	font-weight:350;
 	text-align:justify;
+	}
+
+#subheader
+	{
+	margin-bottom:0;
+	font-weight:bold;
+	}
+
+#topicsList li,
+#slideContainer p,
+ul,
+ol
+	{
+	font-size: 1.4rem;
+	line-height: 1.5;
+	font-weight: 350;
+	}
+
+
+#slideContainer ul
+	{ list-style:square; }
+
+#slideContainer ul li::marker 
+	{ font-size: 1rem; }
+
+#slideContainer #dialog
+	{ list-style:none; }
+
+#slideContainer li
+	{
+	padding:5px 0;
+	line-height:1.6;
 	}
 
 
@@ -199,23 +255,34 @@ blockquote
 	height:auto;
 	margin-right:5px;
 	}
-
-
 	/*-------END logo----------------------------*/
 	/*-------main page 1st page header-----------*/
 .header	{
 	display:flex;
 	align-items:center;
-	/*--width:70%;--*/
 	height:100px;
 	z-index:4;
 	position:relative;
 	top:0;
-
-	/*--float:left;--*/
 	}
 
 ul	{ list-style:none;}
+
+
+
+#pageLink
+	{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	}
+
+#pageLink .material-symbols-outlined
+	{
+	font-size:2rem;
+	margin-bottom:1.5rem;
+	margin-right:5px;
+	}
 
 	/*-------END main page 1st page header-------*/
 /*---------------END Style header--------------------*/
@@ -226,9 +293,15 @@ ul	{ list-style:none;}
 	{
 	display:flex;
 	justify-content:center;
-	align-items:center;
+	/*---align-items:center;---*/
 	height:100%;
+
+	padding-top:40px;
+	align-items:unset;
+
+	cursor:default;
 	}
+
 .fp-table
 	{
 	justify-content:flex-start;
@@ -242,6 +315,41 @@ ul	{ list-style:none;}
 	height:100%;
 	padding:0 20px 20px 20px;
 	}
+
+#slideContainer
+	{
+	/*---height:unset;---*/
+	/*---padding:0 60px;---*/
+
+	width:800px;
+	height:100%;
+	padding:0 60px 20px 60px;
+	}
+
+#topicsList
+	{
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	padding:10px 0 0 0;
+	margin:5px 5px;
+	}
+
+#topicsList li 
+	{
+	width:48%; 
+	padding: 10px 5px;
+	margin:5px 0;
+	border-radius:5px;
+	text-align:center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	}
+
+#topicsList #liFull
+	{ width:-webkit-fill-available; }
 	/*-------END Style container-----------------*/
 /*---------------END Style Sections------------------*/
 /*---08---*/
@@ -261,11 +369,36 @@ ul	{ list-style:none;}
 /*---------------END Style xxxxxxx-------------------*/
 /*---11---*/
 /*---------------Style colors------------------------*/
-	/*-------Style colors web site name + text---*/
-	/*-------END Style colors website name-------*/
+	/*-------link-Topics-------------------------*/
+#topicsList li
+	{
+	background-color:#003049;
+	color:White;
+	}
+
+#topicsList li:hover
+	{
+	background-color:#780000;
+	font-weight:bold;
+	}
+
+	/*-------END link-Topics---------------------*/
 	/*-------page colors-main page---------------*/
+h, .middle >p
+	{color:#780000}
+
+#section0
+	{ background-color:#669BBC;} /*--main--*/
+
+#section1,
+#section2,
+#section3,
+#section4,
+#section5,
+#section6
+	{ background-color:silver;}
+
 
 	/*-------END page colors-main page-----------*/
-
 /*---------------END Style colors--------------------*/
 

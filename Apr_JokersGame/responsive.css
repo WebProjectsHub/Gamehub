@@ -1,502 +1,168 @@
+
 /*---------------RESPONSIVE DESIGN-------------------*/
-/* iphone14 portrait ------------------------------ */
+/*- Adjustment for main header---------------------- */
 @media only screen
-and (min-width: 320px) 
-and (max-width: 528px) 
-and (orientation : portrait)
+and (max-width: 360px) 
 {
-.header, .dropMenu
-	{ height:40px;}
-.header
-	{
-	display:flex;
-	flex:1;
-	min-width:220px;
-	}
 h	/*---website name---*/	
 	{
 	font-size: 2rem;
 	font-weight:800;
 	}
+	/*- Header image---------------------------- */
 
-.container
+.header img
 	{
-	/*--display:flex;--*/
-	flex-direction:row;
-	flex-wrap:wrap;
-	align-content:flex-start;
-	}
-h1
-	{
-	font-size: 2.4rem;
-	line-height:1.25;
+	width:25px;
+	top:2px;
 	}
 
-h2
+	/*- Header image---------------------------- */
+}
+
+@media only screen
+and (min-width: 361px) 
+and (max-width: 480px)
+{
+h	/*---website name---*/	
 	{
-	font-weight:bold;
-	}
-h4
-	{
-	font-size: 1.6rem;
-	line-height:1.25;
-	margin-bottom:1rem;
+	font-size: 3rem;
+	font-weight:800;
 	}
 
-h5
+	/*- Header image---------------------------- */
+.header img
 	{
-	font-size: 1.5rem;
-	font-weight:600;
+	width:25px;
+	top:2px;
 	}
+	/*- Header image---------------------------- */
+}
+/*- END Adjustment for main header------------------ */
 
+/*- Adjustment for text size------------------------ */
+@media only screen
+and (min-width: 320px)
+and (max-width: 480px) 
+{
+	/*- Text size------------------------------- */
 p,
 li,
 blockquote 
-	{
-	font-size: 1.4rem;
-	line-height: 1.5;
-	text-align:justify;
+	{ text-align:justify; }
+
+h1	{ font-size: 2.4rem; line-height:1.25; }
+
+h2	{ font-size: 2.4rem; line-height:1.2;
+	font-weight:500;
 	}
 
+h4	{ font-size: 1.6rem; line-height:1.25;
+	margin-bottom:1rem;
+	}
+
+h5	{ font-size: 1.5rem;
+	font-weight:600;
+	}
+
+	/*- END Text size--------------------------- */
+	/*- Arrows---------------------------------- */
+.fp-arrow 
+	{ scale: 60%; }
+
+	/*- END Arrows------------------------------ */
+	/*- Blockquote------------------------------ */
 blockquote 
 	{
 	margin-inline-start: 30px;
 	margin-inline-end: 30px;
 	}
 
+	/*- END Blockquote-------------------------- */
+	/*- Lists----------------------------------- */
 ul, ol	{
 	margin-block-start:0;
 	padding-inline-start: 20px;
 	}
 
-#slideContainer li
-	{
-	padding:0;
-	
-	}
+	/*- END Lists------------------------------- */
 
-#topicsList2 li,
-#topicsList li
-	{ margin: 5px;}
+}
 
-#topicsList li
-	{ flex-grow:1;}
-
-#topicsList2 a,
-#topicsList a
-	{
-	margin: 0;
-	font-size:1.4rem;
-	}
-
-/*---slides---*/
+/*- Adjustment for landscape phone margins---------- */
+@media only screen
+and (min-width: 500px)
+and (max-width: 700px)
+and (orientation: landscape)
+{
 .fp-overflow
-	{
-	align-items:flex-start;
-	}
-#slideContainer
-	{ padding:10px 50px 20px 50px;}
+	{ padding-top:20px; }
 
-#slideContainer h2,
-#imageSlideContainer h2
-	{
-	font-size:2.4rem;
-	font-weight:500;
-	}
-#slideContainer p,
-#imageSlideContainer p
-	{
-	font-size:1.4rem;
-	font-weight:350;
-	text-align:justify;
-	width:100%;
+.header	{ height:60px; }
+
+.middle { padding-top: 0; }
+
+h1	{ font-size: 3.0rem; line-height:1.25;
+	margin-bottom:0;
 	}
 
 
 
-
-.contentContainer .middle
+	/*--------same as----------------------------*/
+	/*-@media only screen		-*/
+	/*-and (min-width: 361px) 	-*/
+	/*-and (max-width: 480px)	-*/
+	/*- Header --------------------------------- */
+h	/*---website name---*/	
 	{
-	width:320px;
+	font-size: 3rem;
+	font-weight:800;
 	}
 
-.divContainer,
-.timeContainer
-	{ display:none; }
-
-
-.fp-arrow 
-	{
-	scale: 60%;
-	}
-
- /*---logo---*/
 .header img
 	{
 	width:25px;
 	top:2px;
 	}
-
-#slideContainer ul li::marker 
-	{
-    	/*---font-size: unset;---*/
-	}
-
-#pageLink .material-symbols-outlined
-	{
-	font-size:2rem;
-	margin-bottom:2rem;
-	margin-right:5px;
-	}
-
-
-}
-/* iphone14 landscape ------------------------------ */
-@media only screen
-and (min-width: 216px) 
-and (max-width: 615px) 
-and (orientation : landscape) 
-{
-.header, .dropMenu
-	{ height:40px;}
-.header
-	{
-	display:flex;
-	flex:1;
-	min-width:220px;
-	}
-h	/*---website name---*/	
-	{
-	font-size: 2rem;
-	font-weight:900;
-	}
-
-.header img /*---logo---*/
-	{
-	width:25px;
-	top:2px;
-	}
-
-.dropMenu
-	{
-	display:flex;
-	flex:1;
-	min-width:30px;
-	}
-
-.dropMenuIcon div
-	{
-	width:20px;
-	height:2px;
-	margin:4px 0;
-	}
-
-.container
-	{
-	display:flex;
-	flex-direction:row;
-	flex-wrap:wrap;
-	align-content:flex-start;
-	}
-h1
-	{
-	font-size: 2.4rem;
-	line-height:1.25;
-	}
-
-h4
-	{
-	font-size: 2.0rem;
-	line-height:1.25;
-	}
-h5
-	{
-	font-size: 1.5rem;
-	font-weight:600;
-	}
-
-.middle >p,
-.contentContainer .middle >p,
-.contentContainer .middle li,
+	/*- END Header ----------------------------- */
+	/*--------END same as----------------------------*/
+	/*--------same as----------------------------*/
+	/*-@media only screen		-*/
+	/*-and (min-width: 320px)	-*/
+	/*-and (max-width: 480px) 	-*/
+	/*- Text size------------------------------- */
+p,
+li,
 blockquote 
-	{
-	font-size: 1.4rem;
-	line-height: 1.5;
-	text-align:justify;
-	}
+	{ text-align:justify; }
 
-blockquote 
-	{
-	margin-inline-start: 30px;
-	margin-inline-end: 30px;
-	} 
+h1	{ font-size: 2.4rem; line-height:1.25; }
 
-#topicsList2 li,
-#topicsList li
-	{ margin: 5px;}
-
-#topicsList li
-	{ flex-grow:1;}
-
-#topicsList2 a,
-#topicsList a
-	{
-	margin: 0;
-	font-size:1.4rem;
-	}
-
-/*---slides---*/
-.fp-overflow
-	{
-	align-items:flex-start;
-	}
-
-#imageSlideContainer
-	{
-	flex-direction:row;
-	flex-wrap:nowrap
-	}
-
-#imageSlideContainer #imgContainer
-	{ padding-top:85px;}
-
-#slideContainer,
-#imageSlideContainer
-	{ padding:10px 50px 20px 50px;}
-
-#slideContainer h2,
-#imageSlideContainer h2
-	{
-	font-size:2.4rem;
+h2	{ font-size: 2.4rem; line-height:1.2;
 	font-weight:500;
 	}
-#slideContainer p,
-#imageSlideContainer p
-	{
-	font-size:1.4rem;
-	font-weight:350;
-	text-align:justify;
-	width:100%;
-	}
-.fp-arrow
-	{ scale:60%;}
 
-		/*-------image layout----------------*/
-#pImage
-	{
-	height:auto;
-	width:200px;
-	overflow:clip;
-	display:flex;
-	justify-content:center;
+h4	{ font-size: 1.6rem; line-height:1.25;
+	margin-bottom:1rem;
 	}
 
-#pImage img
-	{
-	height:auto;
-	width:200px;
-	}
-
-#imageCaption,
-#imageCaption2
-	{ padding-left:10px;}
-		/*-------image layout----------------*/
-.divContainer,
-.timeContainer
-	{ display:none; }
-
-.fp-arrow 
-	{
-	scale: 60%;
-	}
-
- /*---logo---*/
-.header img
-	{
-	width:25px;
-	top:2px;
-	}
-#slideContainer ul li::marker 
-	{
-    	/*---font-size: unset;---*/
-	}
-
-#pageLink .material-symbols-outlined
-	{
-	font-size:2rem;
-	margin-bottom:2rem;
-	margin-right:5px;
-	}
-
-}
-
-
-/* iphone14 landscape -edge browser----------------- */
-@media only screen
-and (min-width: 248px) 
-and (max-width: 693px) 
-and (orientation : landscape)
-{
-.header, .dropMenu
-	{ height:40px;}
-.header
-	{
-	display:flex;
-	flex:1;
-	min-width:220px;
-	}
-h	/*---website name---*/	
-	{
-	font-size: 2rem;
-	font-weight:900;
-	}
-
-.header img /*---logo---*/
-	{
-	width:25px;
-	top:2px;
-	}
-
-.dropMenu
-	{
-	display:flex;
-	flex:1;
-	min-width:30px;
-	}
-
-.dropMenuIcon div
-	{
-	width:20px;
-	height:2px;
-	margin:4px 0;
-	}
-
-.container
-	{
-	display:flex;
-	flex-direction:row;
-	flex-wrap:wrap;
-	align-content:flex-start;
-	}
-h1
-	{
-	font-size: 2.4rem;
-	line-height:1.25;
-	}
-
-h4
-	{
-	font-size: 2.0rem;
-	line-height:1.25;
-	}
-h5
-	{
-	font-size: 1.5rem;
+h5	{ font-size: 1.5rem;
 	font-weight:600;
 	}
 
-.middle >p,
-.contentContainer .middle >p,
-.contentContainer .middle li,
-blockquote 
-	{
-	font-size: 1.4rem;
-	line-height: 1.4;
-	text-align:justify;
-	}
+	/*- END Text size--------------------------- */
+	/*- Arrows---------------------------------- */
+.fp-arrow 
+	{ scale: 60%; }
 
+	/*- END Arrows------------------------------ */
+	/*- Blockquote------------------------------ */
 blockquote 
 	{
 	margin-inline-start: 30px;
 	margin-inline-end: 30px;
 	}
 
-#topicsList2 li,
-#topicsList li
-	{ margin: 5px;}
-
-#topicsList li
-	{ flex-grow:1;}
-
-#topicsList2 a,
-#topicsList a
-	{
-	margin: 0;
-	font-size:1.4rem;
-	}
-
-/*---slides---*/
-.fp-overflow
-	{
-	align-items:flex-start;
-	}
-#slideContainer,
-#imageSlideContainer
-	{ padding:10px 50px 20px 50px;}
-
-#slideContainer h2,
-#imageSlideContainer h2
-	{
-	font-size:2.4rem;
-	font-weight:500;
-	}
-#slideContainer p,
-#imageSlideContainer p
-	{
-	font-size:1.4rem;
-	font-weight:350;
-	text-align:justify;
-	width:100%;
-	}
-.fp-arrow
-	{ scale:60%;}
-
-		/*-------image layout----------------*/
-#pImage
-	{
-	height:auto;
-	width:200px;
-	overflow:clip;
-	display:flex;
-	justify-content:center;
-	}
-
-#pImage img
-	{
-	height:auto;
-	width:200px;
-	}
-
-#imageCaption,
-#imageCaption2
-	{ padding-left:10px;}
-		/*-------image layout----------------*/
-.divContainer,
-.timeContainer
-	{ display:none; }
-
-.fp-arrow 
-	{
-	scale: 60%;
-	}
-
-
- /*---logo---*/
-.header img
-	{
-	width:25px;
-	top:2px;
-	}
-#slideContainer ul li::marker 
-	{
-    	/*---font-size: unset;---*/
-	}
-
-#pageLink .material-symbols-outlined
-	{
-	font-size:2rem;
-	margin-bottom:2rem;
-	margin-right:5px;
-	}
-
+	/*- END Blockquote-------------------------- */
+	/*--------END same as------------------------*/
 }
