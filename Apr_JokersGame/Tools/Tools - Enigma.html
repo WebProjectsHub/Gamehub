@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enigma Machine Emulator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #1e1e1e;
+      color: #eee;
+      padding: 20px;
+    }
+    h1 { text-align: center; }
+    .section { margin: 20px 0; }
+    .rotor, .plugboard-pair {
+      display: inline-block;
+      margin: 10px;
+    }
+    select, input[type=text], button {
+      font-size: 1rem;
+      margin: 5px;
+    }
+    #output {
+      white-space: pre-wrap;
+      background: #222;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .rotor-visualizer {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .rotor-dial {
+      font-size: 2rem;
+      margin: 0 10px;
+      background: #444;
+      padding: 10px;
+      border-radius: 50%;
+      width: 50px;
+      text-align: center;
+    }
+    .guide {
+      background: #2e2e2e;
+      padding: 10px;
+      border-left: 4px solid #888;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Enigma Machine Emulator</h1>
+
+<div class="section">
+  <label>Reflector:</label>
+  <select id="reflector">
+    <option value="A">Reflector A</option>
+    <option value="B" selected>Reflector B</option>
+    <option value="C">Reflector C</option>
+  </select>
+</div>
+
+<div class="section">
+  <label>Rotor 1:</label>
+  <select id="rotor1">
+    <option value="EKMFLGDQVZNTOWYHXUSPAIBRCJ">I</option>
+    <option value="AJDKSIRUXBLHWTMCQGZNPYFVOE">II</option>
+    <option value="BDFHJLCPRTXVZNYEIWGAKMUSQO">III</option>
+    <option value="ESOVPZJAYQUIRHXLNFTGKDCMWB">IV</option>
+    <option value="VZBRGITYUPSDNHLXAWMJQOFECK">V</option>
+  </select>
+  <label>Rotor 2:</label>
+  <select id="rotor2">
+    <option value="AJDKSIRUXBLHWTMCQGZNPYFVOE">II</option>
+    <option value="EKMFLGDQVZNTOWYHXUSPAIBRCJ">I</option>
+    <option value="BDFHJLCPRTXVZNYEIWGAKMUSQO">III</option>
+    <option value="ESOVPZJAYQUIRHXLNFTGKDCMWB">IV</option>
+    <option value="VZBRGITYUPSDNHLXAWMJQOFECK">V</option>
+  </select>
+  <label>Rotor 3:</label>
+  <select id="rotor3">
+    <option value="BDFHJLCPRTXVZNYEIWGAKMUSQO">III</option>
+    <option value="EKMFLGDQVZNTOWYHXUSPAIBRCJ">I</option>
+    <option value="AJDKSIRUXBLHWTMCQGZNPYFVOE">II</option>
+    <option value="ESOVPZJAYQUIRHXLNFTGKDCMWB">IV</option>
+    <option value="VZBRGITYUPSDNHLXAWMJQOFECK">V</option>
+  </select>
+</div>
+
+<div class="section">
+  <h3>Plugboard (max 10 pairs)</h3>
+  <div id="plugboard">
+    <!-- Plugboard letter pairs -->
+  </div>
+</div>
+
+<div class="section">
+  <label>Message:</label><br>
+  <input type="text" id="inputText" size="60" />
+  <button onclick="encrypt()">Encrypt</button>
+</div>
+
+<div class="rotor-visualizer" id="rotorDisplay">
+  <div class="rotor-dial" id="dial1">A</div>
+  <div class="rotor-dial" id="dial2">A</div>
+  <div class="rotor-dial" id="dial3">A</div>
+</div>
+
+<div class="section">
+  <h3>Encrypted Output</h3>
+  <div id="output"></div>
+</div>
+
+<div class="guide">
+  <h4>Guide:</h4>
+  <ul>
+    <li>Select your rotors and reflector.</li>
+    <li>Use the dropdowns to create plugboard letter pairs (e.g., A↔G).</li>
+    <li>Type your message (A–Z only), then click Encrypt.</li>
+    <li>The output is shown below with rotor position updates.</li>
+  </ul>
+</div>
+
+<audio id="clickSound" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Mechanical_Button_Click.ogg" preload="auto"></audio>
+
+<script>
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const plugboardMax = 10;
+
+  // Reflectors
+  const reflectors = {
+    A: 'EJMZALYXVBWFCRQUONTSPIKHGD',
+    B: 'YRUHQSLDPXNGOKMIEBFZCWVJAT',
+    C: 'FVPJIAOYEDRZXWGCTKUQSBNMHL'
+  };
+
+  // Setup plugboard
+  const plugDiv = document.getElementById('plugboard');
+  for (let i = 0; i < plugboardMax; i++) {
+    const div = document.createElement('div');
+    div.className = 'plugboard-pair';
+    div.innerHTML = `
+      <select class="plugA">${generateOptions()}</select> ↔ 
+      <select class="plugB">${generateOptions()}</select>
+    `;
+    plugDiv.appendChild(div);
+  }
+
+  function generateOptions() {
+    return alphabet.split('').map(c => `<option value="${c}">${c}</option>`).join('');
+  }
+
+  function applyPlugboard(c, plugs) {
+    for (let [a, b] of plugs) {
+      if (c === a) return b;
+      if (c === b) return a;
+    }
+    return c;
+  }
+
+  function stepRotor(rotor) {
+    return rotor.slice(1) + rotor[0];
+  }
+
+  function encryptChar(c, rotors, refl, plugs, rotorPos) {
+    const click = document.getElementById('clickSound');
+    click.currentTime = 0;
+    click.play();
+
+    // Rotor stepping
+    rotorPos[2] = (rotorPos[2] + 1) % 26;
+    if (rotorPos[2] === 0) rotorPos[1] = (rotorPos[1] + 1) % 26;
+    if (rotorPos[1] === 0 && rotorPos[2] === 0) rotorPos[0] = (rotorPos[0] + 1) % 26;
+
+    updateRotors(rotorPos);
+
+    c = applyPlugboard(c, plugs);
+    let i = (alphabet.indexOf(c) + rotorPos[2]) % 26;
+    c = rotors[2][i];
+    i = (alphabet.indexOf(c) + rotorPos[1] - rotorPos[2] + 26) % 26;
+    c = rotors[1][i];
+    i = (alphabet.indexOf(c) + rotorPos[0] - rotorPos[1] + 26) % 26;
+    c = rotors[0][i];
+
+    i = (alphabet.indexOf(c) - rotorPos[0] + 26) % 26;
+    c = refl[i];
+
+    i = (reflectors[refl].indexOf(c) + rotorPos[0]) % 26;
+    c = alphabet[i];
+    i = (rotors[0].indexOf(c) + rotorPos[1] - rotorPos[0] + 26) % 26;
+    c = alphabet[i];
+    i = (rotors[1].indexOf(c) + rotorPos[2] - rotorPos[1] + 26) % 26;
+    c = alphabet[i];
+    i = rotors[2].indexOf(c);
+    c = alphabet[(i - rotorPos[2] + 26) % 26];
+
+    c = applyPlugboard(c, plugs);
+    return c;
+  }
+
+  function updateRotors(pos) {
+    document.getElementById('dial1').textContent = alphabet[pos[0]];
+    document.getElementById('dial2').textContent = alphabet[pos[1]];
+    document.getElementById('dial3').textContent = alphabet[pos[2]];
+  }
+
+  function encrypt() {
+    const text = document.getElementById('inputText').value.toUpperCase().replace(/[^A-Z]/g, '');
+    const rotor1 = document.getElementById('rotor1').value;
+    const rotor2 = document.getElementById('rotor2').value;
+    const rotor3 = document.getElementById('rotor3').value;
+    const refl = reflectors[document.getElementById('reflector').value];
+
+    // Read plugboard settings
+    const plugs = [];
+    const plugA = document.querySelectorAll('.plugA');
+    const plugB = document.querySelectorAll('.plugB');
+    for (let i = 0; i < plugA.length; i++) {
+      const a = plugA[i].value;
+      const b = plugB[i].value;
+      if (a !== b && !plugs.flat().includes(a) && !plugs.flat().includes(b)) {
+        plugs.push([a, b]);
+      }
+    }
+
+    let output = '';
+    const rotorPos = [0, 0, 0];
+    updateRotors(rotorPos);
+    for (let c of text) {
+      output += encryptChar(c, [rotor1, rotor2, rotor3], refl, plugs, rotorPos);
+    }
+    document.getElementById('output').textContent = output;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+Base64 Encrypt & Decrypt
+	</title>
+	<link rel="stylesheet" href="tools.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/images/logo/favicon/site.webmanifest">
+</head>
+<body>
+
+  <h2>Base64 Encoder & Decoder</h2>
+
+  <label for="text">Input Text:</label>
+  <textarea id="text" rows="4" placeholder="Enter text here..."></textarea>
+
+  <button onclick="encodeBase64()">Encrypt (Encode)</button>
+  <button onclick="decodeBase64()">Decrypt (Decode)</button>
+
+  <h3>Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    function encodeBase64() {
+      const text = document.getElementById("text").value;
+      try {
+        const encoded = btoa(unescape(encodeURIComponent(text)));
+        document.getElementById("output").textContent = encoded;
+      } catch (e) {
+        document.getElementById("output").textContent = "Error: Unable to encode input.";
+      }
+    }
+
+    function decodeBase64() {
+      const text = document.getElementById("text").value;
+      try {
+        const decoded = decodeURIComponent(escape(atob(text)));
+        document.getElementById("output").textContent = decoded;
+      } catch (e) {
+        document.getElementById("output").textContent = "Error: Invalid Base64 string.";
+      }
+    }
+  </script>
+
+</body>
+</html>

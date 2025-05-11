@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+Polybius Cipher Tool
+	</title>
+	<link rel="stylesheet" href="tools.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/images/logo/favicon/site.webmanifest">
+</head>
+<body>
+
+  <h2>Polybius Cipher</h2>
+
+  <label for="text">Enter Text:</label>
+  <textarea id="text" rows="4" placeholder="Enter message here..."></textarea>
+
+  <div>
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+  </div>
+
+  <h3>Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    const square = [
+      ['A','B','C','D','E'],
+      ['F','G','H','I','K'],
+      ['L','M','N','O','P'],
+      ['Q','R','S','T','U'],
+      ['V','W','X','Y','Z']
+    ];
+
+    function encrypt() {
+      const text = document.getElementById('text').value.toUpperCase().replace(/J/g, 'I');
+      let result = "";
+
+      for (let char of text) {
+        if (char >= 'A' && char <= 'Z') {
+          outer: for (let row = 0; row < 5; row++) {
+            for (let col = 0; col < 5; col++) {
+              if (square[row][col] === char) {
+                result += `${row+1}${col+1} `;
+                break outer;
+              }
+            }
+          }
+        } else {
+          result += char;
+        }
+      }
+
+      document.getElementById('output').textContent = result.trim();
+    }
+
+    function decrypt() {
+      const input = document.getElementById('text').value.trim();
+      let result = "";
+
+      // Remove non-digit characters and split every 2 digits
+      const parts = input.match(/\d{2}/g);
+
+      if (!parts) {
+        document.getElementById('output').textContent = "(No valid cipher numbers found)";
+        return;
+      }
+
+      for (let pair of parts) {
+        const row = parseInt(pair[0]) - 1;
+        const col = parseInt(pair[1]) - 1;
+        if (row >= 0 && row < 5 && col >= 0 && col < 5) {
+          result += square[row][col];
+        } else {
+          result += '?';
+        }
+      }
+
+      document.getElementById('output').textContent = result;
+    }
+  </script>
+
+</body>
+</html>

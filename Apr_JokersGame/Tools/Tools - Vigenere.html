@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+Vigenère Cipher Tool
+	</title>
+	<link rel="stylesheet" href="tools.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/images/logo/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/images/logo/favicon/site.webmanifest">
+</head>
+<body>
+
+  <h2>Vigenère Cipher</h2>
+
+  <label for="text">Enter Text:</label>
+  <textarea id="text" rows="4" placeholder="Enter your message here..."></textarea>
+
+  <label for="key">Enter Key:</label>
+  <input type="text" id="key" placeholder="Enter cipher key">
+
+  <button onclick="encrypt()">Encrypt</button>
+  <button onclick="decrypt()">Decrypt</button>
+
+  <h3>Output:</h3>
+  <div id="output"></div>
+
+  <script>
+    function sanitizeInput(str) {
+      return str.toUpperCase().replace(/[^A-Z]/g, '');
+    }
+
+    function vigenere(text, key, mode) {
+      text = sanitizeInput(text);
+      key = sanitizeInput(key);
+      if (key.length === 0) return 'Key cannot be empty.';
+
+      let output = '';
+      for (let i = 0, j = 0; i < text.length; i++) {
+        const textChar = text.charCodeAt(i) - 65;
+        const keyChar = key.charCodeAt(j % key.length) - 65;
+
+        let resultChar;
+        if (mode === 'encrypt') {
+          resultChar = (textChar + keyChar) % 26;
+        } else {
+          resultChar = (textChar - keyChar + 26) % 26;
+        }
+
+        output += String.fromCharCode(resultChar + 65);
+        j++;
+      }
+      return output;
+    }
+
+    function encrypt() {
+      const text = document.getElementById('text').value;
+      const key = document.getElementById('key').value;
+      const result = vigenere(text, key, 'encrypt');
+      document.getElementById('output').textContent = result;
+    }
+
+    function decrypt() {
+      const text = document.getElementById('text').value;
+      const key = document.getElementById('key').value;
+      const result = vigenere(text, key, 'decrypt');
+      document.getElementById('output').textContent = result;
+    }
+  </script>
+
+</body>
+</html>
