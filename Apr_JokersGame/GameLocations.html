@@ -1067,13 +1067,36 @@ Manhattan Mini Storage
 220 South St, New York, NY 10002
 	<br><br>
 <b>The Scene:</b><br>
-The detectives arrive just after dawn. A light drizzle taps against the metal awning of the Portside Storage Facility, nestled along the edge of the East River. The massive concrete structure looms like a fortress—rows upon rows of locked units stretch deep into the building, creating a claustrophobic maze of cold steel and silence.
+The detectives pull up to the grim structure just as the sky begins to lighten, casting a pale, silvery hue over the East River. Raindrops spatter rhythmically on the car roof. A neon sign buzzes faintly above the entrance, struggling to stay lit.
 	<br><br>
-The building manager, pale and shaking, explains that someone used a stolen ID to rent Unit B-137. It was flagged this morning after a strange odor and a single red-edged Joker card slid out from under the door during routine inspection.
+Inside, the air is cold and stale. The Portside Storage Facility feels abandoned, though the fluorescent lights flicker weakly along the main corridor. The concrete walls sweat with moisture, and each footstep echoes into the distance like a warning.
 	<br><br>
-Inside, the scent of gasoline and decay hangs thick in the air. The only light comes from a bare flickering bulb overhead.
-	<br><br>
+The building manager, a thin man with a receding hairline and bloodshot eyes, meets them at the front. His hands tremble as he fumbles with a clipboard.
 				</p>
+				<ul id="dialog">
+<li><b>
+Manager:</b>	"I—I didn’t think anything of it until I saw the news. I recognized his face. The journalist. I checked our logs and… this unit—B-137—was rented yesterday. The ID was his. But... he’s dead."
+</li>
+				</ul>
+				<p>
+Rachel leans in, her eyes narrowing.
+				</p>
+				<ul id="dialog">
+<li><b>
+Rachel:</b>	"So either someone stole his identity… or he knew he was going to die."
+</li>
+				</ul>
+				<p>
+They follow the manager down a long corridor. The overhead lights flicker with every gust of wind outside. The units line both sides like silent sentinels, each door identical except one—B-137.
+	<br><br>
+A single Joker card, its red edges curling with moisture, protrudes from under the metal door. Evie picks it up, examining it carefully. On the back, a faint grease smudge reveals a partial fingerprint—deliberately placed.
+				</p>
+				<ul id="dialog">
+<li><b>
+Samantha:</b> “He’s not just mocking us anymore. He wants us to know he’s in control.”
+</li>
+	<br><br><br><br>
+				</ul>
 			</div>
 			<!------------END Container------------!>	
 		</div>
@@ -1094,38 +1117,229 @@ Inside, the scent of gasoline and decay hangs thick in the air. The only light c
 					Location 05
 				</h4>
 				<h2>
-					XXXXXXXXXX
+					Portside Storage Facility
 				</h2>
 				<h4>
-					XXXXXXXXXX
+					Crime Scene Clues
 				</h4>
 				<ol>
 <li>
-Clue 01
+The Joker card #5. Red coloration on the edge. (Collect all to reveal the final target)
+</li>
+<li>
+Lock for unit B-137
 	<ul>
 		<li>
-		01-1 
+		Lock requires a 6-digit password 
 		</li>
 		<li>
-		01-2
+		Use ASCII hexadecimal to encrypt 137 to get password
+		</li>
+		<li>
+		31 33 37
 		</li>
 	</ul>
 </li>
 <li>
-Clue 02
+Fake ID used by owner
 	<ul>
 		<li>
-		02-1 
+		The name on the ID is Daniel Keller 
 		</li>
 		<li>
-		02-2
+		That is how manager knew it was a fake ID.  
+		</li>
+		<li>
+		Unit rented a few months ago.  Checked in by another employee who left already.
+		</li>
+		<li>
+		Employee last name is Trent, same as second victim.
 		</li>
 	</ul>
 </li>
 <li>
-Clue 03
+Computer terminal inside B-137 similar to one from the Old Archives
+	<ul>
+		<li>
+		Requires password
+			<ul>
+				<li>
+				Password from name on fake ID
+				</li>
+				<li>
+				Use base64 to encrypt unit-owner name
+				</li>
+			</ul>
+		</li>
+		<li>
+		Chat with Joker
+			<ul>
+				<li>
+				Discover where body is
+				</li>
+				<li>
+				Joker gives garbled messages
+					<ul>
+						<li>
+						Message to be decoded later in the enigma machine
+						</li>
+					</ul>
+				</li>
+				<li>
+				Joker gives direction by logic cipher
+					<ul>
+						<li>
+						leads to unit xxx
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li>
+Unit xxx
+	<ul>
+		<li>
+		Lock requires a 6-digit password
+		</li>
+		<li>
+		Use ASCII hexadecimal to encrypt xxx to get password
+		</li>
+		<li>
+		Enigma machine inside the unit
+		</li>
+		<li>
+		Piece of paper with marking
+			<ul>
+				<li>
+				Fold origami to get enigma machine setting
+				</li>
+			</ul>
+		</li>
+
+	</ul>
+</li>
+<li>
+Enigma machine inside unit xxx
+	<ul>
+		<li>
+		Use enigma machine to decode the garbled message
+		</li>
+		<li>
+		Use the origami paper clue to get the correct settings for the enogma machine 
+		</li>
+		<li>
+		Message: 0ne unit up three units left seven units right (1-3-7)
+			<ul>
+				<li>
+				Significance: Joker's wife's birthday - July 13
+				</li>
+			</ul>
+		</li>
+		<li>
+		Decoded message leads to unit yyy
+		</li>
+
+	</ul>
+</li>
+<li>
+Unit yyy
+	<ul>
+		<li>
+		Lock requires a 6-digit password
+		</li>
+		<li>
+		Use ASCII hexadecimal to encrypt yyy to get password
+		</li>
+		<li>
+		Victim's body inside unit yyy, holding the 6th joker card
+			<ul>
+				<li>
+				Face of final victim identified with all 6 cards
+				</li>
+				<li>
+				Name of final victim identified
+				</li>
+			</ul>
+		</li>
+		<li>
+		Another computer terminal
+			<ul>
+				<li>
+				name of final victim used as password
+				</li>
+				<li>
+				timer on the chat box started counting down
+				</li>
+			</ul>
+		</li>
+		<li>
+		Detective must choose between saving the next victim or finding the motive and identity of Joker
+		</li>
+			<br><br>
+	</ul>
 </li>
 
+				</ol>
+			</div>
+			<!------------END Container------------!>	
+		</div>
+<!------------START END ---------------------------------------!>
+<!------------START END ---------------------------------------!>
+		<div class="slide" id="L-05_2">
+			<!------------Container-optional-------!>	
+			<div class="container"  id="slideContainer">
+				<div id="pageLink">
+					<span class="material-symbols-outlined">
+						playing_cards
+					</span>
+					<h5><a href="GameLocations.html">
+						Game Location
+					</a></h5>
+				</div>
+				<h4 id="subheader">
+					Location 05
+				</h4>
+				<h2>
+					Portside Storage Facility
+				</h2>
+				<h4>
+					Objectives
+				</h4>
+				<ol>
+<li>
+Unlock unit B-137
+</li>
+<li>
+Unlock computer terminal inside unit B-137
+	<ul>
+		<li>
+		Chat with Joker to determine location of victim's body
+		</li>
+		<li>
+		Collect all clues form the chat
+		</li>
+	</ul>
+</li>
+<li>
+Unlock unit xxx
+</li>
+<li>
+Use the enigma machine to collect all clues
+</li>
+<li>
+Unlock unit yyy
+</li>
+<li>
+Identify final victim
+</li>
+<li>
+Determine the motive
+</li>
+<li>
+Uncover the identity of Joker
+</li>
 				</ol>
 			</div>
 			<!------------END Container------------!>	
