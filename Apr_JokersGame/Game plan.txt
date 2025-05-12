@@ -58,4 +58,31 @@ Location 05
 		- name of final victim used as password
 		- timer on the chat box started counting down
 	- Detective must choose between saving the next victim or finding the motive and identity of Joker
-- 
+
+
+🚗 Estimated Drive Times Between Stops
+
+One Police Plaza → 50 Murray Street (Tribeca Lofts)
+Distance: ~0.4 miles
+Estimated Time: ~5 minutes
+
+One Police Plaza → Riverside Park (Riverside Dr, NY 10024)
+Distance: ~6.0 miles
+Estimated Time: ~13 minutes
+
+Riverside Park → Surrogate's Courthouse (31 Chambers St)
+Distance: ~4.5 miles
+Estimated Time: ~20–25 minutes
+
+31 Chambers St → Jefferson Market Library (425 6th Ave)
+Distance: ~2.0 miles
+Estimated Time: ~10–15 minutes
+
+Jefferson Market Library → Manhattan Mini Storage (220 South St)
+Distance: ~2.5 miles
+Estimated Time: ~15–20 minutes
+
+220 South St → One Police Plaza
+Distance: ~1.0 mile
+Estimated Time: ~5–10 minutes
+
