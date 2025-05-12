@@ -71,9 +71,35 @@ He has 1 hour to do that or the bomb will explode.
 
 There is only one clue.  The USB has a folder that is encrypted. 
 
+Objectives
+- Save Captain Holloway
+- Uncover the truth about Eleanor Hayes
+- Prevent Joker’s narrative from spiraling further.
+
+Steps
+- Secure the perimeter
+- Review video feed from Captain's laptop
+	- Determine if it is transmitting elsewhere.
+	- Check if timer is real
+- Investigate evidence locker
+	- Determine how the evidence was planted
+		- Planted through blackmail
+		- Officer who planted it  was identified
+		- Blackmailed by a message from phone
+		- Message leads to an IP address
+
+- Review Joker's messages
+- Break USB encryption
+- Get the bomb's deactivation code
 
 The Clues
 - USB with encrypted folder
+	- requires 
 - Captain's chair rigged with explosive
-	- input mechanism to deactivate
+	- Input mechanism to deactivate
+	- To be deactivated last, if the detectives find the clues in time.
 - Evidence bag where the USB was taken
+	- Signed by TeRrence ThoRne, after he supposedly have died already
+	- Date of collection is xx-xxx-xx
+	
+	- 
