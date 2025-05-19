@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reverse Audio Player with Waveform & Spectrogram</title>
+  <style>
+    #waveform, #spectrogram {
+      width: 100%;
+      height: 150px;
+      background: #f0f0f0;
+      margin: 10px 0;
+    }
+    button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Reverse Audio Player with Waveform & Spectrogram</h2>
+  <input type="file" id="audioFile" accept="audio/*">
+  <div>
+    <button id="playButton">Play</button>
+    <button id="pauseButton">Pause</button>
+  </div>
+  <canvas id="waveform"></canvas>
+  <canvas id="spectrogram"></canvas>
+
+  <script>
+    const audioFileInput = document.getElementById('audioFile');
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const waveformCanvas = document.getElementById('waveform');
+    const spectrogramCanvas = document.getElementById('spectrogram');
+    const waveCtx = waveformCanvas.getContext('2d');
+    const specCtx = spectrogramCanvas.getContext('2d');
+
+    let audioContext;
+    let source;
+    let reversedBuffer;
+    let isPlaying = false;
+    let pauseTime = 0;
+
+    function drawWaveform(buffer) {
+      waveformCanvas.width = waveformCanvas.clientWidth;
+      waveformCanvas.height = waveformCanvas.clientHeight;
+
+      const data = buffer.getChannelData(0);
+      const step = Math.ceil(data.length / waveformCanvas.width);
+      const amp = waveformCanvas.height / 2;
+      waveCtx.clearRect(0, 0, waveformCanvas.width, waveformCanvas.height);
+      waveCtx.beginPath();
+      waveCtx.moveTo(0, amp);
+
+      for (let i = 0; i < waveformCanvas.width; i++) {
+        const slice = data.slice(i * step, (i + 1) * step);
+        const min = Math.min(...slice);
+        const max = Math.max(...slice);
+        waveCtx.lineTo(i, (1 + min) * amp);
+        waveCtx.lineTo(i, (1 + max) * amp);
+      }
+      waveCtx.strokeStyle = '#007acc';
+      waveCtx.stroke();
+    }
+
+    function drawSpectrogram(buffer) {
+      const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 2048;
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      spectrogramCanvas.width = spectrogramCanvas.clientWidth;
+      spectrogramCanvas.height = spectrogramCanvas.clientHeight;
+
+      function renderFrame() {
+        if (!isPlaying) return;
+        analyser.getByteFrequencyData(dataArray);
+
+        const imageData = specCtx.getImageData(1, 0, spectrogramCanvas.width - 1, spectrogramCanvas.height);
+        specCtx.putImageData(imageData, 0, 0);
+
+        for (let i = 0; i < dataArray.length; i++) {
+          const value = dataArray[i];
+          specCtx.fillStyle = `rgb(${value}, ${value}, ${value})`;
+          specCtx.fillRect(spectrogramCanvas.width - 1, spectrogramCanvas.height - i, 1, 1);
+        }
+
+        requestAnimationFrame(renderFrame);
+      }
+
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      renderFrame();
+    }
+
+    function playAudio() {
+      if (!reversedBuffer || isPlaying) return;
+
+      source = audioContext.createBufferSource();
+      source.buffer = reversedBuffer;
+      source.connect(audioContext.destination);
+      source.start(0, pauseTime);
+      drawSpectrogram(reversedBuffer);
+      isPlaying = true;
+
+      source.onended = () => {
+        isPlaying = false;
+        pauseTime = 0;
+      };
+    }
+
+    function pauseAudio() {
+      if (isPlaying && source) {
+        source.stop();
+        pauseTime += audioContext.currentTime;
+        isPlaying = false;
+      }
+    }
+
+    audioFileInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const arrayBuffer = e.target.result;
+        audioContext.decodeAudioData(arrayBuffer, function (audioBuffer) {
+          const numChannels = audioBuffer.numberOfChannels;
+          reversedBuffer = audioContext.createBuffer(
+            numChannels,
+            audioBuffer.length,
+            audioBuffer.sampleRate
+          );
+
+          for (let channel = 0; channel < numChannels; channel++) {
+            const input = audioBuffer.getChannelData(channel);
+            const output = reversedBuffer.getChannelData(channel);
+            for (let i = 0; i < input.length; i++) {
+              output[i] = input[input.length - 1 - i];
+            }
+          }
+
+          drawWaveform(reversedBuffer);
+          pauseTime = 0;
+          alert('Audio loaded and reversed. Press Play!');
+        });
+      };
+      reader.readAsArrayBuffer(file);
+    });
+
+    playButton.addEventListener('click', playAudio);
+    pauseButton.addEventListener('click', pauseAudio);
+  </script>
+</body>
+</html>

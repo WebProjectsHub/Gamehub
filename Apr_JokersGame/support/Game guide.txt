@@ -1,0 +1,157 @@
+Game Development Phases
+- Create characters
+	100%
+- Identify Locations
+	90% 
+	- remaining: Police station
+- Develop the flow of the game (Game Plan)
+	90% 
+	- remaining: Police station
+- Develop ciphers and clues
+	- Decription tools
+		90%
+		- remaining: improve interface
+- Create the props
+	0%
+- Create player interface
+	0%
+
+🚗 Estimated Drive Times Between Stops
+
+One Police Plaza → 50 Murray Street (Tribeca Lofts)
+Distance: ~0.4 miles
+Estimated Time: ~5 minutes
+
+One Police Plaza → Riverside Park (Riverside Dr, NY 10024)
+Distance: ~6.0 miles
+Estimated Time: ~13 minutes
+
+Riverside Park → Surrogate's Courthouse (31 Chambers St)
+Distance: ~4.5 miles
+Estimated Time: ~20–25 minutes
+
+31 Chambers St → Jefferson Market Library (425 6th Ave)
+Distance: ~2.0 miles
+Estimated Time: ~10–15 minutes
+
+Jefferson Market Library → Manhattan Mini Storage (220 South St)
+Distance: ~2.5 miles
+Estimated Time: ~15–20 minutes
+
+220 South St → One Police Plaza
+Distance: ~1.0 mile
+Estimated Time: ~5–10 minutes
+
+
+
+
+Central Precinct HQ
+
+Real-World Counterpart:
+New York City Police Department
+One Police Plaza, New York, NY 10038
+
+The Scene:
+The nerve center of the investigation. Normally a place of authority and order. Today, it feels like a trap.
+
+It’s late evening. Rain lashes against the windows of the precinct. Thunder rolls in the distance. Inside, tension hangs in the air. The station should be a sanctuary—but now, it’s the Joker’s next crime scene.
+
+The office was completely evacuated.  Police cars and firetrucks, barricades and police officers milling outside the building then the detectives arrive.  
+
+Only Captain Marcus Holloway is left inside, sitting in his office.  The office is booby-trapped. A pressure plate beneath the Captain's chair is rigged.  If he tries to stand, it will explode. 
+
+The detectives are now on video call with the Captain.  He explained what happened.  At the same time that the detectives start the chat with the Joker, A phone rang in tha station asking for the Captain.  A distorted voice told him to check evidence locker, in the files regarding Eleanor Hayes's death.  There, a USB that is not supposed to be there.
+
+He brought it to his office, plugged in his laptop, a timer started and a message that if he moves, the chair, and other explosives hidden in the station will explode.  It was a bluff, except for the explosive under his chair.  It can be deactivated if you input the correct code.  Explosive experts are unable to deactivate it.
+
+A new message appeared.  It told him to confess his cover up on the death of Eleanor Hayes.  That he should make it public and reveal who the real murderer is.
+
+He has 1 hour to do that or the bomb will explode.
+
+
+
+Objectives
+- Save Captain Holloway
+- Uncover the truth about Eleanor Hayes
+- Prevent Joker’s narrative from spiraling further.
+
+Options
+- One team, save the Captain
+	- Save the Captain
+		- Tell him to confess
+		- Investigate clues
+	- Investigate Eleanor Hayes-Joker connection later
+
+- Two teams
+	Team 1 - Play joker's game and save captain
+		- Tell him to confess
+		- Investigate clues
+	Team 2 - Investigate Eleanor Hayes
+		- Find link between Eleanor and the Joker
+		- Discover who/where the Joker is
+
+Steps
+- Secure the perimeter
+- Review video feed from Captain's laptop
+	- Determine if it is transmitting elsewhere.
+	- Check if timer is real
+- Investigate evidence locker
+	- Determine how the evidence was planted
+		- Planted through blackmail
+		- Officer who planted it  was identified
+		- Blackmailed by a message from phone
+		- Message leads to an IP address
+
+
+The Clues
+- Evidence bag where the USB was taken
+	- Signed by Terrence Thorne, after he supposedly have died already
+	- Date of collection is xx-xxx-xx 
+	- Date is that of the accidental shooting and death of Eleanor
+- USB with encrypted folder
+	- USB has TT engraved on it
+	- Requires 7-digit code - xx-xxx-xx
+	- Taken from date on evidence bag
+- Message on the USB
+	- "Case No. zzzzzz"
+		- Leads to evidence bag for Case zzzzzz
+		- Detectives retrieve case file from the evidence room
+
+- Case file zzzzzz
+	- Concerns a case handled by Thorne
+	- Lawyers of defence are from Eleanor's firm
+	- Case file includes evidence bag belonging to another case
+	- (Find the correct clue. TYpe in the input box to query the item)
+
+- Evidence bag from another case
+	- Contains a printed copy of a ballistic report that appears to have been altered
+		- Word in red marker across says "Lies."
+	- Contains USB requiring password
+		- Two-tone black and white colored USB
+			- On the black portion, "Lies"
+			- On the white portion, nothing
+			- Password is "Truth"
+
+- USB
+	- USB contains 
+		- Garbled audio file
+			- need to play in reverse to get the content
+			- Conversation between 2 men.  One telling the other to mislabel an evidence.
+		- Scanned copy of ballistic report identifying gun owner to be T. Thorne.
+		- A shortcut to a website
+			- Joker's final riddle
+			- Input box for the answer
+			- leads to another webpage with timer and passcode
+				- passcode is Base64 
+				SWNvdmVyZWR1cHRoZWNyaW1l
+				- when decrypted means
+				"I covered up the crime."
+
+- Captain's chair rigged with explosive
+	- Input mechanism to deactivate
+	- To be deactivated last, if the detectives find the clues in time.
+	- Bomb is deactivated
+		- Timer appears on the computer screen with the message.
+		"Admit to your crimes."
+		- Timer starts counting down to 10 seconds.
+

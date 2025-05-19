@@ -1,0 +1,45 @@
+<!------------START END ---------------------------------------!>
+		<div class="slide" id="L-03">
+			<!------------Container-optional-------!>	
+			<div class="container"  id="slideContainer">
+				<div id="pageLink">
+					<span class="material-symbols-outlined">
+						playing_cards
+					</span>
+					<h5><a href="GameLocations.html">
+						Game Location
+					</a></h5>
+				</div>
+				<h4 id="subheader">
+					Location xx
+				</h4>
+				<h2>
+					xxxxxxxxxxxxxxx
+				</h2>
+				<h4>
+					Real-World Counterpart
+				</h4>
+				<p>
+<b>Location:</b><br>
+Surrogate's Courthouse (Hall of Records)
+	<br>
+31 Chambers St, New York, NY 10007
+	<br><br>
+<b>Description:</b><br>
+A Beaux-Arts building housing the city's municipal archives, with vast records and historical documents—an ideal setting for uncovering secrets.
+	<br><br>
+The detectives arrive at the grand, echoing halls of the Old Archives, where the scent of aged paper lingers in the air. Rows of dusty filing cabinets and endless stacks of municipal records surround them. A faint humming echoes—like an old HVAC or maybe… something else?
+	<br><br>
+A security guard reported strange activity the night before: lights flickering, unauthorized access in the basement, and a stack of records left out on a desk that hadn’t been touched in decades.  He leads the team up the stairs.  The elevator is out of order.
+	<br>
+				</p>
+				<ul id="dialog">
+<li><b>
+Security Guard:</b> 	 "I just came this morning and found that sign there.  It wasn't there when I left yesterday.  No one seem to know who put up the sign."
+</li>
+	<br><br>
+				</ul>
+			</div>
+			<!------------END Container------------!>	
+		</div>
+<!------------START END ---------------------------------------!>
