@@ -1,0 +1,14 @@
+Fliki
+hebert.flor@yahoo.com
+FlRakmun_01iki
+
+Main narrator: 
+	Davis
+	Voice Style: 
+		Default
+
+Joker
+	Tony
+	Voice Style:
+		Angry
+
