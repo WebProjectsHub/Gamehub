@@ -53,3 +53,8 @@ Fliki
 Lovo
 PlayAI
 11 Labs
+
+speechma
+anyvoicelab
+Writecream
+ON4T
