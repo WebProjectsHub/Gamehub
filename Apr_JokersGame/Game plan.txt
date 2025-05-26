@@ -44,65 +44,9 @@ Estimated Time: ~5–10 minutes
 
 
 
-
-Central Precinct HQ
-
-Real-World Counterpart:
-New York City Police Department
-One Police Plaza, New York, NY 10038
-
-The Scene:
-The nerve center of the investigation. Normally a place of authority and order. Today, it feels like a trap.
-
-It’s late evening. Rain lashes against the windows of the precinct. Thunder rolls in the distance. Inside, tension hangs in the air. The station should be a sanctuary—but now, it’s the Joker’s next crime scene.
-
-The office was completely evacuated.  Police cars and firetrucks, barricades and police officers milling outside the building then the detectives arrive.  
-
-Only Marcus Holloway is left inside, sitting in his office.  The office is booby-trapped. A pressure plate beneath the Captain's chair is rigged.  If he tries to stand, it will explode. 
-
-The detectives are now on video call with the Captain.  He explained what happened.  At the same time that the detectives start the chat with the Joker, A phone rang in tha station asking for the Captain.  A distorted voice told him to check evidence locker, in the files regarding Eleanor Hayes's death.  There, a USB that is not supposed to be there.
-
-He brought it to his office, plugged in his laptop, a timer started and a message that if he moves, the chair, and other explosives hidden in the station will explode.  It was a bluff, except for the explosive under his chair.  It can be deactivated if you input the correct code.  Explosive experts are unable to deactivate it.
-
-A new message appeared.  It told him to confess his cover up on the death of Elenor Hayes.  That he should make it public and reveal who the real murderer is.
-
-He has 1 hour to do that or the bomb will explode.
-
-
-There is only one clue.  The USB has a folder that is encrypted. 
-
-Objectives
-- Save Captain Holloway
-- Uncover the truth about Eleanor Hayes
-- Prevent Joker’s narrative from spiraling further.
-
-Steps
-- Secure the perimeter
-- Review video feed from Captain's laptop
-	- Determine if it is transmitting elsewhere.
-	- Check if timer is real
-- Investigate evidence locker
-	- Determine how the evidence was planted
-		- Planted through blackmail
-		- Officer who planted it  was identified
-		- Blackmailed by a message from phone
-		- Message leads to an IP address
-
-- Review Joker's messages
-- Break USB encryption
-- Get the bomb's deactivation code
-
-The Clues
-- USB with encrypted folder
-	- requires 
-- Captain's chair rigged with explosive
-	- Input mechanism to deactivate
-	- To be deactivated last, if the detectives find the clues in time.
-- Evidence bag where the USB was taken
-	- Signed by TeRrence ThoRne, after he supposedly have died already
-	- Date of collection is xx-xxx-xx
-	
-	- 
+***
+https://voicemaker.in/
+VoiRakmun_01ce
 
 ***
 Fliki
