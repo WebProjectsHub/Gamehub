@@ -49,11 +49,11 @@ const conversations = [
     },
     {
         question: "Where is the next victim?",
-        answers: ["Closer than you think... but slipping away."]
+	answers: ["Clocktower Library.  Hurry. Time is ticking."]
     },
     {
-        question: "Is the next victim still alive?",
-        answers: ["Tick-tock. The clock decides their fate, not me."]
+        question: "Who is the victim?",
+        answers: ["Patience. You will know soon enough."]
     },
     {
         question: "How much time do we have?",
@@ -72,7 +72,7 @@ const conversations = [
         answers: ["Your pride. Your certainty. Your fall."]
     },
     {
-        question: "Why target detectives?",
+        question: "Why target these people?",
         answers: ["Because you believe you’re untouchable."]
     },
     {
@@ -164,16 +164,12 @@ const conversations = [
         answers: ["Destroying? No. I'm just testing your limits."]
     },
     {
-        question: "Why target the police?",
-        answers: ["The police... they think they’re above the law. Time to bring them down."]
+        question: "Why target the these people?",
+        answers: ["They think they’re above the law. Time to bring them down."]
     },
     {
         question: "Do you blame all of us?",
         answers: ["Blame is for those who think they have time. I don’t care for it."]
-    },
-    {
-        question: "Are you targeting specific officers?",
-        answers: ["The ones who feel safest are usually the first to fall."]
     },
     {
         question: "Do you see yourself as a hero?",
@@ -200,24 +196,12 @@ const conversations = [
         answers: ["Oh, I’m far closer than you think, detective."]
     },
     {
-        question: "Are you hiding in the walls?",
-        answers: ["Walls are just another illusion of safety."]
-    },
-    {
         question: "Are you close to the victim?",
         answers: ["They’re closer than you can imagine."]
     },
     {
-        question: "Can you leave the building?",
-        answers: ["I can go wherever I please. Like you, detective."]
-    },
-    {
         question: "Can we negotiate?",
         answers: ["Negotiate? I don’t do deals. I make the rules."]
-    },
-    {
-        question: "What if we offer you something valuable?",
-        answers: ["You have nothing I want. Except your sanity."]
     },
     {
         question: "Do you think we’ll ever catch you?",
@@ -232,7 +216,7 @@ const conversations = [
         answers: ["Caught? What’s the fun in being caught?"]
     },
     {
-        question: "Why keep leaving clues then?",
+        question: "Why keep leaving clues?",
         answers: ["Clues make the game more interesting. But caught? Never."]
     },
     {
@@ -256,16 +240,8 @@ const conversations = [
         answers: ["They knew me more than they’d like to admit."]
     },
     {
-        question: "Why silence them?",
-        answers: ["Because some truths are better left buried."]
-    },
-    {
         question: "Are you working alone?",
         answers: ["Alone? How boring. But yes, for now."]
-    },
-    {
-        question: "Who else is involved?",
-        answers: ["No one else. Just me and the puzzle."]
     },
     {
         question: "Is there anyone helping you?",
@@ -277,10 +253,10 @@ const conversations = [
     },
     {
         question: "How do you choose your victims?",
-        answers: ["Victims are chosen based on who thinks they’re invulnerable."]
+        answers: ["They brought harm to a person I love.  I will bring the world crashing down on them."]
     },
     {
-        question: "Is it random?",
+        question: "The victims are not random?",
         answers: ["Nothing in this game is random."]
     },
     {
@@ -288,16 +264,8 @@ const conversations = [
         answers: ["The pattern is chaos, detective. You should try it sometime."]
     },
     {
-        question: "Why police officers?",
-        answers: ["They think they’re above justice. It’s time they learn otherwise."]
-    },
-    {
         question: "How can we trust you’re telling the truth?",
         answers: ["Trust? It’s just a game of perception. What do you believe?"]
-    },
-    {
-        question: "Why lie to us?",
-        answers: ["Lies make the game more fun."]
     },
     {
         question: "Are you being honest?",
@@ -312,16 +280,8 @@ const conversations = [
         answers: ["The next clue? It’s where you least expect it."]
     },
     {
-        question: "In the building?",
-        answers: ["Maybe. Maybe not."]
-    },
-    {
         question: "Should we look for another card?",
         answers: ["Cards are for children. You need something sharper."]
-    },
-    {
-        question: "Is it hidden somewhere obvious?",
-        answers: ["Obvious? That’s not the word I’d use."]
     },
     {
         question: "Is there a way to stop you?",
@@ -494,6 +454,10 @@ const conversations = [
     {
         question: "What does the card represent?",
         answers: ["It represents chaos. And you’re dancing in it."]
+    },
+    {
+        question: ["Can you explain?", "Do you care to explain?"],
+        answers: ["You must be kidding me."]
     },
     {
         question: "What’s so special about this card?",
