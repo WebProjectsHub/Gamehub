@@ -11,34 +11,34 @@
 
 // Array of taunts for spelling mistakes
 const taunts = [
-    "Learn to spell, detective.",
-    "Did you fall asleep on the keyboard?",
-    "Even toddlers spell better than that."
+    { text: "Learn to spell, detective.", audio: "taunt_learn-spell.mp3" },
+    { text: "Did you fall asleep on the keyboard?", audio: "taunt_fall-asleep.mp3" },
+    { text: "Even toddlers spell better than that.", audio: "taunt_toddler-spell.mp3" }
 ];
 
 // Array of taunts for grammar mistakes
 const grammarTaunts = [
-    "I think your grammar needs a little work.",
-    "Looks like your sentence structure is in chaos!",
-    "Your grammar's as messy as a puzzle with missing pieces!",
-    "Oh no, someone forgot their grammar rules. Try again!"
+    { text: "Your grammar is a joke.", audio: "taunt_grammar-joke.mp3" },
+    { text: "Looks like your sentence structure is in chaos!", audio: "taunt_sentence-chaos.mp3" },
+    { text: "Your grammar's as messy as a puzzle with missing pieces!", audio: "taunt_grammar-messy.mp3" },
+    { text: "Oh no, someone forgot their grammar rules - again!", audio: "taunt_grammar-rules.mp3" }
 ];
 
 // Array of taunts for wrong capitalization
 const capitalizationTaunts = [
-    "I see you've forgotten your capital letters.",
-    "Starting a sentence with a lowercase letter? Tsk tsk.",
-    "You should always begin your sentences with a capital letter, my friend.",
-    "That sentence looks like it needs a proper noun or two."
+    { text: "Capitals missing, genius.", audio: "taunt_capital-missing.mp3" },
+    { text: "Lowercase? Really?", audio: "taunt_lowercase.mp3" },
+    { text: "Still forgetting capitals.", audio: "taunt_still-forgetting.mp3" },
+    { text: "That sentence looks like it needs a proper noun or two.", audio: "taunt_noun-or-two.mp3" }
 ];
 
 // Check if the player input contains a question mark
 function checkForPunctuation(input) {
   if (!input.includes('?')) {
     const responses = [
-  	  "Not even sure what you're asking?",
-  	  "No question mark? Am I supposed to guess?",
-  	  "Questions usually end with a '?', genius."
+  	  { text: "Is that even a question?", audio: "taunt_is-that-a-question.mp3" },
+  	  { text: "No question mark? Am I supposed to guess?", audio: "taunt_no-question-mark.mp3" },
+  	  { text: "Questions usually end with a '?', genius.", audio: "taunt_question-mark-end.mp3" }
     ];
     const randomIndex = Math.floor(Math.random() * responses.length);
     return responses[randomIndex];
@@ -48,22 +48,27 @@ function checkForPunctuation(input) {
 
 
 // Simulate Joker typing
-function simulateJokerTyping(reply) {
+function simulateJokerTyping(reply, audioFile = null) {
     addMessage("...", 'joker');
     setTimeout(() => {
         const chat = document.getElementById('chat');
         chat.removeChild(chat.lastChild);
         addMessage(reply, 'joker');
 
-        // --- ADD THIS PART FOR RANDOM LAUGH ---
-        if (Math.random() < 0.3) { // 30% chance to laugh after answering
+        if (audioFile) {
+            const audio = new Audio(audioFile);
+            audio.play().catch(e => {
+                console.warn("Audio playback failed:", e);
+            });
+        }
+
+        if (Math.random() < 0.3) {
             const laugh = triggerRandomLaugh();
             setTimeout(() => {
                 addMessage(laugh, 'joker');
-            }, 800); // Delay after answer for realism
+                speakJoker(laugh); // Optional: TTS fallback
+            }, 800);
         }
-        // --------------------------------------
-        
     }, 1000);
 }
 
@@ -121,8 +126,10 @@ function handleTaunts(playerQuestion) {
     if (capitalizationTaunt) tauntsCollected.push(capitalizationTaunt);
 
     if (tauntsCollected.length > 0) {
-        // Join all taunts into one big Joker reply
-        return tauntsCollected.join(' ');
+        // Combine all texts into one message
+        const combinedText = tauntsCollected.map(t => t.text).join(' ');
+        const audioFile = "audio/" + tauntsCollected[0].audio; // Play only the first audio
+        return { text: combinedText, audio: audioFile };
     }
 
     return null; // No taunts
