@@ -9,36 +9,45 @@
 //    "Heh heh, you're making me laugh."
 //];
 
+function playAudio(filePath) {
+    const audio = new Audio(filePath);
+    audio.play().catch((e) => {
+        console.warn("Audio playback failed:", e);
+    });
+}
+
+
+
 // Array of taunts for spelling mistakes
 const taunts = [
-    { text: "Learn to spell, detective.", audio: "taunt_learn-spell.mp3" },
-    { text: "Did you fall asleep on the keyboard?", audio: "taunt_fall-asleep.mp3" },
-    { text: "Even toddlers spell better than that.", audio: "taunt_toddler-spell.mp3" }
+    { text: "Learn to spell, detective.", audio: "./audio/taunt_learn-spell.mp3" },
+    { text: "Did you fall asleep on the keyboard?", audio: "./audio/taunt_fall-asleep.mp3" },
+    { text: "Even toddlers spell better than that.", audio: "./audio/taunt_toddler-spell.mp3" }
 ];
 
 // Array of taunts for grammar mistakes
 const grammarTaunts = [
-    { text: "Your grammar is a joke.", audio: "taunt_grammar-joke.mp3" },
-    { text: "Looks like your sentence structure is in chaos!", audio: "taunt_sentence-chaos.mp3" },
-    { text: "Your grammar's as messy as a puzzle with missing pieces!", audio: "taunt_grammar-messy.mp3" },
-    { text: "Oh no, someone forgot their grammar rules - again!", audio: "taunt_grammar-rules.mp3" }
+    { text: "Your grammar is a joke.", audio: "./audio/taunt_grammar-joke.mp3" },
+    { text: "Looks like your sentence structure is in chaos!", audio: "./audio/taunt_sentence-chaos.mp3" },
+    { text: "Your grammar's as messy as a puzzle with missing pieces!", audio: "./audio/taunt_grammar-messy.mp3" },
+    { text: "Oh no, someone forgot their grammar rules - again!", audio: "./audio/taunt_grammar-rules.mp3" }
 ];
 
 // Array of taunts for wrong capitalization
 const capitalizationTaunts = [
-    { text: "Capitals missing, genius.", audio: "taunt_capital-missing.mp3" },
-    { text: "Lowercase? Really?", audio: "taunt_lowercase.mp3" },
-    { text: "Still forgetting capitals.", audio: "taunt_still-forgetting.mp3" },
-    { text: "That sentence looks like it needs a proper noun or two.", audio: "taunt_noun-or-two.mp3" }
+    { text: "Capitals missing, genius.", audio: "./audio/taunt_capital-missing.mp3" },
+    { text: "Lowercase? Really?", audio: "./audio/taunt_lowercase.mp3" },
+    { text: "Still forgetting capitals.", audio: "./audio/taunt_still-forgetting.mp3" },
+    { text: "That sentence looks like it needs a proper noun or two.", audio: "./audio/taunt_noun-or-two.mp3" }
 ];
 
 // Check if the player input contains a question mark
 function checkForPunctuation(input) {
   if (!input.includes('?')) {
     const responses = [
-  	  { text: "Is that even a question?", audio: "taunt_is-that-a-question.mp3" },
-  	  { text: "No question mark? Am I supposed to guess?", audio: "taunt_no-question-mark.mp3" },
-  	  { text: "Questions usually end with a '?', genius.", audio: "taunt_question-mark-end.mp3" }
+  	  { text: "Is that even a question?", audio: "./audio/taunt_is-that-a-question.mp3" },
+  	  { text: "No question mark? Am I supposed to guess?", audio: "./audio/taunt_no-question-mark.mp3" },
+  	  { text: "Questions usually end with a '?', genius.", audio: "./audio/taunt_question-mark-end.mp3" }
     ];
     const randomIndex = Math.floor(Math.random() * responses.length);
     return responses[randomIndex];
@@ -48,27 +57,22 @@ function checkForPunctuation(input) {
 
 
 // Simulate Joker typing
-function simulateJokerTyping(reply, audioFile = null) {
+function simulateJokerTyping(reply) {
     addMessage("...", 'joker');
     setTimeout(() => {
         const chat = document.getElementById('chat');
         chat.removeChild(chat.lastChild);
         addMessage(reply, 'joker');
 
-        if (audioFile) {
-            const audio = new Audio(audioFile);
-            audio.play().catch(e => {
-                console.warn("Audio playback failed:", e);
-            });
-        }
-
-        if (Math.random() < 0.3) {
+        // --- ADD THIS PART FOR RANDOM LAUGH ---
+        if (Math.random() < 0.3) { // 30% chance to laugh after answering
             const laugh = triggerRandomLaugh();
             setTimeout(() => {
                 addMessage(laugh, 'joker');
-                speakJoker(laugh); // Optional: TTS fallback
-            }, 800);
+            }, 800); // Delay after answer for realism
         }
+        // --------------------------------------
+        
     }, 1000);
 }
 
@@ -111,29 +115,24 @@ function getRandomLaugh() {
 
 // Handle taunts based on player input
 function handleTaunts(playerQuestion) {
-    const tauntsCollected = [];
+    const allTauntChecks = [
+        checkForPunctuation(playerQuestion),
+        checkForSpellingMistakes(playerQuestion),
+        checkForGrammarMistakes(playerQuestion),
+        checkForCapitalization(playerQuestion)
+    ];
 
-    const punctuationTaunt = checkForPunctuation(playerQuestion);
-    if (punctuationTaunt) tauntsCollected.push(punctuationTaunt);
-
-    const spellingTaunt = checkForSpellingMistakes(playerQuestion);
-    if (spellingTaunt) tauntsCollected.push(spellingTaunt);
-
-    const grammarTaunt = checkForGrammarMistakes(playerQuestion);
-    if (grammarTaunt) tauntsCollected.push(grammarTaunt);
-
-    const capitalizationTaunt = checkForCapitalization(playerQuestion);
-    if (capitalizationTaunt) tauntsCollected.push(capitalizationTaunt);
-
-    if (tauntsCollected.length > 0) {
-        // Combine all texts into one message
-        const combinedText = tauntsCollected.map(t => t.text).join(' ');
-        const audioFile = "audio/" + tauntsCollected[0].audio; // Play only the first audio
-        return { text: combinedText, audio: audioFile };
+    for (const taunt of allTauntChecks) {
+        if (taunt) {
+            playAudio(taunt.audio); // 🔊 Play only the first matching taunt's audio
+            return taunt.text;      // 🧠 Return only the first matching taunt text
+        }
     }
 
     return null; // No taunts
 }
+
+
 
 
 // Trigger a random laugh after each response (could also be triggered by a timer or event)
