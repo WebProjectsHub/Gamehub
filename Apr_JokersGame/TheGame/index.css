@@ -1,0 +1,251 @@
+/*---01---*/
+/*---------------Grid--------------------------------*/
+.container 
+	{ max-width: 800px; }
+
+/*---------------END Grid----------------------------*/
+/*---02---*/
+/*---------------Header--------------------------------*/
+	/*--Title + image container--*/
+.header
+	{
+	display: flex;
+	align-items: center;
+	width: 70%;
+	height: 100px;
+	z-index: 4;
+	position: relative;
+	top: 0;
+	float: left;
+	}
+
+	/*--Image--*/
+.header img 
+	{
+	position: relative;
+	top: 5px;
+	width: 40px;
+	height: auto;
+	margin-right: 5px;
+	}
+
+	/*--Dropmenu container--*/
+.dropMenu 
+	{
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: right;
+	-webkit-justify-content: right;
+	width: 30%;
+	height: 100px;
+	z-index: 4;
+	position: relative;
+	top: 0;
+	float: right;
+	}
+
+	/*--Dropmenu horizontal lines--*/
+.dropMenuIcon div
+	{
+	width: 35px;
+	height: 5px;
+	margin: 6px 0;
+	cursor: pointer;
+	background-color:black;
+	}
+
+	/*--Dropmenu items--*/
+.dropMenuContent 
+	{
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	display: none;
+	top: 64px;
+	float: right;
+	position: absolute;
+ 	z-index: 100;
+	font-size: 1.2rem;
+	}
+
+	/*--Dropmenu linked contents--*/
+.dropMenuContent a 
+	{
+	padding: 5px 10px;
+	margin: 2px 0;
+	float: none;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	position: relative;
+	opacity: 0;
+	min-width: 250px;
+	background-color:silver;
+	}
+
+	/*--Dropmenu - visible when hovered--*/
+.dropMenu:hover .dropMenuContent 
+	{
+	display: flex;
+	display: -webkit-flex;
+	opacity: 1;
+	}
+
+	/*--Dropmenu subcategory--*/
+.dropMenuRelated 
+	{
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	display: none;
+	margin-left: 5px;
+ 	float: right;
+	position: relative;
+	z-index: 100;
+	font-size: 1.2rem;
+	}
+
+	/*--Dropmenu subcategory linked contents--*/
+.dropMenuRelated a
+	{
+	padding: 5px 10px;
+	margin: 2px 0;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	position: relative;
+	opacity: 0;
+	min-width: 200px;
+	}
+
+	/*--Dropmenu subcategory visible when hovered--*/
+.parentContainer:hover .dropMenuRelated 
+	{
+	display: flex;
+	display: -webkit-flex;
+	opacity: 1;
+	}
+
+	/*--Dropmenu animation--*/
+.parentContainer:hover .dropMenuRelated a 
+	{
+	animation: fadeUp 1s ease-in-out forwards;
+	-webkit-animation: fadeUp 1s ease-in-out forwards;
+	}
+
+	/*--Dropmenu animation series--*/
+.dropMenu:hover .dropMenuContent #dropMenuContent01 
+	{
+	animation: fadeUp 1s ease-in-out .25s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out .25s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dropMenuContent02 
+	{
+	animation: fadeUp 1s ease-in-out .5s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out .5s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dropMenuContent03 
+	{
+	animation: fadeUp 1s ease-in-out .75s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out .75s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dropMenuContent04 
+	{
+	animation: fadeUp 1s ease-in-out 1s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out 1s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dropMenuContent05 
+	{
+	animation: fadeUp 1s ease-in-out 1.25s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out 1.25s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dMR01 
+	{
+	animation: fadeUp 1s ease-in-out .25s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out .25s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dMR02 
+	{
+	animation: fadeUp 1s ease-in-out .5s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out .5s forwards;
+	}
+
+.dropMenu:hover .dropMenuContent #dMR03 
+	{
+	animation: fadeUp 1s ease-in-out .75s forwards;
+	-webkit-animation: fadeUp 1s ease-in-out .75s forwards;
+	}
+
+	/*--Fade animation--*/
+@keyframes fadeUp 
+	{
+    	0% 
+		{
+		top: 10px;
+		opacity: 0;
+    		}
+	100% 
+		{
+		top: 0px;
+		opacity: 1;
+		}
+	}
+
+@-webkit-keyframes fadeUp 
+	{
+    	0% 
+		{
+		top: 10px;
+		opacity: 0;
+    		}
+	100% 
+		{
+		top: 0px;
+		opacity: 1;
+		}
+	}
+
+.dropMenuContent a:hover 
+	{
+	font-weight: 900;
+	}
+/*---------------END Header--------------------------*/
+/*---03---*/
+/*---------------Font style and sizes----------------*/
+	/*-------Font styles-------------------------*/
+@font-face
+	{
+	font-family: 'NotoSansSymbols';
+	src: local('NotoSansSymbols'), url('../assets/fonts/Noto_Sans_Symbols/NotoSansSymbols-VariableFont_wght.ttf') format('truetype');
+	}
+
+@font-face 
+	{
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Raleway'), url('../assets/fonts/Raleway/Raleway-Medium.woff') format('woff');
+	}
+
+	/*-------END Font styles---------------------*/
+	/*-------Font size---------------------------*/
+
+h	/*---website name---*/	
+	{
+	font-family: 'NotoSansSymbols', sans-serif;
+	font-size: 4.0rem;
+	font-weight:900;
+	line-height: 1;
+	margin:0;
+	}
+
+
+	/*-------END Font size-----------------------*/
+
+/*---------------END font style and sizes-------------/
