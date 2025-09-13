@@ -57,6 +57,12 @@ button
 	width:100%;
 	}
 
+.square.selected 
+	{
+	outline: 3px solid red;
+	}
+
+
 /*---mobile - portrait, 320px and below----*/
 @media only screen and (max-width: 320px)
 {

@@ -1,61 +1,64 @@
+	
+const game = new Chess();      // chess.js object to handle rules
+let selectedSquare = null;     // replaces your "selected" object
+	
+
+
     const board = document.getElementById("board");
     const moveList = document.getElementById("moveList");
     const moves = []; // store moves for saving
 
-    // Unicode chess pieces
-    const initialPosition = [
-      ["♜","♞","♝","♛","♚","♝","♞","♜"],
-      ["♟","♟","♟","♟","♟","♟","♟","♟"],
-      ["","","","","","","",""],
-      ["","","","","","","",""],
-      ["","","","","","","",""],
-      ["","","","","","","",""],
-      ["♙","♙","♙","♙","♙","♙","♙","♙"],
-      ["♖","♘","♗","♕","♔","♗","♘","♖"]
-    ];
+
+
+	
+function getPieceSymbol(piece) {
+    const symbols = {
+        p: "♟", r: "♜", n: "♞", b: "♝", q: "♛", k: "♚",
+        P: "♙", R: "♖", N: "♘", B: "♗", Q: "♕", K: "♔"
+    };
+    return piece.color === "w" ? symbols[piece.type.toUpperCase()] : symbols[piece.type];
+}
+
+
 
     let selected = null;
 
-    function renderBoard() {
-      board.innerHTML = "";
-      for (let row = 0; row < 8; row++) {
+
+
+
+function renderBoard() {
+    board.innerHTML = "";
+    const files = ["a","b","c","d","e","f","g","h"];
+    for (let row = 7; row >= 0; row--) {
         for (let col = 0; col < 8; col++) {
-          const square = document.createElement("div");
-          square.className = "square " + ((row+col)%2 === 0 ? "light" : "dark");
-          square.dataset.row = row;
-          square.dataset.col = col;
-          square.textContent = initialPosition[row][col];
-          square.addEventListener("click", onSquareClick);
-          board.appendChild(square);
-        }
-      }
-    }
+            const square = document.createElement("div");
+            square.className = "square " + ((row+col)%2 === 0 ? "light" : "dark");
+            const squareId = files[col] + (row+1);
+            square.id = squareId;
 
-    function onSquareClick(e) {
-      const row = e.target.dataset.row;
-      const col = e.target.dataset.col;
-      if (!selected && initialPosition[row][col] !== "") {
-        selected = {row, col, piece: initialPosition[row][col]};
-        e.target.style.outline = "3px solid red";
-      } else if (selected) {
-        // Move piece
-        if (row != selected.row || col != selected.col) {
-          initialPosition[row][col] = selected.piece;
-          initialPosition[selected.row][selected.col] = "";
-          logMove(selected, {row, col});
-        }
-        selected = null;
-        renderBoard();
-      }
-    }
+            const piece = game.get(squareId);
+            if(piece) {
+                const pieceEl = document.createElement("span");
+                pieceEl.textContent = getPieceSymbol(piece);
+                square.appendChild(pieceEl);
+            }
 
-    function logMove(from, to) {
-      const notation = `${from.piece} ${String.fromCharCode(97+parseInt(from.col))}${8-from.row} → ${String.fromCharCode(97+parseInt(to.col))}${8-to.row}`;
-      moves.push(notation);
-      const li = document.createElement("li");
-      li.textContent = notation;
-      moveList.appendChild(li);
+            square.addEventListener("click", () => onSquareClick(squareId));
+            board.appendChild(square);
+        }
     }
+}
+
+
+
+
+
+function addMoveToList(move) {
+    const li = document.createElement("li");
+    li.textContent = move;
+    moveList.appendChild(li);
+}
+
 
     function downloadMoves() {
       const blob = new Blob([moves.join("\n")], { type: "text/plain" });
