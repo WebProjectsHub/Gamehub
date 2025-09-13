@@ -1,0 +1,93 @@
+body 
+	{
+	font-family: Arial, sans-serif;
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+	background: #f4f4f4;
+	}
+
+#board 
+	{
+	display: grid;
+	grid-template-columns: repeat(8, 60px);
+	grid-template-rows: repeat(8, 60px);
+	border: 2px solid #333;
+	}
+
+.square 
+	{
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 36px;
+	cursor: pointer;
+	}
+
+.light 
+	{ background: #eee; }
+
+.dark 
+	{ background: #666; color: white; }
+
+#moves 
+	{
+	width: 250px;
+	background: white;
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 8px;
+	height: 500px;
+	overflow-y: auto;
+	}
+
+#moves h2 
+	{ margin-top: 0; }
+
+#controls 
+	{ margin-top: 10px; }
+
+button 
+	{
+	margin: 4px 0;
+	padding: 6px 10px;
+	cursor: pointer;
+	width:100%;
+	}
+
+/*---mobile - portrait, 320px and below----*/
+@media only screen and (max-width: 320px)
+{
+body
+	{
+	flex-direction:column;
+	align-items:center;
+	gap: 0px;
+	padding: 0px;
+	}
+
+#moves
+	{
+	width:280px;
+	margin-top:10px;
+	padding: 0px;
+
+	}
+
+	/*---------------------*/
+#board 
+	{
+	grid-template-columns: repeat(8, 35px);
+	grid-template-rows: repeat(8, 35px);
+	}
+.square 
+	{
+	width: 35px;
+	height: 35px;
+	font-size: 30px;
+	}
+
+
+}

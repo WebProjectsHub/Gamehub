@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Chess Game</title>
+   <link rel="stylesheet" href="index.css">
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+
+<!---Chess board-------!>
+<div id="board"></div>
+<!---END Chess board---!>
+
+<!---Move records------!>
+<div id="moves">
+    <h2>Moves</h2>
+    <ol id="moveList"></ol>
+    <div id="controls">
+      <button onclick="downloadMoves()">💾 Save Moves</button><br>
+      <button onclick="copyMoves()">📋 Copy to Clipboard</button>
+    </div>
+  </div>
+<!---END Move records--!>
+
+
+
+<script src="ChessGame.js"></script>                
+</body>
+</html>
