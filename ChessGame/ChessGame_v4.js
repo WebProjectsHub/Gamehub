@@ -7,6 +7,17 @@ const game = new Chess(); // chess.js object
 
 let selectedSquare = null;
 
+
+// new function
+function updateTurnDisplay() {
+    const turnDisplay = document.getElementById("turnDisplay");
+    const turn = game.turn() === "w" ? "White" : "Black";
+    turnDisplay.innerHTML = `<strong>Turn:</strong> ${turn}`;
+}
+
+// END new function
+
+
 function renderBoard() {
     board.innerHTML = "";
     const files = ["a","b","c","d","e","f","g","h"];
@@ -33,7 +44,11 @@ function renderBoard() {
             board.appendChild(square);
         }
     }
+
+    updateTurnDisplay(); // 🔥 update whose turn it is
 }
+
+
 
 function getPieceSymbol(piece) {
     const symbols = {
@@ -69,12 +84,17 @@ function addMoveToList(move) {
     // If the move captures a piece, chess.js sets move.captured
     const captureSymbol = move.captured ? "×" : "→";
 
-    const notation = `${symbol} ${move.from} ${captureSymbol} ${move.to}`;
+    // Convert coordinates to uppercase
+    const from = move.from.toUpperCase();
+    const to = move.to.toUpperCase();
+
+    const notation = `${symbol} ${from} ${captureSymbol} ${to}`;
 
     const li = document.createElement("li");
     li.textContent = notation;
     moveList.appendChild(li);
 }
+
 
 
 
@@ -99,13 +119,14 @@ function copyMoves() {
 function undoMove() {
     const move = game.undo(); // undo last move
     if(move) {
-        // Remove last move from move list
         if(moveList.lastChild) moveList.removeChild(moveList.lastChild);
         renderBoard();
+        updateTurnDisplay(); // 🔥 update turn after undo
     } else {
         alert("No moves to undo!");
     }
 }
+
 
 
 function highlightSelected(squareId) {

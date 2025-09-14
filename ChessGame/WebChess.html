@@ -9,23 +9,27 @@
 
 </head>
 <body>
+<!---container---------!>
+<div class="container">
+	<!---Chess board-------!>
+	<div id="board"></div>
+	<!---END Chess board---!>
 
-<!---Chess board-------!>
-<div id="board"></div>
-<!---END Chess board---!>
+	<!---Move records------!>
+	<div id="moves">
+		<h2>Moves</h2>
+		<div id="turnDisplay"><strong>Turn:</strong> White</div>
 
-<!---Move records------!>
-<div id="moves">
-    <h2>Moves</h2>
-    <ol id="moveList"></ol>
-    <div id="controls">
- 	<button onclick="downloadMoves()">💾 Save Moves</button><br>
-	<button onclick="copyMoves()">📋 Copy to Clipboard</button>
-	<button onclick="undoMove()">↩️ Undo Last Move</button>
-
-    </div>
-  </div>
-<!---END Move records--!>
+		<ol id="moveList"></ol>	
+		<div id="controls">
+ 			<button onclick="downloadMoves()">💾 Save Moves</button><br>
+			<button onclick="copyMoves()">📋 Copy to Clipboard</button>
+			<button onclick="undoMove()">↩️ Undo Last Move</button>
+		</div>
+	</div>
+	<!---END Move records--!>
+</div>
+<!---END container-----!>
 
 
 <script src="chess.min.js"></script>
