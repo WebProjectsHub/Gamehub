@@ -7,16 +7,18 @@ const game = new Chess(); // chess.js object
 
 let selectedSquare = null;
 
+// piece glyph table (explicit by color + type)
+const PIECE_GLYPHS = {
+  w: { p: "♙", r: "♖", n: "♘", b: "♗", q: "♕", k: "♔" },
+  b: { p: "♟", r: "♜", n: "♞", b: "♝", q: "♛", k: "♚" }
+};
 
-// new function
 function updateTurnDisplay() {
     const turnDisplay = document.getElementById("turnDisplay");
+    if (!turnDisplay) return;
     const turn = game.turn() === "w" ? "White" : "Black";
     turnDisplay.innerHTML = `<strong>Turn:</strong> ${turn}`;
 }
-
-// END new function
-
 
 function renderBoard() {
     board.innerHTML = "";
@@ -36,7 +38,20 @@ function renderBoard() {
             const piece = game.get(squareId);
             if(piece) {
                 const pieceEl = document.createElement("span");
-                pieceEl.textContent = getPieceSymbol({ type: piece.type, color: piece.color });
+                pieceEl.className = "piece " + (piece.color === "w" ? "white-piece" : "black-piece");
+
+                // Use explicit glyph mapping by color and type
+                pieceEl.textContent = getPieceSymbol(piece);
+
+                // Force black pieces to visibly render in black text color
+                // (this ensures glyphs show as black even if some global CSS changes text color)
+                if (piece.color === "b") {
+                    pieceEl.style.color = "#000";
+                } else {
+                    // optional: ensure white-piece glyphs use default color (do not force white)
+                    pieceEl.style.color = ""; 
+                }
+
                 square.appendChild(pieceEl);
             }
 
@@ -45,17 +60,16 @@ function renderBoard() {
         }
     }
 
-    updateTurnDisplay(); // 🔥 update whose turn it is
+    updateTurnDisplay(); // update whose turn it is
 }
 
-
-
+/**
+ * Return the correct glyph for a piece object returned by chess.js.
+ * piece: { type: 'p'|'r'|'n'|'b'|'q'|'k', color: 'w'|'b' }
+ */
 function getPieceSymbol(piece) {
-    const symbols = {
-        p: "♟", r: "♜", n: "♞", b: "♝", q: "♛", k: "♚",
-        P: "♙", R: "♖", N: "♘", B: "♗", Q: "♕", K: "♔"
-    };
-    return piece.color === "w" ? symbols[piece.type.toUpperCase()] : symbols[piece.type];
+    if (!piece || !piece.type || !piece.color) return "";
+    return PIECE_GLYPHS[piece.color][piece.type] || "";
 }
 
 function onSquareClick(square) {
@@ -76,7 +90,6 @@ function onSquareClick(square) {
     }
 }
 
-
 function addMoveToList(move) {
     const pieceObj = { type: move.piece, color: move.color };
     const symbol = getPieceSymbol(pieceObj);
@@ -95,10 +108,6 @@ function addMoveToList(move) {
     moveList.appendChild(li);
 }
 
-
-
-
-
 function downloadMoves() {
     const moves = Array.from(moveList.children).map(li => li.textContent).join("\n");
     const blob = new Blob([moves], {type: "text/plain"});
@@ -115,26 +124,20 @@ function copyMoves() {
     navigator.clipboard.writeText(moves).then(() => alert("Moves copied!"));
 }
 
-
 function undoMove() {
     const move = game.undo(); // undo last move
     if(move) {
         if(moveList.lastChild) moveList.removeChild(moveList.lastChild);
         renderBoard();
-        updateTurnDisplay(); // 🔥 update turn after undo
+        updateTurnDisplay(); // update turn after undo
     } else {
         alert("No moves to undo!");
     }
 }
-
-
 
 function highlightSelected(squareId) {
     document.querySelectorAll('.square').forEach(sq => sq.classList.remove('selected'));
     if(squareId) document.getElementById(squareId).classList.add('selected');
 }
 
-
-
 renderBoard();
-
