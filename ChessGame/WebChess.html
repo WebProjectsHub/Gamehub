@@ -5,17 +5,15 @@
    <link rel="stylesheet" href="index.css">
    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 </head>
 <body>
-<!---container---------!>
+<!---container--------->
 <div class="container">
-	<!---Chess board-------!>
+	<!---Chess board------->
 	<div id="board"></div>
-	<!---END Chess board---!>
+	<!---END Chess board--->
 
-	<!---Move records------!>
+	<!---Move records------>
 	<div id="moves">
 		<h2>Moves</h2>
 		<div id="turnDisplay"><strong>Turn:</strong> White</div>
@@ -27,23 +25,21 @@
 			<button onclick="undoMove()">Undo Last Move</button>
 		</div>
 	</div>
-	<!---END Move records--!>
+	<!---END Move records-->
 </div>
-<!---END container-----!>
+<!---END container------>
 
-
+<!-- JS Libraries -->
 <script src="chess.min.js"></script>
-<script src="ChessGame_v4.js"></script>
+<script src="ChessGame_v4.js"></script>   
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+<!-- Firebase Init -->
+<script>
+  // Replace with your Firebase config from Project Settings
   const firebaseConfig = {
     apiKey: "AIzaSyCy51Cw8ER-6I2sEDdg4O2fGiEaag2T__A",
     authDomain: "webchess-a82bf.firebaseapp.com",
@@ -55,9 +51,25 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
+  // Example: Save moves automatically
+  const gameRef = db.ref("games/game1");
+
+  // Listen for updates (when your friend moves)
+  gameRef.on("value", snapshot => {
+    const data = snapshot.val();
+    if (data && data.moves) {
+      // TODO: call your function to reload moves here
+      console.log("Synced moves:", data.moves);
+    }
+  });
+
+  // Example: Function to push moves
+  function saveMovesToFirebase(moves) {
+    gameRef.set({ moves });
+  }
+</script>             
 </body>
 </html>
