@@ -147,4 +147,17 @@ if (typeof gameRef !== "undefined") {
     });
 }
 
+
+function resetGame() {
+    game.reset();                 // reset chess.js to initial position
+    moveList.innerHTML = "";      // clear move list UI
+    renderBoard();                // redraw board
+    updateTurnDisplay();          // show White's turn again
+    syncGameToFirebase();         // 🔥 push reset state to Firebase
+}
+
+
+
+
+
 renderBoard();
