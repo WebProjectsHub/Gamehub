@@ -1,4 +1,5 @@
-// Include chess.js in your HTML before this script:
+// ChessGame_v4.js
+// Include chess.js in your HTML before this script
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
 
 const board = document.getElementById("board");
@@ -6,6 +7,7 @@ const moveList = document.getElementById("moveList");
 const game = new Chess(); // chess.js object
 
 let selectedSquare = null;
+let isUpdatingFromFirebase = false; // flag to prevent loops
 
 // piece glyph table (explicit by color + type)
 const PIECE_GLYPHS = {
@@ -39,19 +41,8 @@ function renderBoard() {
             if(piece) {
                 const pieceEl = document.createElement("span");
                 pieceEl.className = "piece " + (piece.color === "w" ? "white-piece" : "black-piece");
-
-                // Use explicit glyph mapping by color and type
                 pieceEl.textContent = getPieceSymbol(piece);
-
-                // Force black pieces to visibly render in black text color
-                // (this ensures glyphs show as black even if some global CSS changes text color)
-                if (piece.color === "b") {
-                    pieceEl.style.color = "#000";
-                } else {
-                    // optional: ensure white-piece glyphs use default color (do not force white)
-                    pieceEl.style.color = ""; 
-                }
-
+                pieceEl.style.color = piece.color === "b" ? "#000" : "";
                 square.appendChild(pieceEl);
             }
 
@@ -59,14 +50,10 @@ function renderBoard() {
             board.appendChild(square);
         }
     }
-
-    updateTurnDisplay(); // update whose turn it is
+    updateTurnDisplay(); 
 }
 
-/**
- * Return the correct glyph for a piece object returned by chess.js.
- * piece: { type: 'p'|'r'|'n'|'b'|'q'|'k', color: 'w'|'b' }
- */
+/** Return glyph for a piece */
 function getPieceSymbol(piece) {
     if (!piece || !piece.type || !piece.color) return "";
     return PIECE_GLYPHS[piece.color][piece.type] || "";
@@ -79,28 +66,24 @@ function onSquareClick(square) {
         const move = game.move({ from: selectedSquare, to: square, promotion: "q" });
         if(move) {
             addMoveToList(move);
-            selectedSquare = null; // deselect after move
+            syncGameToFirebase();  // 🔥 sync move
+            selectedSquare = null;
         } else {
-            selectedSquare = null; // deselect on illegal move
+            selectedSquare = null;
         }
-        renderBoard(); // redraw board to update selection
+        renderBoard();
     } else if(piece && piece.color === game.turn()) {
-        selectedSquare = square; // select piece
-        renderBoard();           // redraw board to highlight selection
+        selectedSquare = square;
+        renderBoard();
     }
 }
 
 function addMoveToList(move) {
     const pieceObj = { type: move.piece, color: move.color };
     const symbol = getPieceSymbol(pieceObj);
-
-    // If the move captures a piece, chess.js sets move.captured
     const captureSymbol = move.captured ? "×" : "→";
-
-    // Convert coordinates to uppercase
     const from = move.from.toUpperCase();
     const to = move.to.toUpperCase();
-
     const notation = `${symbol} ${from} ${captureSymbol} ${to}`;
 
     const li = document.createElement("li");
@@ -125,19 +108,43 @@ function copyMoves() {
 }
 
 function undoMove() {
-    const move = game.undo(); // undo last move
+    const move = game.undo();
     if(move) {
         if(moveList.lastChild) moveList.removeChild(moveList.lastChild);
         renderBoard();
-        updateTurnDisplay(); // update turn after undo
+        updateTurnDisplay();
+        syncGameToFirebase(); // 🔥 sync after undo
     } else {
         alert("No moves to undo!");
     }
 }
 
-function highlightSelected(squareId) {
-    document.querySelectorAll('.square').forEach(sq => sq.classList.remove('selected'));
-    if(squareId) document.getElementById(squareId).classList.add('selected');
+/** Firebase Sync Functions */
+function syncGameToFirebase() {
+    if (typeof gameRef === "undefined") return; // gameRef is defined in HTML Firebase init
+    const history = game.history({ verbose: true });
+    isUpdatingFromFirebase = true;
+    gameRef.set({ history });
+    isUpdatingFromFirebase = false;
+}
+
+// Listen for Firebase updates (runs when other player moves)
+if (typeof gameRef !== "undefined") {
+    gameRef.on("value", snapshot => {
+        if (!snapshot.exists()) return;
+        if (isUpdatingFromFirebase) return;
+
+        const data = snapshot.val();
+        if (data.history) {
+            game.reset();
+            moveList.innerHTML = "";
+            data.history.forEach(move => {
+                game.move(move);
+                addMoveToList(move);
+            });
+            renderBoard();
+        }
+    });
 }
 
 renderBoard();
