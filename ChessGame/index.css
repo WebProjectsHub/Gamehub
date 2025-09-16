@@ -138,6 +138,11 @@ body
 /*---mobile - landscape, ------------------*/
 @media only screen and (orientation:landscape)
 {
+.container
+	{
+	flex-direction:row;
+	}
+
 .square
 	{
 	font-size:6vh;
