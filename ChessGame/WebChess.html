@@ -33,6 +33,31 @@
 
 
 <script src="chess.min.js"></script>
-<script src="ChessGame_v4.js"></script>                
+<script src="ChessGame_v4.js"></script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCy51Cw8ER-6I2sEDdg4O2fGiEaag2T__A",
+    authDomain: "webchess-a82bf.firebaseapp.com",
+    projectId: "webchess-a82bf",
+    storageBucket: "webchess-a82bf.firebasestorage.app",
+    messagingSenderId: "331279918340",
+    appId: "1:331279918340:web:d6a1aaea49c1323aa99c51",
+    measurementId: "G-VF1Q30S3QJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
 </body>
 </html>
