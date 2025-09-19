@@ -4,6 +4,11 @@
 	src: local('Roboto_Mono'), url('../assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf') format('truetype');
 	}
 
+@font-face
+	{
+	font-family: 'Dejavu_sans_mono';
+	src: local('Dejavu_sans_mono'), url('../assets/fonts/Dejavu_sans_mono/DejaVuSansMono.ttf') format('truetype');
+	}
 
 @font-face
 	{
@@ -12,7 +17,7 @@
 	}
 
 html	{
-	font-family: 'Segoe_UI_Symbols', sans-serif;
+	font-family: 'Roboto_Mono', sans-serif;
 	}
 
 body 
@@ -94,6 +99,33 @@ button
 	outline: 3px solid red;
 	z-index:5;
 	}
+
+/*----------------------*/
+#status 
+	{
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 10px;
+	text-align: center;
+	}
+
+#status.check 
+	{
+	color: orange;   /* 🔶 Check */
+	}
+
+#status.checkmate 
+	{
+	color: red;      /* 🔴 Checkmate */
+	}
+
+#status.stalemate
+	{
+	color: gray;     /* ⚪ Stalemate */
+	}
+
+/*----------------------*/
+
 
 
 /*---mobile - portrait, -------------------*/
