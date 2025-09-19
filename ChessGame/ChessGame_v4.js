@@ -63,22 +63,33 @@ function renderBoard() {
         square.classList.add("selected");
       }
 
-      const piece = game.get(squareId);
-      if(piece) {
-        const pieceEl = document.createElement("span");
-        pieceEl.className = "piece " + (piece.color === "w" ? "white-piece" : "black-piece");
-        pieceEl.textContent = getPieceSymbol(piece);
-        pieceEl.style.color = piece.color === "b" ? "#000" : "";
-        square.appendChild(pieceEl);
-      }
+const piece = game.get(squareId);
+if (piece) {
+  const pieceEl = document.createElement("span");
+  pieceEl.className = "piece " + (piece.color === "w" ? "white-piece" : "black-piece");
+  pieceEl.textContent = getPieceSymbol(piece);
+  pieceEl.style.color = piece.color === "b" ? "#000" : "";
 
-      square.addEventListener("click", () => onSquareClick(squareId));
-      board.appendChild(square);
+  // Pulsate king symbol if in check or checkmate
+  if (piece.type === "k") {
+    if (game.in_checkmate() && piece.color === game.turn()) {
+      square.classList.add("king-in-checkmate");
+    } else if (game.in_check() && piece.color === game.turn()) {
+      pieceEl.classList.add("king-in-check");
+    }
+  }
+
+  square.appendChild(pieceEl);
+}
+
+square.addEventListener("click", () => onSquareClick(squareId));
+board.appendChild(square);
     }
   }
   updateTurnDisplay(); 
   updateStatus(); // 🔔 update status every render
 }
+
 
 /** Return glyph for a piece */
 function getPieceSymbol(piece) {
