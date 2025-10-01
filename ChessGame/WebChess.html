@@ -15,6 +15,12 @@
 
 	<!---Move records------>
 	<div id="moves">
+		<div id="controls">
+ 			<button onclick="downloadMoves()">Save</button><br>
+			<button onclick="copyMoves()">Copy</button>
+			<button onclick="undoMove()">Undo</button>
+			<button onclick="resetGame()">Reset</button>
+		</div>
 		<h2>Moves</h2>
 		<div id="turnDisplay"><strong>Turn:</strong> White</div>
 		<div id="status"></div>
