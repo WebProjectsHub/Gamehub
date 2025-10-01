@@ -1,0 +1,10 @@
+/* Added CSS for faded edge highlight */
+.highlight-from 
+	{
+	box-shadow: inset 0 0 10px 5px rgba(255, 215, 0, 0.4); /* gold faded edges */
+	}
+
+.highlight-to 
+	{
+	box-shadow: inset 0 0 10px 5px rgba(50, 205, 50, 0.4); /* green faded edges */
+	}

@@ -1,6 +1,5 @@
 // ChessGame_v4.js
 // Include chess.js in your HTML before this script
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
 
 const board = document.getElementById("board");
 const moveList = document.getElementById("moveList");
@@ -22,9 +21,6 @@ function updateTurnDisplay() {
   turnDisplay.innerHTML = `<strong>Turn:</strong> ${turn}`;
 }
 
-
-// 🔔 Update game status (check, checkmate, stalemate only)
-// 🔔 Update game status (check, checkmate, stalemate only)
 function updateStatus() {
   const statusDiv = document.getElementById("status");
   if (!statusDiv) return;
@@ -45,9 +41,6 @@ function updateStatus() {
   }
 }
 
-
-
-
 function renderBoard() {
   board.innerHTML = "";
   const files = ["a","b","c","d","e","f","g","h"];
@@ -63,35 +56,44 @@ function renderBoard() {
         square.classList.add("selected");
       }
 
-const piece = game.get(squareId);
-if (piece) {
-  const pieceEl = document.createElement("span");
-  pieceEl.className = "piece " + (piece.color === "w" ? "white-piece" : "black-piece");
-  pieceEl.textContent = getPieceSymbol(piece);
-  pieceEl.style.color = piece.color === "b" ? "#000" : "";
+      // 🔹 NEW: Highlight last move squares
+      const lm = getLastMove(); // from highlight.js
+      if (lm) {
+        if (squareId === lm.from) {
+          square.classList.add("highlight-from");
+        }
+        if (squareId === lm.to) {
+          square.classList.add("highlight-to");
+        }
+      }
 
-  // Pulsate king symbol if in check or checkmate
-  if (piece.type === "k") {
-    if (game.in_checkmate() && piece.color === game.turn()) {
-      square.classList.add("king-in-checkmate");
-    } else if (game.in_check() && piece.color === game.turn()) {
-      pieceEl.classList.add("king-in-check");
-    }
-  }
+      const piece = game.get(squareId);
+      if (piece) {
+        const pieceEl = document.createElement("span");
+        pieceEl.className = "piece " + (piece.color === "w" ? "white-piece" : "black-piece");
+        pieceEl.textContent = getPieceSymbol(piece);
+        pieceEl.style.color = piece.color === "b" ? "#000" : "";
 
-  square.appendChild(pieceEl);
-}
+        // Pulsate king symbol if in check or checkmate
+        if (piece.type === "k") {
+          if (game.in_checkmate() && piece.color === game.turn()) {
+            square.classList.add("king-in-checkmate");
+          } else if (game.in_check() && piece.color === game.turn()) {
+            pieceEl.classList.add("king-in-check");
+          }
+        }
 
-square.addEventListener("click", () => onSquareClick(squareId));
-board.appendChild(square);
+        square.appendChild(pieceEl);
+      }
+
+      square.addEventListener("click", () => onSquareClick(squareId));
+      board.appendChild(square);
     }
   }
   updateTurnDisplay(); 
-  updateStatus(); // 🔔 update status every render
+  updateStatus();
 }
 
-
-/** Return glyph for a piece */
 function getPieceSymbol(piece) {
   if (!piece || !piece.type || !piece.color) return "";
   return PIECE_GLYPHS[piece.color][piece.type] || "";
@@ -104,7 +106,8 @@ function onSquareClick(square) {
     const move = game.move({ from: selectedSquare, to: square, promotion: "q" });
     if(move) {
       addMoveToList(move);
-      syncGameToFirebase();  // 🔥 sync move
+      syncGameToFirebase();  
+      setLastMove(move);   // 🔹 NEW: track last move in highlight.js
       selectedSquare = null;
     } else {
       selectedSquare = null;
@@ -149,24 +152,24 @@ function undoMove() {
   const move = game.undo();
   if(move) {
     if(moveList.lastChild) moveList.removeChild(moveList.lastChild);
+    setLastMove(null);  // 🔹 NEW: clear highlight when undo
     renderBoard();
     updateTurnDisplay();
-    syncGameToFirebase(); // 🔥 sync after undo
+    syncGameToFirebase(); 
   } else {
     alert("No moves to undo!");
   }
 }
 
-/** Firebase Sync Functions */
 function syncGameToFirebase() {
-  if (typeof gameRef === "undefined") return; // gameRef is defined in HTML Firebase init
+  if (typeof gameRef === "undefined") return; 
   const history = game.history({ verbose: true });
   isUpdatingFromFirebase = true;
   gameRef.set({ history });
   isUpdatingFromFirebase = false;
 }
 
-// Listen for Firebase updates (runs when other player moves)
+// Listen for Firebase updates
 if (typeof gameRef !== "undefined") {
   gameRef.on("value", snapshot => {
     if (!snapshot.exists()) return;
@@ -180,17 +183,20 @@ if (typeof gameRef !== "undefined") {
         game.move(move);
         addMoveToList(move);
       });
+      // 🔹 NEW: highlight last move from history
+      setLastMove(data.history[data.history.length - 1] || null);
       renderBoard();
     }
   });
 }
 
 function resetGame() {
-  game.reset();                 // reset chess.js to initial position
-  moveList.innerHTML = "";      // clear move list UI
-  renderBoard();                // redraw board
-  updateTurnDisplay();          // show White's turn again
-  syncGameToFirebase();         // 🔥 push reset state to Firebase
+  game.reset();                 
+  moveList.innerHTML = "";      
+  setLastMove(null);   // 🔹 NEW: clear highlights
+  renderBoard();                
+  updateTurnDisplay();          
+  syncGameToFirebase();         
 }
 
 renderBoard();
