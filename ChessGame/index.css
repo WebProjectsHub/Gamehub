@@ -84,6 +84,10 @@ body
 	margin:0;
 	}
 
+#moves ss
+	{
+	font-size:0.65em;
+	}
 
 #controls 
 	{
@@ -95,15 +99,46 @@ body
 	width:100%;
 	}
 
+#roomControls
+	{
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	}
+
+#topControl, #botControl
+	{
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	}
+
+
+#topControl select
+	{
+	width:45%;
+	padding:5px 0;
+	align-items:center;
+	text-align:center;
+	}
+
 button 
 	{
 	margin: 4px 2px;
 	/*--padding: 6px 10px;--*/
-	padding: 6px;
+	padding: 6px 0;
 	cursor: pointer;
 	width:30px;
 	flex:1;
 	aspect-ratio:1;
+	}
+
+#botControl button
+	{
+	width:45%;
+	margin:10px 0;
+	flex:unset;
+	aspect-ratio:unset;
 	}
 
 .square.selected 
@@ -232,3 +267,4 @@ body
 	}
 
 }
+
