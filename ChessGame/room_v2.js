@@ -3,6 +3,7 @@
 
 let gameRef = null;     // global so ChessGame_v4.js can access it
 let playerColor = null; // "w" or "b"
+const ADMIN_KEY = "Padre2025"; // ✅ must match your Firebase rule
 
 // 🔹 Populate dropdown with 5 fixed rooms
 function populateRoomDropdown() {
@@ -17,29 +18,34 @@ function populateRoomDropdown() {
   }
 }
 
-// 🔹 Create a new room
+// 🔹 Create a new room (admin)
 function createRoom() {
   const roomName = document.getElementById("roomSelect").value;
   const colorChoice = document.getElementById("colorSelect").value;
 
-  const newRef = db.ref("games/" + roomName);
+  const newRef = db.ref("rooms/" + roomName); // ✅ use /rooms path
 
   newRef.set({
+    owner: ADMIN_KEY, // ✅ required by rule
     history: [],
     players: { [colorChoice]: true }
+  })
+  .then(() => {
+    playerColor = colorChoice;
+    attachGameRef(newRef);
+    alert(`Room ${roomName} created! You are ${colorChoice === "w" ? "White" : "Black"}.`);
+  })
+  .catch(err => {
+    alert("Error creating room: " + err.message);
   });
-
-  playerColor = colorChoice;
-  attachGameRef(newRef);
-  alert(`Room ${roomName} created! You are ${colorChoice === "w" ? "White" : "Black"}.`);
 }
 
-// 🔹 Join/rejoin a room
+// 🔹 Join/rejoin a room (any player)
 function joinRoom() {
   const roomName = document.getElementById("roomSelect").value;
   const colorChoice = document.getElementById("colorSelect").value;
 
-  const newRef = db.ref("games/" + roomName);
+  const newRef = db.ref("rooms/" + roomName);
 
   newRef.once("value").then(snapshot => {
     if (!snapshot.exists()) {
@@ -51,7 +57,11 @@ function joinRoom() {
 
     // ✅ If chosen color is free → join as new
     if (!data.players || !data.players[colorChoice]) {
-      newRef.child("players/" + colorChoice).set(true);
+      // 🔸 must include owner key for write
+      newRef.update({
+        owner: ADMIN_KEY,
+        [`players/${colorChoice}`]: true
+      });
       playerColor = colorChoice;
       alert(`Joined ${roomName}! You are ${colorChoice === "w" ? "White" : "Black"}.`);
       attachGameRef(newRef);
@@ -65,16 +75,26 @@ function joinRoom() {
   });
 }
 
-// 🔹 Delete a room
+// 🔹 Delete a room (admin only)
 function deleteRoom() {
   const roomName = document.getElementById("roomSelect").value;
-  db.ref("games/" + roomName).remove()
-    .then(() => {
-      alert(`Room ${roomName} deleted.`);
-    })
-    .catch(err => {
-      console.error("Error deleting room:", err);
-    });
+  const roomRef = db.ref("rooms/" + roomName);
+
+  // Include owner key so deletion passes write rule
+  roomRef.set({
+    owner: ADMIN_KEY,
+    deleted: true
+  })
+  .then(() => {
+    return roomRef.remove();
+  })
+  .then(() => {
+    alert(`Room ${roomName} deleted.`);
+  })
+  .catch(err => {
+    console.error("Error deleting room:", err);
+    alert("You may not have permission to delete this room.");
+  });
 }
 
 // 🔹 Run on page load
