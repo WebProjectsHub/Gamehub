@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Chess Game</title>
-   <link rel="stylesheet" href="index.css">
-   <link rel="stylesheet" href="highlight.css">
+  <title>Chess Game</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="highlight.css">
 
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/Logo/chessGame/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/Logo/chessGame/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/Logo/chessGame/favicon-16x16.png">
-<link rel="manifest" href="../assets/images/Logo/chessGame/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/Logo/chessGame/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/Logo/chessGame/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/Logo/chessGame/favicon-16x16.png">
+  <link rel="manifest" href="../assets/images/Logo/chessGame/site.webmanifest">
 
-   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<!---container--------->
-<div class="container">
-	<!---Chess board------->
-	<div id="board"></div>
-	<!---END Chess board--->
 
-	<!---Move records------>
-	<div id="moves">
-		<div id="controls">
- 			<button onclick="downloadMoves()">Save</button><br>
-			<button onclick="copyMoves()">Copy</button>
-			<button onclick="undoMove()">Undo</button>
-			<button onclick="resetGame()">Reset</button>
-		</div>
-		<h2>Moves</h2>
-		<div id="turnDisplay"><strong>Turn:</strong> White</div>
-		<div id="status"></div>
-
-		<ol id="moveList"></ol>	
-	</div>
-	<!---END Move records-->
+<!-- 🔐 LOGIN BOX -->
+<div id="loginBox" style="text-align:center; margin-top:50px;">
+  <h2>Enter Game Password</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password" />
+  <button id="loginButton">Join Game</button>
+  <p id="loginMessage" style="color:red;"></p>
 </div>
-<!---END container------>
 
+<!-- ♟️ CHESS GAME (hidden until login succeeds) -->
+<div id="gameContainer" class="container" style="display:none;">
+  <!---Chess board------->
+  <div id="board"></div>
+
+  <!---Move records------->
+  <div id="moves">
+    <div id="controls">
+      <button onclick="downloadMoves()">Save</button><br>
+      <button onclick="copyMoves()">Copy</button>
+      <button onclick="undoMove()">Undo</button>
+      <button onclick="resetGame()">Reset</button>
+    </div>
+    <h2>Moves</h2>
+    <div id="turnDisplay"><strong>Turn:</strong> White</div>
+    <div id="status"></div>
+    <ol id="moveList"></ol>	
+  </div>
+</div>
 
 <!-- JS Libraries -->
 <script src="chess.min.js"></script>
- 
-
 
 <!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-  // Replace with your Firebase config
+  // 🔧 Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyCy51Cw8ER-6I2sEDdg4O2fGiEaag2T__A",
     authDomain: "webchess-a82bf.firebaseapp.com",
+    databaseURL: "https://webchess-a82bf-default-rtdb.firebaseio.com/",
     projectId: "webchess-a82bf",
     storageBucket: "webchess-a82bf.firebasestorage.app",
     messagingSenderId: "331279918340",
@@ -60,21 +63,44 @@
     measurementId: "G-VF1Q30S3QJ"
   };
 
-
-  // Initialize Firebase
+  // 🔥 Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
-  // Define gameRef so ChessGame_v4.js can use it
-  // You can change "game1" to make different rooms
-  var gameRef = db.ref("games/game1");
+  // 🗝️ Handle Login
+  const loginBox = document.getElementById("loginBox");
+  const gameContainer = document.getElementById("gameContainer");
+  const loginButton = document.getElementById("loginButton");
+  const passwordInput = document.getElementById("passwordInput");
+  const loginMessage = document.getElementById("loginMessage");
+
+  loginButton.addEventListener("click", async () => {
+    const userPassword = passwordInput.value.trim();
+    if (!userPassword) return (loginMessage.textContent = "Please enter a password.");
+
+    try {
+      const snapshot = await db.ref("accessKey").get();
+      const firebasePassword = snapshot.val();
+
+      if (userPassword === firebasePassword) {
+        // ✅ Password correct — show game
+        loginBox.style.display = "none";
+        gameContainer.style.display = "flex";
+        window.gameRef = db.ref("game"); // global for ChessGame script
+        initChessGame(); // call game start (we’ll define in JS file)
+      } else {
+        loginMessage.textContent = "Incorrect password.";
+      }
+    } catch (error) {
+      console.error(error);
+      loginMessage.textContent = "Error connecting to database.";
+    }
+  });
 </script>
 
-<!-- Your game logic -->
+<!-- Game Scripts -->
 <script src="highlight.js"></script>
 <script src="ChessGame_v1.js"></script>
 
-
-             
 </body>
 </html>
