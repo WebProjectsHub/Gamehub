@@ -1,19 +1,53 @@
 // ChessGame_v4.js
-// Include chess.js in your HTML before this script
+// Include chess.js before this script
 
-const board = document.getElementById("board");
-const moveList = document.getElementById("moveList");
-const game = new Chess(); // chess.js object
-
+let board, moveList;
+let game;
 let selectedSquare = null;
-let isUpdatingFromFirebase = false; // flag to prevent loops
+let isUpdatingFromFirebase = false; // prevent update loops
+let gameRef = null; // will be set after login
 
-// piece glyph table (explicit by color + type)
+// piece glyph table
 const PIECE_GLYPHS = {
   w: { p: "♙", r: "♖", n: "♘", b: "♗", q: "♕", k: "♔" },
   b: { p: "♟", r: "♜", n: "♞", b: "♝", q: "♛", k: "♚" }
 };
 
+// 🧩 Called only after successful login (from HTML)
+function initChessGame() {
+  board = document.getElementById("board");
+  moveList = document.getElementById("moveList");
+  game = new Chess();
+
+  // connect to shared Firebase game reference
+  gameRef = firebase.database().ref("game");
+
+  // sync listener
+  gameRef.on("value", snapshot => {
+    if (!snapshot.exists()) return;
+    if (isUpdatingFromFirebase) return;
+
+    const data = snapshot.val();
+    if (data.history) {
+      game.reset();
+      moveList.innerHTML = "";
+      data.history.forEach(move => {
+        game.move(move);
+        addMoveToList(move);
+      });
+      setLastMove(data.history[data.history.length - 1] || null);
+      renderBoard();
+    }
+  });
+
+  renderBoard();
+  updateTurnDisplay();
+  updateStatus();
+}
+
+/* -------------------------------
+   DISPLAY & GAME FUNCTIONS
+--------------------------------*/
 function updateTurnDisplay() {
   const turnDisplay = document.getElementById("turnDisplay");
   if (!turnDisplay) return;
@@ -25,7 +59,7 @@ function updateStatus() {
   const statusDiv = document.getElementById("status");
   if (!statusDiv) return;
 
-  statusDiv.className = ""; // reset
+  statusDiv.className = "";
 
   if (game.in_checkmate()) {
     statusDiv.textContent = "Checkmate!";
@@ -47,24 +81,16 @@ function renderBoard() {
   for (let row = 7; row >= 0; row--) {
     for (let col = 0; col < 8; col++) {
       const square = document.createElement("div");
-      square.className = "square " + ((row+col)%2 === 0 ? "light" : "dark");
-      const squareId = files[col] + (row+1);
+      square.className = "square " + ((row + col) % 2 === 0 ? "light" : "dark");
+      const squareId = files[col] + (row + 1);
       square.id = squareId;
 
-      // Highlight selected square
-      if(squareId === selectedSquare) {
-        square.classList.add("selected");
-      }
+      if (squareId === selectedSquare) square.classList.add("selected");
 
-      // 🔹 NEW: Highlight last move squares
-      const lm = getLastMove(); // from highlight.js
+      const lm = getLastMove(); // highlight.js
       if (lm) {
-        if (squareId === lm.from) {
-          square.classList.add("highlight-from");
-        }
-        if (squareId === lm.to) {
-          square.classList.add("highlight-to");
-        }
+        if (squareId === lm.from) square.classList.add("highlight-from");
+        if (squareId === lm.to) square.classList.add("highlight-to");
       }
 
       const piece = game.get(squareId);
@@ -74,7 +100,6 @@ function renderBoard() {
         pieceEl.textContent = getPieceSymbol(piece);
         pieceEl.style.color = piece.color === "b" ? "#000" : "";
 
-        // Pulsate king symbol if in check or checkmate
         if (piece.type === "k") {
           if (game.in_checkmate() && piece.color === game.turn()) {
             square.classList.add("king-in-checkmate");
@@ -90,7 +115,7 @@ function renderBoard() {
       board.appendChild(square);
     }
   }
-  updateTurnDisplay(); 
+  updateTurnDisplay();
   updateStatus();
 }
 
@@ -102,18 +127,18 @@ function getPieceSymbol(piece) {
 function onSquareClick(square) {
   const piece = game.get(square);
 
-  if(selectedSquare) {
+  if (selectedSquare) {
     const move = game.move({ from: selectedSquare, to: square, promotion: "q" });
-    if(move) {
+    if (move) {
       addMoveToList(move);
-      syncGameToFirebase();  
-      setLastMove(move);   // 🔹 NEW: track last move in highlight.js
+      syncGameToFirebase();
+      setLastMove(move);
       selectedSquare = null;
     } else {
       selectedSquare = null;
     }
     renderBoard();
-  } else if(piece && piece.color === game.turn()) {
+  } else if (piece && piece.color === game.turn()) {
     selectedSquare = square;
     renderBoard();
   }
@@ -132,9 +157,12 @@ function addMoveToList(move) {
   moveList.appendChild(li);
 }
 
+/* -------------------------------
+   UTILITIES & SYNC
+--------------------------------*/
 function downloadMoves() {
   const moves = Array.from(moveList.children).map(li => li.textContent).join("\n");
-  const blob = new Blob([moves], {type: "text/plain"});
+  const blob = new Blob([moves], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -150,53 +178,31 @@ function copyMoves() {
 
 function undoMove() {
   const move = game.undo();
-  if(move) {
-    if(moveList.lastChild) moveList.removeChild(moveList.lastChild);
-    setLastMove(null);  // 🔹 NEW: clear highlight when undo
+  if (move) {
+    if (moveList.lastChild) moveList.removeChild(moveList.lastChild);
+    setLastMove(null);
     renderBoard();
     updateTurnDisplay();
-    syncGameToFirebase(); 
+    syncGameToFirebase();
   } else {
     alert("No moves to undo!");
   }
 }
 
+function resetGame() {
+  game.reset();
+  moveList.innerHTML = "";
+  setLastMove(null);
+  renderBoard();
+  updateTurnDisplay();
+  syncGameToFirebase();
+}
+
 function syncGameToFirebase() {
-  if (typeof gameRef === "undefined") return; 
+  if (!gameRef) return;
   const history = game.history({ verbose: true });
   isUpdatingFromFirebase = true;
-  gameRef.set({ history });
-  isUpdatingFromFirebase = false;
-}
-
-// Listen for Firebase updates
-if (typeof gameRef !== "undefined") {
-  gameRef.on("value", snapshot => {
-    if (!snapshot.exists()) return;
-    if (isUpdatingFromFirebase) return;
-
-    const data = snapshot.val();
-    if (data.history) {
-      game.reset();
-      moveList.innerHTML = "";
-      data.history.forEach(move => {
-        game.move(move);
-        addMoveToList(move);
-      });
-      // 🔹 NEW: highlight last move from history
-      setLastMove(data.history[data.history.length - 1] || null);
-      renderBoard();
-    }
+  gameRef.set({ history }).finally(() => {
+    isUpdatingFromFirebase = false;
   });
 }
-
-function resetGame() {
-  game.reset();                 
-  moveList.innerHTML = "";      
-  setLastMove(null);   // 🔹 NEW: clear highlights
-  renderBoard();                
-  updateTurnDisplay();          
-  syncGameToFirebase();         
-}
-
-renderBoard();
